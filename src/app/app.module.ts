@@ -21,11 +21,15 @@ import { HomePage } from '../pages/home/home';
 import { HomePartnerMorePage } from '../pages/home/home-partner-more';
 import { LoginPage } from '../pages/login/login';
 import { LoginPasswordPage } from '../pages/login/login-password';
+import { LoginForgetPasswordPage } from '../pages/login/login-forget-password';
+import { LoginPasswordChangeSuccessPage } from '../pages/login/login-password-change-success';
 import { AccountRegistrationPage } from '../pages/account-registration/account-registration';
 import { AccountRegistrationConfirmPage } from '../pages/account-registration/account-registration-confirm';
 
 /* logged in pages */
 import { TabsAccountPage } from '../pages/tabs/tabs-account';
+import { CompleteMemberAccountPage } from '../pages/complete-member-account/complete-member-account';
+import { CompleteMemberAccount2Page } from '../pages/complete-member-account/complete-member-account-2';
 
 import { BusinessDirectoryPage } from '../pages/business-directory/business-directory';
 import { BusinessProfilePage } from '../pages/business-profile/business-profile';
@@ -81,14 +85,19 @@ let pages = [
   AccountRegistrationConfirmPage,
   BusinessDirectoryPage,
   BusinessProfilePage,
+  CompleteMemberAccountPage,
+  CompleteMemberAccount2Page,
   CreateMemberAccountPage,
   CreateMemberAccount2Page,
   CreatePartnerAccountPage,
   CreatePartnerAccount2Page,
   CreatePartnerAccount3Page,
   HomePage,
+  HomePartnerMorePage,
   LoginPage,
+  LoginForgetPasswordPage,
   LoginPasswordPage,
+  LoginPasswordChangeSuccessPage,
   MakeAnnouncementPage,
   MemberSettingsPage,
   MemberSettingsBankPage,
@@ -119,8 +128,7 @@ let pages = [
   ThreeStepsPage,
   VerificationPage,
   WelcomeMemberPage,
-  WelcomeToPartnerPage,
-  HomePartnerMorePage,
+  WelcomeToPartnerPage
 ];
 
 export function declarations() {
