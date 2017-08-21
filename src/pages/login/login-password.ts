@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { AlertController, App, IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
+import { AlertController, App, LoadingController, NavController, NavParams } from 'ionic-angular';
 
 import { AccountRegistrationPage } from '../account-registration/account-registration';
 import { LoginForgetPasswordPage } from './login-forget-password';
@@ -15,7 +15,6 @@ import { Api, AuthenticationProvider } from '../../providers/providers';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-login-password',
   templateUrl: 'login-password.html',

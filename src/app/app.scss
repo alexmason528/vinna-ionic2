@@ -115,7 +115,6 @@ button {
   border:none !important;
   box-shadow:none !important;
 
-  height:51px !important;
 
 
 
@@ -139,6 +138,7 @@ button {
   }
 
   &.red-background-button {
+    height:51px !important;
     border-radius: 7px !important;
     font-size: 16px !important;
     font-family: 'Open Sans' !important;
@@ -154,6 +154,7 @@ button {
   }
 
   &.white-background-button {
+    height:51px !important;
     border-radius: 7px !important;
     font-size: 16px !important;
     font-family: 'Open Sans' !important;
@@ -230,7 +231,6 @@ button {
 }
 
 .icon{
-  font-size: 2.5em !important;
   color: map-get($colors, vinnared);
 }
 

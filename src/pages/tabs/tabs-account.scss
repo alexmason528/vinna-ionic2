@@ -1,11 +1,6 @@
 page-tabs-account {
   .tabbar {
-    padding: 5px 5px;
-
-    .tab-button-icon {
-      margin-top: 0px;
-      margin-bottom: 0px;
-      
+    .tab-button-icon {      
       &[ng-reflect-is-active=true] {
         color: map-get($colors, vinnared) !important;
       }

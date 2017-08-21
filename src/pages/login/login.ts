@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import { AlertController, App, IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
+import { AlertController, App, LoadingController, NavController, NavParams } from 'ionic-angular';
 import { Api, AuthenticationProvider } from '../../providers/providers';
 
 import { AccountRegistrationPage } from '../account-registration/account-registration';
@@ -14,7 +15,6 @@ import { LoginPasswordPage } from './login-password';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -31,11 +31,21 @@ export class LoginPage {
     public authentication: AuthenticationProvider,
     public loadingCtrl: LoadingController,
     public navCtrl: NavController, 
-    public navParams: NavParams) {
+    public navParams: NavParams,
+    private nativePageTransitions: NativePageTransitions) {
   }
 
   navPrevPage() {
-    this.navCtrl.pop();
+    let options: NativeTransitionOptions = {
+        direction: 'down',
+        duration: 275,
+       };
+
+    this.nativePageTransitions.slide(options)
+      .then(onSuccess => {})
+      .catch(onError => {});
+
+    this.navCtrl.pop({animate:false});
   }
 
   navNextPage() {

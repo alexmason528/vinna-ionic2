@@ -1,8 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Tabs } from 'ionic-angular';
+import { NavController, NavParams, Tabs } from 'ionic-angular';
 
 import { BusinessDirectoryPage } from '../business-directory/business-directory';
-import { LandingPage } from '../landing/landing';
 import { NotificationPage } from '../notification/notification';
 import { ProfilePage } from '../profile/profile';
 import { QrProfilePage } from '../qr-profile/qr-profile';
@@ -16,7 +15,6 @@ import { AuthenticationProvider } from '../../providers/providers';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-tabs-account',
   templateUrl: 'tabs-account.html',
@@ -26,7 +24,6 @@ export class TabsAccountPage {
 
   QrProfile = QrProfilePage;
   Profile = ProfilePage;
-  Landing = LandingPage;
   Notifications = NotificationPage;
   BusinessDirectory = BusinessDirectoryPage;
   Statement = StatementPage;

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { NavController, NavParams, Slides } from 'ionic-angular';
 
 import { LoginPage } from '../login/login';
 
@@ -10,7 +10,6 @@ import { LoginPage } from '../login/login';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-home-partner-more',
   templateUrl: 'home-partner-more.html',

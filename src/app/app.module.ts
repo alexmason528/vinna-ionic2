@@ -9,30 +9,32 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { MyApp } from './app.component';
 
-import { AboutPartnerProgramPage } from '../pages/about-partner-program/about-partner-program';
+/* Not logged in */
+import { HomePage } from '../pages/home/home';
+import { HomePartnerMorePage } from '../pages/home/home-partner-more';
+import { LoginPage } from '../pages/login/login';
+import { LoginPasswordPage } from '../pages/login/login-password';
 import { AccountRegistrationPage } from '../pages/account-registration/account-registration';
 import { AccountRegistrationConfirmPage } from '../pages/account-registration/account-registration-confirm';
+
+/* logged in pages */
+import { TabsAccountPage } from '../pages/tabs/tabs-account';
+
 import { BusinessDirectoryPage } from '../pages/business-directory/business-directory';
 import { BusinessProfilePage } from '../pages/business-profile/business-profile';
-import { CompleteMemberAccountPage } from '../pages/complete-member-account/complete-member-account';
-import { CompleteMemberAccount2Page } from '../pages/complete-member-account/complete-member-account-2';
+
 import { CreateMemberAccountPage } from '../pages/create-member-account/create-member-account';
 import { CreateMemberAccount2Page } from '../pages/create-member-account/create-member-account-2';
 import { CreatePartnerAccountPage } from '../pages/create-partner-account/create-partner-account';
 import { CreatePartnerAccount2Page } from '../pages/create-partner-account/create-partner-account-2';
 import { CreatePartnerAccount3Page } from '../pages/create-partner-account/create-partner-account-3';
-import { HomePage } from '../pages/home/home';
-import { LandingPage } from '../pages/landing/landing';
-import { LoginPage } from '../pages/login/login';
-import { LoginForgetPasswordPage } from '../pages/login/login-forget-password';
-import { LoginPasswordPage } from '../pages/login/login-password';
-import { LoginPasswordChangeSuccessPage } from '../pages/login/login-password-change-success';
 import { MakeAnnouncementPage } from '../pages/make-announcement/make-announcement';
 import { MemberSettingsPage } from '../pages/member-settings/member-settings';
 import { MemberSettingsBankPage } from '../pages/member-settings/member-settings-bank';
@@ -59,8 +61,6 @@ import { QrProfilePage } from '../pages/qr-profile/qr-profile';
 import { RegisterSalePage } from '../pages/register-sale/register-sale';
 import { StatementPage } from '../pages/statement/statement';
 import { SwitchProfilePage } from '../pages/switch-profile/switch-profile';
-import { TabsPage } from '../pages/tabs/tabs';
-import { TabsAccountPage } from '../pages/tabs/tabs-account';
 import { ThreeStepsPage } from '../pages/three-steps/three-steps';
 import { VerificationPage } from '../pages/verification/verification';
 import { WelcomeMemberPage } from '../pages/welcome-member/welcome-member';
@@ -78,23 +78,17 @@ export function HttpLoaderFactory(http: Http) {
 
 let pages = [
   MyApp,
-  AboutPartnerProgramPage,
   AccountRegistrationConfirmPage,
   BusinessDirectoryPage,
   BusinessProfilePage,
-  CompleteMemberAccountPage,
-  CompleteMemberAccount2Page,
   CreateMemberAccountPage,
   CreateMemberAccount2Page,
   CreatePartnerAccountPage,
   CreatePartnerAccount2Page,
   CreatePartnerAccount3Page,
   HomePage,
-  LandingPage,
   LoginPage,
-  LoginForgetPasswordPage,
   LoginPasswordPage,
-  LoginPasswordChangeSuccessPage,
   MakeAnnouncementPage,
   MemberSettingsPage,
   MemberSettingsBankPage,
@@ -121,12 +115,12 @@ let pages = [
   RegisterSalePage,
   StatementPage,
   SwitchProfilePage,
-  TabsPage,
   TabsAccountPage,
   ThreeStepsPage,
   VerificationPage,
   WelcomeMemberPage,
   WelcomeToPartnerPage,
+  HomePartnerMorePage,
 ];
 
 export function declarations() {
@@ -152,7 +146,7 @@ export function entryComponents() {
     TextMaskModule,
     IonicModule.forRoot(MyApp, {
       backButtonText: '',
-      backButtonIcon: 'arrow-round-back',
+      backButtonIcon: 'arrow-back',
       platforms: {
           ios: {
             scrollAssist: false,
@@ -180,7 +174,8 @@ export function entryComponents() {
     DirectoryProvider,
     NotificationProvider,
     TransactionProvider,
-    FormHelperProvider
+    FormHelperProvider,
+    NativePageTransitions
   ]
 })
 export class AppModule { }

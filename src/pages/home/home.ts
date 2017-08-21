@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { NavController, NavParams, Slides } from 'ionic-angular';
+
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 import { LoginPage } from '../login/login';
 import { HomePartnerMorePage } from './home-partner-more';
@@ -11,7 +13,6 @@ import { HomePartnerMorePage } from './home-partner-more';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -20,7 +21,10 @@ export class HomePage {
   @ViewChild('homeSlider') slider: Slides;
   public showSlide: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private nativePageTransitions: NativePageTransitions) {
     this.showSlide = 0;
   }
 
@@ -64,7 +68,16 @@ export class HomePage {
   }
 
   navToLogin() {
-    this.navCtrl.push(LoginPage);
+    let options: NativeTransitionOptions = {
+        direction: 'up',
+        duration: 275
+       };
+
+    this.nativePageTransitions.slide(options)
+      .then(onSuccess => {})
+      .catch(onError => {});
+
+    this.navCtrl.push(LoginPage, {}, {animate:false});
   }
 
   goHomePartnerMore() {

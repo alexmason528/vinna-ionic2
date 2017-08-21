@@ -35,6 +35,12 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      if (window.indexedDB) {
+         console.log("I'm in WKWebView!");
+      } else {
+         console.log("I'm in UIWebView");
+      }
+
       this.statusBar.overlaysWebView(false);
       this.statusBar.show();
       this.statusBar.backgroundColorByHexString('#960200');
@@ -42,17 +48,17 @@ export class MyApp {
 
       this.storage.get('auth')
       .then(val => {
-        this.splashScreen.hide();
-
         if (val)
           this.rootPage = TabsAccountPage;
         else
           this.rootPage = HomePage;
-        })
-      .catch(err => {
-        this.splashScreen.hide();
 
-        this.rootPage = HomePage;        
+        this.splashScreen.hide();
+      })
+      .catch(err => {
+        this.rootPage = HomePage;
+
+        this.splashScreen.hide();
       });
     });
   }
