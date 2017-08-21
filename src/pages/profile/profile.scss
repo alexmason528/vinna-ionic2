@@ -1,0 +1,73 @@
+page-profile {
+  .toolbar-background {
+    border-bottom: 0px;
+  }
+
+  .grid {
+
+    padding: 10px;
+
+    img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+    }
+
+    .row {
+      &.padding {
+        padding: 0px 16px;
+      }
+    }
+
+    .item {
+      border-top: 1px solid map-get($colors, vinnalightgrey);
+      padding: 5px 15px;
+      margin: 0px;
+      min-height: 0;
+      
+      .item-inner {
+        border: none;
+        padding-right: 0px;
+      }
+    }
+
+    .label {
+      margin: 0px;
+      font-size: 12px;
+
+      &.name {
+        margin-top: 10px;
+      }
+
+      &.category {
+        color: map-get($colors, vinnared);
+        text-transform: uppercase;
+      }
+    }
+
+    p {
+      font-size: 12px;
+    }
+
+    button {
+      width: 220px;
+      margin: 8px 0px;
+
+      &:first-child {
+        margin-top: 0px;
+      }
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+
+
+    .heading {
+      font-size: 20px;
+      text-align: center;
+      margin: 10px 0px 20px 0px;
+      text-transform: none;
+    }    
+  }
+}

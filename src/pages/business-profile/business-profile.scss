@@ -1,0 +1,146 @@
+page-business-profile {
+
+  .toolbar {
+    margin: 0px 3px !important;
+    .toolbar-background {
+      border-width: 0px !important;
+    }
+  }
+  
+  .searchbar {
+    .searchbar-input-container {
+      margin: 0px 8px 1px 8px;
+
+      .searchbar-search-icon {
+        top: 13px;
+      }
+
+      .searchbar-input {
+        background: none !important;
+        border: 1px solid #ddd;
+        border-radius: 0px;
+        height: 3.8rem;
+
+        &::-webkit-input-placeholder {
+          color: #ddd;
+        }
+      }
+    }
+  }
+
+  .card {
+    position: relative;
+    margin: 0px;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0px;
+
+    .card-content {
+      background-color: rgba(48,48,48,0.75);
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .card-title, p {
+        position: relative;
+        bottom: 0%;
+        width: 100%;
+        margin-bottom: 0px;
+        color: #fff;
+      }
+
+      .rating{
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        font-size: 1.2em;
+        color: yellow;
+        padding:0 0.1em 0 0.1em;
+
+        .counter {
+          color: #fff !important;
+        }
+      }
+    }
+  }
+
+  .segment {
+    &.grey-background {
+      background: #dfdfdf !important;
+      padding: 20px 10px !important;
+    }
+
+    .segment-button {
+      background: #fff !important;
+      color: map-get($colors, vinnadarkgrey) !important;
+      border-width: 0px !important;
+      border-radius: 0px !important;
+      margin: 0px 7px !important;
+
+      &.segment-activated {
+        background: map-get($colors, vinnared) !important;
+        color: #fff !important;
+      }
+    }
+  }
+
+
+
+  // .inBetween{
+  //   justify-content: space-between;
+  // }
+  // .comment{
+  //   width: auto;
+  // }
+  // p{
+  //   white-space: normal;
+  // }
+  // .textArea{
+  //   width: 100%;
+  //   height: 75px;
+  // }
+  // .commentRow{
+  //   display: flex;
+  //   flex-direction: row;
+  // }
+  // #info-container{
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+  // .centered{
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+  // .customCardContent{
+  //   background-color: rgba(48,48,48,0.75);
+  // }
+  // .cardDescription{
+  //   color: #FFFFFF;
+  // }
+  // .segment .segment-button {
+  //   background-color: map-get($colors, vinnawhite);
+  //   color: map-get($colors, vinnared);
+  //   margin: 2vw;
+  //   border: 0px;
+  // }
+  // .segment .segment-button.segment-activated{
+  //   background-color: map-get($colors, vinnared);
+  //   color: map-get($colors, vinnawhite);
+  // }
+  // .weekDay{
+  //   font-weight: bold;
+  // }
+  // .rating{
+  //   font-size: 1.2em;
+  //   color: yellow;
+  //   padding:0 0.1em 0 0.1em;
+  // }
+  // #inTouchContainer{
+  //   text-align: center;
+  // }
+}

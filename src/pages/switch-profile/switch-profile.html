@@ -1,0 +1,79 @@
+<!--
+  Generated template for the SwitchProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content>
+  <ion-grid>
+    <ion-row *ngIf="account">
+      <ion-col>
+        <ion-item class="profile-title" text-center>
+          Member Profile
+        </ion-item>
+        <ion-item tappable class="profile-item" (click)="switchProfile('member', member)">
+          <ion-row>
+            <ion-col col-3>
+              <img class="red-border" *ngIf="account.profile_photo_url" [src]="account.profile_photo_url">
+            </ion-col>
+            <ion-col class="info" col-9>
+              <div>Name: {{account.first_name}} {{account.last_name}}</div>
+              <div>Phone Number: {{account.phone}}</div>
+              <div *ngIf="member">Address: {{ member.mailing_address_1 }}, {{ member.mailing_address_city}}, {{ member.mailing_address_zip }}</div>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="partners.length > 0">
+      <ion-col>
+        <ion-item class="profile-title" text-center>
+          Partner Profiles
+        </ion-item>
+                <ion-item tappable *ngFor="let partner of partners" class="profile-item" (click)="switchProfile('partner', partner)">
+                  <ion-row>
+                    <ion-col col-3>
+                      <img class="red-border" [src]="partner.picture1">
+                    </ion-col>
+                    <ion-col class="info" col-9>
+                      <div>Business Name: {{ partner.text }}</div>
+                      <div>Phone Number: {{ partner.phone }}</div>
+                      <div>Address: {{ partner.address1 }}, {{ partner.city }}, {{ partner.zip }}</div>
+                    </ion-col>
+                  </ion-row>
+                </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="cashiers.length > 0 && partners.length == 0">
+      <ion-col>
+        <ion-item class="profile-title" text-center>
+          Cashier Profiles
+        </ion-item>
+
+        <ion-item tappable *ngFor="let cashier of cashiers" (click)="switchProfile('cashier', cashier)">
+          <ion-row>
+            <ion-col>
+              Working for: {{ cashier.text }}
+            </ion-col>
+            <ion-col text-right>
+              <!-- ACTIVE NOW -->
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="button-wrapper">
+      <ion-col text-left>
+        <button tappable ion-button class="no-background-button" (click)="close()">Close</button>
+      </ion-col>
+      <ion-col text-right>
+        <button tappable ion-button class="red-background-button" (click)="navToSettings()" item-right>Settings</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  
+</ion-content>

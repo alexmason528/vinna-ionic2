@@ -1,0 +1,70 @@
+page-create-partner-account-2 {
+  .grid {
+    padding: 18px 20px 0px 20px;
+
+    .col {
+      &.text {
+        div {
+          color: #676767;
+          line-height: 22px;
+
+          &:last-child {
+            margin-top: 20px;
+          }
+        }
+
+        span {
+          color: #ef3c3a;
+        }
+
+      }
+    }
+
+    .input {
+      border: 1px solid #ddd;
+      margin-bottom: 8px;
+      .text-input {
+        margin: 8px;
+        width: calc(100% - 16px);
+      }
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+
+    .card {
+      margin-top: 25px;
+    }
+    
+    .next-button {
+      width: 100%;
+    }
+
+    .segment {
+      margin-top: 10px;
+
+      .segment-button {
+        border-radius: 0px;
+        color: #676767;
+        border-top: 0px;
+        border-width: 0px 0px 1px 0px;
+        border-color: #ddd;
+        border-style: solid;
+        padding-bottom: 8px;
+        height: auto;
+
+        &.segment-activated {
+          background: none;
+          color: map-get($colors, vinnared);  
+        }
+      }
+    }
+
+    .switch-content {
+      margin-top: 20px;
+    }
+  }
+  
+
+}

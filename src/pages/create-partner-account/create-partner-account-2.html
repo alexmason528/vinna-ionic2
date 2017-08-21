@@ -1,0 +1,116 @@
+<!--
+  Generated template for the CreatePartnerAccount2Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Create Partner Account 2</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="text">
+          <div>
+            The first day of each month Vinna will require a payment for a total of ten percent(10%) of the amount your business generate the month before through our platform. Please have in mind that Vinna will require a payment only if and after your business has sell a product or service to garantly 100% result and cero risk to you.
+          </div>
+          <div>
+            For more information and to learn all about payments and how it works please read the <span>Terms of Use</span> and <span>Privacy Policy</span>.
+          </div>
+          <div>
+            Payments can be made by withdrawl through a bank account or through a credit or debit card.
+          </div>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col>
+          <div class="segment">
+            <div>
+              <ion-segment [(ngModel)]="payType">
+                <ion-segment-button value="bank">
+                  BANK ACCOUNT
+                </ion-segment-button>
+                <ion-segment-button value="card">
+                  CREDIT OR DEBIT CARD
+                </ion-segment-button>
+              </ion-segment>
+            </div>
+
+            <div [ngSwitch]="payType">
+              <div class="switch-content" *ngSwitchCase="'card'">
+                <form *ngIf="cardForm" [formGroup]="cardForm">
+                  <ion-row>
+                    <ion-col text-center>
+                      <img src="assets/card-logos.jpg">
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <ion-input type="text" placeholder="Cardholder's Name" formControlName="name"></ion-input>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <ion-input type="number" placeholder="Card Number" formControlName="number"></ion-input>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col offset-3>
+                      Expiration Date
+                    </ion-col>
+                    <ion-col>
+                      <ion-input type="number" placeholder="Month" formControlName="expMonth"></ion-input>
+                    </ion-col>
+                    <ion-col>
+                      <ion-input type="number" placeholder="Year" formControlName="expYear"></ion-input>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col offset-6 center>
+                      What is this?
+                    </ion-col>
+                    <ion-col>
+                      <ion-input type="number" placeholder="CVC" formControlName="cvc"></ion-input>
+                    </ion-col>
+                  </ion-row>
+                </form>
+              </div>
+
+              <div class="switch-content" *ngSwitchCase="'bank'">
+                <form *ngIf="bankForm" [formGroup]="bankForm">
+                  <ion-row>
+                    <ion-col>
+                      <ion-input placeholder="Bank Account Holder's Name" formControlName="account_holder_name"></ion-input>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <ion-input type="number" placeholder="Bank Account Number" formControlName="account_number"></ion-input>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <ion-input type="number" placeholder="Routing Number" formControlName="routing_number"></ion-input>
+                    </ion-col>
+                  </ion-row>
+                </form>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col offset-3 col-6>
+          <button ion-button class="red-background-button next-button" (click)="nextPage()">Next</button>
+        </ion-col>
+        <ion-col col-3>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
+

@@ -1,0 +1,56 @@
+page-create-partner-account {
+  .grid {
+    padding: 18px 20px 0px 20px;
+
+    .item {
+      margin: 0;
+      padding: 0;
+      font-size: inherit;
+      border: none !important;
+
+      .item-inner {
+        padding: 0;
+        margin: 0;
+        border: none;
+
+        .datetime {
+          border: 1px solid #ddd;
+          padding-left: 8px;
+          padding-right: 8px;
+          width: calc(100% - 16px);
+        }
+
+        .label {
+          margin: 0;
+
+          input {
+            border: 1px solid #ddd;
+            padding: 8px;
+            width: 100%;
+          }
+        } 
+      }
+    }
+
+    .row {
+      &.section-title {
+        .col {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .col {
+      .select {
+        max-width: none;
+        border: 1px solid #ddd;
+        padding: 8px;
+        width: 100%;
+      }
+
+      .list {
+        margin: 0px;
+      }
+    }
+  } 
+}

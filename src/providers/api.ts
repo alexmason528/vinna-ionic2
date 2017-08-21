@@ -7,7 +7,9 @@ import 'rxjs/add/operator/map';
  */
 @Injectable()
 export class Api {
-  url: string = 'https://example.com/api/v1';
+  // url: string = 'https://test.vinna.me';
+  // url: string = 'http://127.0.0.1:8000';
+  url: string = 'http://192.168.0.180:8000';
 
   constructor(public http: Http) {
   }
@@ -28,22 +30,26 @@ export class Api {
       options.search = !options.search && p || options.search;
     }
 
-    return this.http.get(this.url + '/' + endpoint, options);
+    return this.http.get(this.url + '/' + endpoint + '/', options);
+  }
+
+  postTo(endpoint: string, body: any, options?: RequestOptions){
+    return this.http.post(endpoint, body, options);
   }
 
   post(endpoint: string, body: any, options?: RequestOptions) {
-    return this.http.post(this.url + '/' + endpoint, body, options);
+    return this.http.post(this.url + '/' + endpoint + '/', body, options);
   }
 
   put(endpoint: string, body: any, options?: RequestOptions) {
-    return this.http.put(this.url + '/' + endpoint, body, options);
+    return this.http.put(this.url + '/' + endpoint + '/', body, options);
   }
 
   delete(endpoint: string, options?: RequestOptions) {
-    return this.http.delete(this.url + '/' + endpoint, options);
+    return this.http.delete(this.url + '/' + endpoint + '/', options);
   }
 
   patch(endpoint: string, body: any, options?: RequestOptions) {
-    return this.http.put(this.url + '/' + endpoint, body, options);
+    return this.http.put(this.url + '/' + endpoint + '/', body, options);
   }
 }

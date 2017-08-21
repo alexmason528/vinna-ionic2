@@ -1,0 +1,202 @@
+<!--
+  Generated template for the BusinessProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-searchbar placeholder="Search for Business Partners on our Directory"></ion-searchbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid no-padding *ngIf="partner">
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <img [src]="partner.picture1" *ngIf="partner.picture1" />
+          <ion-card-content>
+            <div>
+              <ion-card-title>
+                {{ partner.text }}
+              </ion-card-title>
+              <p> {{ partner.category.text }}</p>
+            </div>
+            <div class="rating">
+              <ion-icon *ngFor="let star of ratings" class="rating" [name]="star.icon" (click)="rate(star.value)"></ion-icon>
+              <span class="counter">(25)</span>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid no-padding *ngIf="partner">
+    <ion-row>
+      <ion-col>
+        <ion-segment class="grey-background" [(ngModel)]="tab">
+          <ion-segment-button value="what-is-new">What's New</ion-segment-button>
+          <ion-segment-button value="hello">Hello</ion-segment-button>
+          <ion-segment-button value="in-touch">In Touch</ion-segment-button>
+          <ion-segment-button value="review">Review</ion-segment-button>
+        </ion-segment>
+        <div [ngSwitch]="tab">
+          <div padding *ngSwitchCase="'what-is-new'">
+          </div>
+          <div padding *ngSwitchCase="'hello'">
+            <p padding>{{ partner.description }}</p>
+            <ion-segment [(ngModel)]="media">
+              <ion-segment-button type="button" class="btn white" value="videos">Videos</ion-segment-button>
+              <ion-segment-button type="button" class="btn white" value="photos">Photos</ion-segment-button>
+            </ion-segment>
+            <div [ngSwitch]="media">
+              <div *ngSwitchCase="'videos'">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-6>
+                      <img src="assets/home-buyandwin.png">
+                    </ion-col>
+                    <ion-col col-6>
+                      <img src="assets/home-buyandwin.png">
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col col-6>
+                      <img src="assets/home-buyandwin.png">
+                    </ion-col>
+                    <ion-col col-6>
+                      <img src="assets/home-buyandwin.png">
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col col-6>
+                      <img src="assets/home-buyandwin.png">
+                    </ion-col>
+                    <ion-col col-6>
+                      <img src="assets/home-buyandwin.png">
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </div>
+              <div *ngSwitchCase="'photos'">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-6>
+                      <img src="assets/home-buyandwin.png">
+                    </ion-col>
+                    <ion-col col-6>
+                      <img src="assets/home-buyandwin.png">
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </div>
+            </div>
+          </div>
+          <div padding *ngSwitchCase="'in-touch'">
+            <p padding>Connect with us in our Social Sites</p>
+            <ion-row>
+              <ion-icon name="alert"></ion-icon>
+              <ion-icon name="alert"></ion-icon>
+              <ion-icon name="alert"></ion-icon>
+              <ion-icon name="alert"></ion-icon>
+              <ion-icon name="alert"></ion-icon>
+              <ion-icon name="alert"></ion-icon>
+            </ion-row>
+            <p padding>Give us a call or visit us in our locations</p>
+            <div class="column">
+              <span><ion-icon name="call"></ion-icon> (805)549-3111</span>
+              <span><ion-icon name="pin"></ion-icon> 50 Higuera Street, San Luis Obispo, Ca 93401</span>
+            </div>
+            <p padding>Here you have our Business Hours</p>
+            <ion-row>
+              <div>
+                <p class="weekDay">MONDAY</p>
+                <p>9:00 AM to 9:30 PM</p>
+              </div>
+              <div>
+                <p class="weekDay">TUESDAY</p>
+                <p>9:00 AM to 9:30 PM</p>
+              </div>
+              <div>
+                <p class="weekDay">WEDNSDAY</p>
+                <p>9:00 AM to 9:30 PM</p>
+              </div>
+              <div>
+                <p class="weekDay">THURSDAY</p>
+                <p>9:00 AM to 9:30 PM</p>
+              </div>
+              <div>
+                <p class="weekDay">FRIDAY</p>
+                <p>9:00 AM to 9:30 PM</p>
+              </div>
+              <div>
+                <p class="weekDay">SATURDAY</p>
+                <p>9:00 AM to 6:00 PM</p>
+              </div>
+              <div>
+                <p class="weekDay">SUNDAY</p>
+                <p>10:00 AM to 3:30 PM</p>
+              </div>
+            </ion-row>
+          </div>
+          <div padding *ngSwitchCase="'review'">
+            <div class="padding">
+              <ion-textarea placeholder="Write your review"></ion-textarea>
+              <div class="row inBetween">
+                <span class="rating">
+                  <ion-icon *ngFor="let star of ratings" class="rating" [name]="star.icon" (click)="rate(star.value)"></ion-icon>
+                  <span class="counter">(25)</span>
+                </span>
+                <div>
+                  <button class="btn white comment">Cancel</button>
+                  <button class="btn white comment">Send</button>
+                </div>
+              </div>
+            </div>
+            <ion-item>
+              <div class="commentRow">
+                <div>
+                  <ion-avatar item-left>
+                    <img src="../assets/elon-musk.jpeg" />
+                  </ion-avatar>
+                </div>
+                <div>
+                  <p>Monik Bozz</p>
+                  <p>The best place for being around friends and have a good time... Recommended!</p>
+                </div>
+              </div>
+            </ion-item>
+            <ion-item>
+              <div class="commentRow">
+                <div>
+                  <ion-avatar item-left>
+                    <img src="../assets/elon-musk.jpeg" />
+                  </ion-avatar>
+                </div>
+                <div>
+                  <p>Monik Bozz</p>
+                  <p>The best place for being around friends and have a good time... Recommended!</p>
+                </div>
+              </div>
+            </ion-item>
+            <ion-item>
+              <div class="commentRow">
+                <div>
+                  <ion-avatar item-left>
+                    <img src="../assets/elon-musk.jpeg" />
+                  </ion-avatar>
+                </div>
+                <div>
+                  <p>Monik Bozz</p>
+                  <p>The best place for being around friends and have a good time... Recommended!</p>
+                </div>
+              </div>
+            </ion-item>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

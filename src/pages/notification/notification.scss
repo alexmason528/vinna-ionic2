@@ -1,0 +1,96 @@
+page-notification {
+
+  .searchbar {
+    .searchbar-input-container {
+      margin: 0px 8px 1px 8px;
+
+      .searchbar-search-icon {
+        top: 13px;
+      }
+
+      .searchbar-input {
+        background: none !important;
+        border: 1px solid #ddd;
+        border-radius: 0px;
+        height: 3.8rem;
+
+        &::-webkit-input-placeholder {
+          color: #ddd;
+        }
+      }
+    }
+  }
+  
+  .card {
+    margin: 15px 0 0px 0;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0p;
+    padding-bottom:10px;
+    border-bottom: 7px solid map-get($colors, vinnalightgrey);
+    
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom-width: 0px;
+    }
+
+    .image {
+      height: 56vw;
+      position: relative;
+      overflow: hidden;
+      img {
+        position: absolute;
+        top: -25%;
+      }
+    }
+
+    .contents {
+      font-size:12px;
+    }
+
+    .card-content {
+      padding: 0;
+      margin:0;
+
+      .grid {
+        padding: 0;
+
+        .row {
+          padding: 0 3vw;
+        }
+
+        .image-row {
+          margin:0;
+          padding: 0;
+          .col {
+            padding: 0;
+          }
+        }
+
+        .title-row .col{
+          color: map-get($colors, vinnadarkgrey);
+          font-size: 12px;
+          font-weight: bold;
+          display: flex;
+          align-items: left;
+/*
+          &:first-child {
+            justify-content: flex-start;
+          }
+
+          &:last-child {
+            justify-content: flex-end;
+          }
+*/
+          .icon {
+            font-size: 6vw !important;
+          }
+        }
+
+        .end-date-row .col{
+          color: map-get($colors, vinnalightgrey);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<!--
+  Generated template for the VerificationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>verification</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid *ngIf="account">
+    <ion-row>
+      <ion-col col-12 *ngIf="!account.email_verified">
+        <form *ngIf="emailForm" [formGroup]="emailForm">
+          <ion-row>
+            <ion-col col-12>
+              <ion-input type="number" placeholder="Verification Code for Email" formControlName="email_code"></ion-input>
+            </ion-col>
+            <ion-col class="flex-content-between">
+              <button ion-button class="red-background-button" (click)="sendCode('email')">Re-send Code</button>
+              <button ion-button class="red-background-button" (click)="verify('email')">Verify Email</button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+      <ion-col col-12 *ngIf="!account.phone_verified">
+        <form *ngIf="phoneForm" [formGroup]="phoneForm">
+          <ion-row>
+            <ion-col col-12>
+              <ion-input type="number" placeholder="Verification Code for Phone" formControlName="phone_code"></ion-input>
+            </ion-col>
+            <ion-col class="flex-content-between">
+              <button ion-button class="red-background-button" (click)="sendCode('phone')">Re-send Code</button>
+              <button ion-button class="red-background-button" (click)="verify('phone')">Verify Phone</button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

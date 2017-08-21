@@ -1,52 +1,78 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
 
-import { MainPage } from '../../pages/pages';
+import { AlertController, App, IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
+import { Api, AuthenticationProvider } from '../../providers/providers';
 
-import { User } from '../../providers/user';
+import { AccountRegistrationPage } from '../account-registration/account-registration';
+import { HomePage } from '../home/home';
+import { LoginPasswordPage } from './login-password';
 
-import { TranslateService } from '@ngx-translate/core';
+/**
+ * Generated class for the LoginPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
 
-
+@IonicPage()
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
 })
 export class LoginPage {
-  // The account fields for the login form.
-  // If you're using the username field with or without email, make
-  // sure to add it to the type
-  account: { email: string, password: string } = {
-    email: 'test@example.com',
-    password: 'test'
-  };
 
-  // Our translated text strings
-  private loginErrorString: string;
+  phone: string = '';
+  phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
-  constructor(public navCtrl: NavController,
-    public user: User,
-    public toastCtrl: ToastController,
-    public translateService: TranslateService) {
-
-    this.translateService.get('LOGIN_ERROR').subscribe((value) => {
-      this.loginErrorString = value;
-    })
+  constructor(
+    public alertCtrl: AlertController,
+    public api: Api,
+    public app: App,
+    public authentication: AuthenticationProvider,
+    public loadingCtrl: LoadingController,
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
   }
 
-  // Attempt to login in through our User service
-  doLogin() {
-    this.user.login(this.account).subscribe((resp) => {
-      this.navCtrl.push(MainPage);
-    }, (err) => {
-      this.navCtrl.push(MainPage);
-      // Unable to log in
-      let toast = this.toastCtrl.create({
-        message: this.loginErrorString,
-        duration: 3000,
-        position: 'top'
-      });
-      toast.present();
+  navPrevPage() {
+    this.navCtrl.push(HomePage);
+  }
+
+  navNextPage() {
+    this.phone = this.phone.replace(/\D+/g, '');
+    
+    if (this.phone.length == 0) {
+      this.alertCtrl.create({
+        message: 'Please input your phone number',
+        buttons: ['Okay']
+      }).present();
+      return;
+    } else if (this.phone.length != 10) {
+      this.alertCtrl.create({
+        message: 'Please input valid phone number',
+        buttons: ['Okay']
+      }).present();
+      return;
+    }
+
+    let loading = this.loadingCtrl.create({ spinner: 'ios'});
+    let seq = this.api.post('api/account/find_phone', {phone:this.phone});
+
+    loading.present();
+
+    seq
+    .map(res => res.json())
+    .subscribe(res => {
+      loading.dismiss();
+      this.navCtrl.push(LoginPasswordPage, {phone:this.phone, firstname:res});
+    }, err => {
+      loading.dismiss();
+      this.navCtrl.push(AccountRegistrationPage, {phone: this.phone});
     });
   }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad LoginPage');
+  }
+
 }

@@ -1,0 +1,132 @@
+page-make-announcement {
+
+  .grid {
+    padding: 10px !important;
+
+      .col {
+        title {
+          font-size: 16px;
+          color: #666767;
+          margin-top: 10px;
+        }
+
+        .datetime {
+          border: 1px solid #ddd;
+          padding: 10px 5px;
+        }
+
+        .input {
+        border: 1px solid #ddd;
+        
+        .text-input {
+          margin: 8px;
+          width: calc(100% - 16px);
+        }
+      }
+
+      textarea {
+        height: 100px;
+      }
+
+      .select {
+        border: 1px solid #ddd;
+        max-width: none;
+        padding: 9px;
+
+        .select-placeholder {
+          text-align: center;
+        }
+      }
+
+        .add-picture-button{
+          border: 1px solid #ddd;
+          position: relative;
+          width: 100%;
+          height: 200px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+            &:before {
+                content: "";
+                display: block;
+                padding-top: 100%;  
+            }
+
+            .icon {
+                font-size: 40px;
+                font-weight: bold;
+            }
+
+            .notification-image {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        .icon {
+          font-size: 40px;
+          font-weight: bold;
+
+          &[name=logo-twitter], &[name=logo-facebook] {
+          font-size: 30px;
+          font-weight: normal;
+          }
+
+          &[name=logo-facebook] {
+              color: #447BBF;
+          }
+
+          &[name=logo-twitter] {
+              color: #49A1DA;
+          }
+        }
+
+        .list {
+            margin-bottom: 0px !important;
+        }
+
+        .item{
+          font-size: 12px;
+          border: none;
+          margin: 0px 0px 5px 0px;
+          padding: 0px;
+          min-height: 2.5rem;
+          width: auto;
+          
+          .item-inner {
+            border: none !important;
+            padding-right: 0px !important;
+            .label {
+              margin: 0px !important;
+            }
+          }
+
+          .datetime {
+            padding: 10px !important;
+            border: 1px solid #c8c7cc !important;
+            width: 100%;
+            text-align: center;
+          }
+        }
+
+        .announce {
+            border-radius: 0px;
+
+            .button-inner{
+              color: #fff;
+            }
+        }
+    }
+
+    .share-on {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top: 1px solid #c8c7cc !important;
+        border-bottom: 1px solid #c8c7cc !important;
+    }
+  }
+}

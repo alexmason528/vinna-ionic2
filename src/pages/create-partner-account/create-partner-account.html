@@ -1,0 +1,121 @@
+<!--
+  Generated template for the CreatePartnerAccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create Partner Account</ion-title>
+    <ion-buttons color="vinnared" end>
+      <button ion-button icon-only (click)="navNextPage()">
+        <ion-icon name="arrow-round-forward" color="vinnared"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form *ngIf="form" [formGroup]="form">
+    <ion-grid>
+      <ion-row class="section-title">
+        <ion-col>
+          About your Business
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-select interface='popover' placeholder='Category' formControlName="category_id" (ionChange)="getSubCategories($event)" >
+                <ion-option *ngFor="let category of categories" [value]="category.id">{{category.text}}</ion-option>            
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-select interface='popover' placeholder='Sub Category' formControlName="sub_category_id">
+                <ion-option *ngFor="let sub_category of sub_categories" [value]="sub_category.id">{{sub_category.text}}</ion-option>            
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <input type="text" placeholder="Business or Place Name" formControlName="text"/>
+            </ion-item>
+            <ion-item>
+              <input type="number" placeholder="Tax ID Number" formControlName="taxid"/>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="section-title">
+        <ion-col>
+          Email Address
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <input type="email" placeholder="Email" formControlName="email"/>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="section-title">
+        <ion-col>  
+          Phone Number
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <input type="tel" placeholder="Phone Number" [textMask]="{mask: phoneMask}" formControlName="phone"/>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="section-title">
+        <ion-col>
+          Business Address
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-select formControlName="country_id" interface="popover" (ionChange)="getStates($event)" placeholder='Country'>
+                <ion-option *ngFor="let country of countries" [value]="country.id">{{country.english_text}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-select formControlName="state_id" interface="popover" placeholder='State'>
+                <ion-option *ngFor="let state of states" [value]="state.id">{{state.text}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <input type="text" placeholder="City" formControlName="city"/>
+            </ion-item>
+            <ion-item>
+              <input type="text" placeholder="Zip Code" formControlName="zip"/>
+            </ion-item>
+            <ion-item>
+              <input type="text" placeholder="Address" formControlName="address1"/>
+            </ion-item>
+            <ion-item>
+              <input type="text" placeholder="Address Line 2" formControlName="address2"/>
+            </ion-item>
+          </ion-list>
+              
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col text-right>
+          <button ion-button color="vinnared" class="red-background-button" (click)="navNextPage()">Next</button>
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+  </form>
+</ion-content>
+

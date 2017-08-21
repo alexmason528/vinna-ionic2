@@ -1,0 +1,125 @@
+<!--
+  Generated template for the MakeAnnouncementPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+  <!--
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name="menu" color="vinnared"></ion-icon>
+      </button>
+    </ion-buttons>
+    -->
+    <ion-title>Make Announcement</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="settings" color="vinnared"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form *ngIf="notificationForm" [formGroup]="notificationForm">
+    <ion-grid *ngIf="partner">
+      <ion-row>
+        <ion-col>
+          <ion-select interface='popover' placeholder='SELECT TYPE' formControlName='category'>
+            <ion-option>Offer</ion-option>
+            <ion-option>Promotion</ion-option>
+            <ion-option>Product Release</ion-option>
+            <ion-option>Service Release</ion-option>
+            <ion-option>Event</ion-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col>
+          <div class="add-picture-button" tappable (click)="openSourceTypeSheet()">
+            <ion-icon name="add"></ion-icon>
+            <img class="notification-image" *ngIf="this.notificationForm.controls.picture.value" [src]="this.notificationForm.controls.picture.value" />
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Title" formControlName='title'></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-textarea placeholder="Description" formControlName='description'></ion-textarea>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Link (optional)" formControlName='link'></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col text-center>
+          <div class="title">Date and Time</div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-6>
+          <ion-list class="flex-content-around">
+            <ion-item>
+              <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM DD YYYY" max="2100" formControlName="start"></ion-datetime>
+            </ion-item>
+            <ion-item>
+              at
+            </ion-item>
+            <ion-item>
+              <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" max="2100" formControlName="start"></ion-datetime>  
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col col-6>
+          <ion-list class="flex-content-around">
+            <ion-item>
+              <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM DD YYYY" max="2100" formControlName="end"></ion-datetime>
+            </ion-item>
+            <ion-item>
+              at
+            </ion-item>
+            <ion-item>
+              <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" max="2100" formControlName="end"></ion-datetime>  
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col text-center>
+          <div class="title">Share on</div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class='share-on'>
+        <ion-col text-center>
+          <ion-icon name="logo-facebook"></ion-icon>
+        </ion-col>
+        <ion-col text-center>
+          <ion-icon name="logo-twitter"></ion-icon>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col text-center>
+          <button ion-button color="vinnared" class="announce" (click)="makeAnnounce()">Announce</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+

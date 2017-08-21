@@ -1,0 +1,130 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content no-bounce ion-fixed>
+  <ion-grid class='wrapper' ion-fixed>
+    <ion-row class="logo-row">
+      <ion-col text-right>
+        <img tappable (click)="goToSlide(1)" src="assets/logo.png" width="107" height="45" />
+      </ion-col>
+    </ion-row>
+    
+    <ion-row class="slide-row"> 
+      <ion-slides #homeSlider (ionSlideDidChange)="slideChanged()">
+        <ion-slide>
+          <ion-grid class="home-grid">
+            <ion-row>
+              <ion-col tappable (click)="goToSlide(2)">
+                <div class="group">
+                  <div class='name'>Buy and Win</div>
+                  <div class='more_back'><ion-icon name="ios-arrow-forward"></ion-icon></div>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col tappable (click)="goToSlide(3)">
+                <div class="group">
+                  <div class='name'>Share and Grow</div>
+                  <div class='more_back'><ion-icon name="ios-arrow-forward"></ion-icon></div>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col tappable (click)="goToSlide(4)">
+                <div class="group">
+                  <div class='name'>Help and Change</div>
+                  <div class='more_back'><ion-icon name="ios-arrow-forward"></ion-icon></div>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-slide>
+
+        <ion-slide>
+          <ion-grid class="info-grid" *ngIf="showSlide == 1">
+            <ion-row class="back-row">
+              <ion-col tappable (click)="goSlideHome()">
+                <div class="group">
+                  <div class='more_back'><ion-icon name="ios-arrow-back"></ion-icon></div>
+                  <div class='name'>What is Vinna?</div>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row class="message-row">
+              <ion-col>
+                Vinna is a digital advertising platform where Associated Businesses pay their Customers for buying and recommending Products and Services. Our purpose is to create an ever expanding community where everyone receives a profit for what they contribute. Together we can change "Buy and Sale" for "Win and Win".
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-grid class="info-grid" *ngIf="showSlide == 2">
+            <ion-row class="back-row">
+              <ion-col tappable (click)="goSlideHome(0)">
+                <div class="group">
+                  <div class='more_back'><ion-icon name="ios-arrow-back"></ion-icon></div>
+                  <div class='name'>Buy and Win</div>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row class="message-row">
+              <ion-col>
+                After signing up as a Member, you can look for Local Business on our Directory. Every time you buy in those Businesses you receive a 2% instant refund. Just show your code to the cashier before paying to register the sale.
+              </ion-col>
+            </ion-row>
+          </ion-grid>            
+
+          <ion-grid class="info-grid share-more-grid" *ngIf="showSlide == 3">
+            <ion-row class="back-row">
+              <ion-col tappable (click)="goSlideHome(0)">
+                <div class="group">
+                  <div class='more_back'><ion-icon name="ios-arrow-back"></ion-icon></div>
+                  <div class='name'>Share and Grow</div>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row class="message-row">
+              <ion-col>
+                You can share Vinna with friends and family and invite them to join as Members. Each time they buy in our Business Partners you will receive 4% commission for each sale. There are no limits in Vinna, the more people you connect, the more income you generate.
+              </ion-col>
+            </ion-row>
+          </ion-grid>            
+
+          <ion-grid class="info-grid help-more-grid" *ngIf="showSlide == 4">
+            <ion-row class="back-row">
+              <ion-col tappable (click)="goSlideHome(0)">
+                <div class="group">
+                  <div class='more_back'><ion-icon name="ios-arrow-back"></ion-icon></div>
+                  <div class='name'>Help and Change</div>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row class="message-row">
+              <ion-col>
+                As a Member, if you own a business, now you can increase your sales through personal recommendations from your clients, while you help them make money and live a better life. All this, with 100% guarantee in results and zero risk, since in Vinna, Businesses pay for advertising only after each sale.
+                <br><span class="learn_more" tappable (click)="goHomePartnerMore()">learn more</span>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+
+      </ion-slides>
+    </ion-row>
+
+    <ion-row class="phone-row">
+      <ion-col tappable (click)="navToLogin()">
+        <div class="wrap">
+          <div class="message">Increase your income with Vinna</div>
+          <div class="input"><img src="assets/us.png"/>+1 Enter your Phone Number</div>
+        </div>
+        <div class="bottom"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+

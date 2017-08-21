@@ -1,0 +1,67 @@
+<!--
+  Generated template for the CompleteMemberAccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Complete Member Account</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="navNextPage()">
+        <ion-icon name="arrow-round-forward" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form *ngIf="form" [formGroup]="form">
+    <ion-grid>
+      <ion-row class="section-title">
+        <ion-col>
+          Mailing Address
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-select formControlName="mailing_address_country_id" interface="popover" (ionChange)="getStates()" placeholder="Country">
+                <ion-option *ngFor="let country of countries" [value]="country.id">{{country.english_text}}</ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-select formControlName="mailing_address_state_id" interface="popover" placeholder="State">
+                <ion-option *ngFor="let state of states" [value]="state.id">{{state.text}}</ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="City" formControlName = "mailing_address_city"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Zip Code" formControlName = "mailing_address_zip"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Address" formControlName = "mailing_address_1"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Address Line 2" formControlName = "mailing_address_2"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-right>
+          <button ion-button color="vinnared" class="red-background-button" (click)="navNextPage()">Next</button>
+        </ion-col>
+      </ion-row>      
+    </ion-grid>
+  </form>
+</ion-content>

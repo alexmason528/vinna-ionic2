@@ -1,11 +1,15 @@
-import { User } from './user';
 import { Api } from './api';
-import { Settings } from './settings';
-import { Items } from '../mocks/providers/items';
+import { AuthenticationProvider } from './authentication';
+import { DirectoryProvider } from './directory';
+import { FormHelperProvider } from './form-helper';
+import { NotificationProvider } from './notification';
+import { TransactionProvider } from './transaction';
 
 export {
-User,
 Api,
-Settings,
-Items
+AuthenticationProvider,
+DirectoryProvider,
+FormHelperProvider,
+NotificationProvider,
+TransactionProvider,
 };

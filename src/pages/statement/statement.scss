@@ -1,0 +1,25 @@
+page-statement {
+  .grid {
+    padding: 0px 16px !important;
+    
+    .row {
+      padding: 10px 0px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+      &.heading {
+        .col {
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+
+      .col {
+        text-align: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+page-complete-member-account {
+  .grid {
+    padding: 18px 20px 0px 20px;
+
+    .input {
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      input.text-input {
+        margin: 8px;
+        width: calc(100% - 16px);
+      }
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+
+    .row {
+      &.section-title {
+        .col {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .col {
+
+      .select {
+        max-width: none;
+        border: 1px solid #ddd;
+        padding: 8px;
+        width: 100%;
+      }
+
+      .list {
+        margin: 0px;
+        .item {
+          margin: 0px 0px 3px 0px;
+          padding: 0px;
+          font-size:inherit;
+          border-width: 0px;
+
+          .item-inner {
+            padding-right: 0px;
+            border-bottom: 0px;
+          }
+        }
+      }
+    }
+  }
+
+  
+}

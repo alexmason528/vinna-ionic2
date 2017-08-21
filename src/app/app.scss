@@ -14,3 +14,294 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+* {
+  color: map-get($colors, vinnadarkgrey);
+  /* font-weight: 400; */
+  font-family: 'Open Sans Light';
+  font-size:15px;
+}
+
+a {
+  text-decoration: none;
+  color: map-get($colors, vinnared);
+  font-family: 'Open Sans Light' !important;
+}
+
+div.header {
+  font-family: 'Open Sans';
+}
+
+input {
+  font-size:15px;
+  border-radius: 0px;
+  box-shadow: none;
+  border: 1px solid map-get($colors, vinnalightgrey);
+}
+
+input[input=text] {
+  font-family: 'Open Sans Light' !important;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #cccccc;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #cccccc;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #cccccc;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #cccccc;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #cccccc;
+}
+
+.toolbar {
+  width: auto;
+  margin: 0px 15px;
+  padding: 10px 0px;
+  min-height: 55px;
+
+  .toolbar-background {
+    background: none;
+  }
+
+  .title {
+    padding: 0px;
+    text-transform: uppercase;
+    text-align: center;
+
+    .toolbar-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: map-get($colors, vinnadarkgrey);
+    }
+  }
+}
+
+.flex-content-between {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.flex-content-around {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.flex-content-center {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+
+button {
+  
+  padding-left: 7px;
+  padding-right: 7px;
+
+  text-shadow:none !important;
+  border:none !important;
+  box-shadow:none !important;
+
+  height:51px !important;
+
+
+
+  &.activated {
+    background: none !important;
+  }
+
+  &.no-background-button {
+    background: none;
+    .button-inner {
+      color: map-get($colors, vinnared) !important;
+    }
+  }
+
+  &.vinna-button {
+    border-radius: 7px !important;
+    font-size: 16px !important;
+    font-family: 'Open Sans' !important;
+    text-transform: none !important;
+    color:#ffffff !important;
+  }
+
+  &.red-background-button {
+    border-radius: 7px !important;
+    font-size: 16px !important;
+    font-family: 'Open Sans' !important;
+    text-transform: none !important;
+    color:#ffffff !important;
+
+    min-width: 145px !important;
+    background-color: map-get($colors, vinnared);
+
+    .button-inner {
+      color: map-get($colors, vinnawhite) !important;
+    }
+  }
+
+  &.white-background-button {
+    border-radius: 7px !important;
+    font-size: 16px !important;
+    font-family: 'Open Sans' !important;
+    text-transform: none !important;
+    color:#ffffff !important;
+
+    background-color: map-get($colors, vinnawhite);
+    border: 1px solid map-get($colors, vinnared);
+    .button-inner {
+      color: map-get($colors, vinnared);
+    }
+  }
+}
+
+.popover-wrapper {
+  .popover-arrow {
+    &::before, &::after {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      z-index: 11;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background-color: #c8c7cc;
+      content: "";
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      top: 4px;
+      background-color: map-get($colors, vinnawhite);
+    }
+  }
+
+  .popover-content {
+    border-radius: 0px !important;
+    border: 1px solid #c8c7cc;
+    width: 300px !important;
+    left: 55px;
+    padding: 0px 20px;
+
+    .item {
+      border-top: 1px solid #c8c7cc;
+      border-bottom: none;
+      padding: 0px;
+      margin: 0px;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .label {
+        font-size: 14px;
+        margin: 0px 0px 0px 15px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .radio {
+        margin: 0px;
+      }
+
+      .item-inner {
+        border: none;
+        padding: 0px;
+      }
+    }
+  }
+}
+
+.icon{
+  font-size: 2.5em !important;
+  color: map-get($colors, vinnared);
+}
+
+.red-border{
+  border: 1px solid map-get($colors, vinnared);
+}
+
+.red {
+  color: map-get($colors, vinnared);
+}
+
+.title {
+  font-weight: bold;
+}
+
+.cardTitle{
+  color: map-get($colors, vinnawhite);
+  font-weight: bold;
+  margin: 0px;
+  margin-bottom: 1px;
+}
+.cardDescription{
+  margin: 0px;
+  font-weight: 300;
+}
+
+
+
+#ghost{
+  opacity: 0;
+}
+.customCard{
+  /*  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), -0 3px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-bottom: 0.9vh;
+  border-bottom: 1px solid #edeaea;  
+}
+.card-title {
+  // position: absolute;
+  bottom: 0%;
+  width: 100%;
+  margin-bottom: 0px;
+}
+.customCardContent{
+  position: absolute;
+  bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 100%;
+  padding: 8px;
+  color: map-get($colors, vinnawhite);
+}
+
+
+@font-face {
+    font-family: 'Helvetica LT';
+    src: url('../assets/fonts/Helvetica LT.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Helvetica LT Condensed Light';
+    src: url('../assets/fonts/Helvetica LT Condensed Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Helvetica LT Condensed Bold';
+    src: url('../assets/fonts/Helvetica LT Condensed Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans Light';
+  src: url(../assets/fonts/OpenSans-Light.ttf) format("truetype");
+}

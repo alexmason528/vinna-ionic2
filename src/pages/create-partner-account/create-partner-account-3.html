@@ -1,0 +1,96 @@
+<!--
+  Generated template for the CreatePartnerAccount_3Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Create Partner Account 3</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form *ngIf="form" [formGroup]="form">
+      <ion-row class="section-title">
+        <ion-col text-center>
+          Pictures
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <div class="add-picture-button" (click)="openSourceTypeSheet(1)">
+            <ion-icon name="add"></ion-icon>
+            <img class="partner-image" [src]="this.form.controls.picture1.value" *ngIf="this.form.controls.picture1.value" />
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="add-picture-button" (click)="openSourceTypeSheet(2)">
+            <ion-icon name="add"></ion-icon>
+            <img class="partner-image" [src]="this.form.controls.picture2.value" *ngIf="this.form.controls.picture2.value" />
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="add-picture-button" (click)="openSourceTypeSheet(3)">
+            <ion-icon name="add"></ion-icon>
+            <img class="partner-image" [src]="this.form.controls.picture3.value" *ngIf="this.form.controls.picture3.value" />
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="add-picture-button" (click)="openSourceTypeSheet(4)">
+            <ion-icon name="add"></ion-icon>
+            <img class="partner-image" [src]="this.form.controls.picture4.value" *ngIf="this.form.controls.picture4.value" />
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="section-title">
+        <ion-col text-center>
+          Business Description
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-textarea formControlName="description"></ion-textarea>
+        </ion-col>
+      </ion-row>
+    </form>
+
+    <ion-row class="section-title">
+      <ion-col text-center>
+        Business Hours
+      </ion-col>
+    </ion-row>
+
+    <ion-row class='business-hours'>
+      <ion-col>
+        <ion-row>
+          <ion-col col-3 *ngFor="let hour of hours">
+            <ion-list>
+              <ion-item>
+                <ion-checkbox [(ngModel)]="hour.enabled"></ion-checkbox>
+                <ion-label>{{ hour.dow }}</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-datetime [disabled]="!hour.enabled" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="hour.start"></ion-datetime>
+              </ion-item>
+              <ion-item>
+                <ion-datetime [disabled]="!hour.enabled" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="hour.end"></ion-datetime>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button class="red-background-button" (click)="createPaymentMethod()">Become a partner</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

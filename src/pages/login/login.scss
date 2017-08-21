@@ -1,2 +1,57 @@
 page-login {
+  .grid.wrapper {
+    margin-top:45px; /* status bar */
+    padding-top:30px; 
+    background:#fff;
+    font-size:15px;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .row {
+      padding: 0vh 5vw 1vh 5vw;
+
+      .col {
+        padding: 0;
+      }
+
+      &.button-row {
+        margin-bottom: 45px;
+      }
+
+      &.phone-row {
+        height: 9vh;
+
+        .col {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+
+          div.group {
+            margin-top:18px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size:16px !important;
+
+            input {
+              margin-left: 2vw;
+              width: 100%;
+              border:0px;
+              border-bottom:1px solid map-get($colors, vinnamidgrey);
+            }
+
+            img {
+              height: 7vw;
+              margin-right: 2vw;
+            }
+          }
+        }
+      }
+
+    }
+  }
 }

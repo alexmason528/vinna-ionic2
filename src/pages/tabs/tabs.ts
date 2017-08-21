@@ -1,29 +1,52 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Tabs } from 'ionic-angular';
 
-import { Tab1Root } from '../pages';
-import { Tab2Root } from '../pages';
-import { Tab3Root } from '../pages';
+import { BusinessDirectoryPage } from '../business-directory/business-directory';
+import { CreateMemberAccountPage } from '../create-member-account/create-member-account';
+import { HomePage } from '../home/home';
+import { LandingPage } from '../landing/landing';
+import { LoginPage } from '../login/login';
+import { NotificationPage } from '../notification/notification';
+import { StatementPage } from '../statement/statement';
 
+import { AuthenticationProvider } from '../../providers/providers';
+
+/**
+ * Generated class for the TabsPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+
+@IonicPage()
 @Component({
   selector: 'page-tabs',
-  templateUrl: 'tabs.html'
+  templateUrl: 'tabs.html',
 })
 export class TabsPage {
-  tab1Root: any = Tab1Root;
-  tab2Root: any = Tab2Root;
-  tab3Root: any = Tab3Root;
+  @ViewChild('myTabs') tabRef: Tabs;
 
-  tab1Title = " ";
-  tab2Title = " ";
-  tab3Title = " ";
+  CreateMember = CreateMemberAccountPage;
+  Home = HomePage;
+  Landing = LandingPage;
+  BusinessDirectory = BusinessDirectoryPage;
+  Login = LoginPage;
+  Notifications = NotificationPage;
+  Statement = StatementPage;
 
-  constructor(public navCtrl: NavController, public translateService: TranslateService) {
-    translateService.get(['TAB1_TITLE', 'TAB2_TITLE', 'TAB3_TITLE']).subscribe(values => {
-      this.tab1Title = values['TAB1_TITLE'];
-      this.tab2Title = values['TAB2_TITLE'];
-      this.tab3Title = values['TAB3_TITLE'];
-    });
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public authentication: AuthenticationProvider) {
   }
+
+  ionViewWillEnter() {
+    this.authentication.verifyToken();
+    this.tabRef.select(1);
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad TabsPage');
+  }
+
 }

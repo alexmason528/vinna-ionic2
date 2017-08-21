@@ -1,0 +1,114 @@
+page-profile-menu {
+  .toolbar-background {
+    border-bottom: 0px;
+  }
+
+  .menu {
+    width:95%;
+    text-align: center;
+    margin:auto;
+
+    .item {
+      .label {
+        font-family: Helvetica;
+        padding:8px 0px;
+        color:map-get($colors, vinnared);
+      }
+    }
+
+    .bold-red .label span {
+      font-weight: bold;
+      padding:8px 0px;
+      color:map-get($colors, vinnared);
+    }
+  }
+
+  .menu-list-items {
+    border-bottom:90vw solid #333333;
+    padding:20px 0px;
+    margin-top:20px;
+    font-size:20px;
+    width:90vw;
+    color:map-get($colors, vinnared);;
+  }
+
+  .grid {
+    display: flex;
+    padding: 10px;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+
+    img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+
+    .row {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+
+      &.padding {
+        padding: 0px 16px;
+      }
+    }
+
+    .item {
+      border-top: 1px solid map-get($colors, vinnalightgrey);
+      padding: 5px 15px;
+      margin: 0px;
+      min-height: 0;
+      
+      .item-inner {
+        border: none;
+        padding-right: 0px;
+      }
+    }
+
+    .label {
+      margin: 0px;
+      font-size: 12px;
+
+      &.name {
+        margin-top: 10px;
+      }
+
+      &.category {
+        color: map-get($colors, vinnared);
+        text-transform: uppercase;
+      }
+    }
+
+    p {
+      font-size: 12px;
+    }
+
+    .notice {
+      text-align: center;
+      margin:auto;
+      margin-bottom:20px;
+
+      button {
+        width: 200;
+        margin: 0px;
+        color: map-get($colors, vinnared);
+        background-color: #fff;
+
+        span {
+          font-size:12px;
+          font-family: Helvetica;
+          text-decoration: underline; 
+          color: map-get($colors, vinnared);          
+        }
+      }
+    }
+
+    .heading {
+      font-size: 20px;
+      text-align: center;
+      margin: 10px 0px 20px 0px;
+      text-transform: none;
+    }    
+  }
+}

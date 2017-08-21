@@ -1,0 +1,40 @@
+page-create-member-account-2 {
+  .grid {
+    
+    .col {
+      p {
+        margin: 6px 0px;
+      }
+
+      .profile-image-wrapper {
+        text-align: center;
+        margin: 10px 0 0 0;
+
+        .profile-image {
+          width: 200px;
+          height: 200px;
+
+          display: inline-block;
+
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+
+        .profile-image-placeholder {
+          display: inline-block;
+
+          border: 1px solid #ddd;
+          width: 200px;
+          height: 200px;
+          line-height: 200px;
+          color: #f53d3d;
+
+          font-size: 16px;
+          font-weight: bold;
+
+        }
+      }
+    }
+  }
+}

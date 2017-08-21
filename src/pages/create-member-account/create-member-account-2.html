@@ -1,0 +1,48 @@
+<!--
+  Generated template for the CreateMemberAccount2Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Create Member Account 2</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form *ngIf="form" [formGroup]="form">
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center>
+          <div tappable class="profile-image-wrapper" (click)="openSourceTypeSheet()">
+            <div class="profile-image-placeholder" *ngIf="!this.form.controls.profilePic.value" >
+                Upload Picture
+            </div>
+            <img class="profile-image" [src]="this.form.controls.profilePic.value" *ngIf="this.form.controls.profilePic.value" />
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <p text-center>Your profile picture is your ID on Vinna, Business Partners will use it to identify you on each transaction.</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-left>
+          <span class="title">Please read carefully</span>
+          <p>You are about to become a part of a team of Members, Promoters and Business Partners helping each other to bring prosperity into the community. By clicking on the button "Connect" you are going to get connected to the person who invited you to join
+            Vinna and that connection will remain active from now on. Also, you accept the <a>Terms of Use</a> and <a>Privacy Policy</a>.</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-left>
+          <button ion-button class="no-background-button" (click)="cancel()">Cancel</button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button class="red-background-button" (click)="createMember()">Connect</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

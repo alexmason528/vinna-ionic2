@@ -1,0 +1,142 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-buttons *ngIf="account" start>
+      <button tappable ion-button icon-only (click)="openProfileMenu()">
+        <ion-icon name="menu" color="vinnared"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid *ngIf="profileView=='member'">
+    <ion-row class="padding" text-center *ngIf="account">
+      <ion-col>
+        <img class="red-border" [src]="account.profile_photo_url">
+<!--        <ion-label class="name">{{account.first_name}} {{account.last_name}}</ion-label>
+-->
+      </ion-col>
+    </ion-row>
+    <ion-row text-center>
+      <ion-col>
+        <button tappable class="red-background-button" (click)="connectMember()" ion-button> Connect a New Member </button><br/>
+      </ion-col>
+      <ion-col col-12 *ngIf="!verified">
+        <button tappable class="white-background-button" (click)="verify()" ion-button>Verify Email / Phone</button><br/>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="padding">
+      <ion-col>
+        <ion-item>
+          <ion-label class="category">Total earned</ion-label>
+          <ion-label text-right *ngIf="purchaseInfo">{{purchaseInfo.total_earned | currency:'USD':true:'1.2-2'}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label class="category">Next payment</ion-label>
+          <ion-label text-right *ngIf="purchaseInfo">{{purchaseInfo.next_payment | currency:'USD':true:'1.2-2'}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label class="category">Payday</ion-label>
+          <ion-label text-right *ngIf="purchaseInfo">{{purchaseInfo.payday | date: 'yMMMMd'}}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>    
+  </ion-grid>
+
+  <ion-grid *ngIf="profileView=='partner'">
+    <ion-row class="padding" text-center *ngIf="profile">
+      <ion-col>
+        <img class="red-border" [src]="profile.picture1" *ngIf="profile.picture1">
+        <ion-label class="name">{{ profile.text }}</ion-label>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row text-center>
+      <ion-col col-12>
+        <button tappable ion-button class="red-background-button" (click)="registerSale()">Register a Sale</button>
+      </ion-col>
+      <ion-col col-12>
+        <button tappable ion-button class="white-background-button" (click)="partnerMakeAnnouncement()">Make Announcement</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="padding" *ngIf="profile">
+      <ion-col>
+        <ion-item>
+          <ion-label class="category">Total earned</ion-label>
+          <ion-label text-right>{{0.00 | currency:'USD':true:'1.2-2'}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label class="category">Sales</ion-label>
+          <ion-label text-right>0</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label class="category">Customers</ion-label>
+          <ion-label text-right>0</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label class="category">Next withdrawl</ion-label>
+          <ion-label text-right>{{0.00 | currency:'USD':true:'1.2-2'}}</ion-label>
+        </ion-item>
+        <!-- TODO - Ken review note for later implementation.
+        <ion-item>
+          <ion-label class="category">Withdrawl day</ion-label>
+          <ion-label text-right>$0.00</ion-label>
+        </ion-item>
+        -->
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-grid *ngIf="profileView=='cashier'">
+    <ion-row class="padding" text-center *ngIf="profile">
+      <ion-col>
+        <img class="red-border" [src]="profile.picture1" *ngIf="profile.picture1">
+        <ion-label>{{ profile.text }}</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row text-center>
+      <ion-col col-12>
+        <button tappable ion-button class="red-background-button" (click)="registerSale()">Register a Sale</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="padding" *ngIf="profile">
+      <ion-col>
+
+        <ion-item>
+          <ion-label class="category">Sales</ion-label>
+          <ion-label text-right>{{0.00 | currency:'USD':true:'1.2-2'}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label class="category">Customers</ion-label>
+          <ion-label text-right>0</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label class="category">Next withdrawl</ion-label>
+          <ion-label text-right></ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row text-center>
+      <ion-col col-12 *ngIf="!verified">
+        <button tappable class="red-background-button" (click)="verify()" ion-button>Verify Email / Phone</button><br/>
+      </ion-col>
+      <ion-col col-12>
+        <button tappable ion-button class="white-background-button" (click)="registerSale()">Register a Sale</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

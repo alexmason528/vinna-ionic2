@@ -1,0 +1,15 @@
+page-landing {
+  .column{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+  }
+  .content{
+    font-size: 20px;
+  }
+  .blue{
+    color: blue;
+  }
+}

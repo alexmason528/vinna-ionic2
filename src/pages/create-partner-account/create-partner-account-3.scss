@@ -1,0 +1,122 @@
+page-create-partner-account-3 {
+  .grid {
+    padding: 18px 20px 0px 20px;
+
+    .row {
+      &.section-title {
+        .col {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .col {
+
+      .title {
+        font-size: 16px;
+        color: #666767;
+        margin-top: 10px;
+      }
+
+      textarea {
+        margin: 0px;
+        padding: 5px;
+        border: 1px solid #ddd;
+        width: 100%;
+        height: 100px;
+        resize: none;
+      }
+
+      .add-picture-button{
+        border: 1px solid #ddd;
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:before {
+          content: "";
+          display: block;
+          padding-top: 100%;  
+        }
+
+        .icon {
+          font-size: 40px;
+          font-weight: bold;
+        }
+
+        .partner-image {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+        }
+      }
+
+      .list {
+        margin-bottom: 0px;
+
+        .item {
+          font-size: 12px;
+          border: none;
+          margin: 0px 0px 5px 0px;
+          padding: 0px;
+          min-height: 2.5rem;
+
+          &:last-child {
+            margin-bottom: 0px;
+          }
+
+          .item-inner {
+            border: none;
+            padding-right: 0px;
+            text-align: right;
+            .label {
+              margin: 0px;
+            }
+          }
+
+          .checkbox {
+            margin: 8px 10px 8px 0px;
+
+            .checkbox-icon {
+              width: 12px;
+              height: 12px;
+              border-radius: 0px;
+
+              .checkbox-inner {
+                top: 0px;
+                left: 3px;
+                border-color: #333;
+              }
+            }
+
+            .checkbox-icon.checkbox-checked {
+              border-color: #c8c7cc;
+              background: #fff;
+            }
+          }
+
+          .datetime {
+            padding: 10px;
+            border: 1px solid #c8c7cc;
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .business-hours {
+      border-top: 1px solid #c8c7cc;
+      border-bottom: 1px solid #c8c7cc;
+
+      .row {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }  
+}
