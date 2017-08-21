@@ -28,6 +28,7 @@ import { CreatePartnerAccountPage } from '../pages/create-partner-account/create
 import { CreatePartnerAccount2Page } from '../pages/create-partner-account/create-partner-account-2';
 import { CreatePartnerAccount3Page } from '../pages/create-partner-account/create-partner-account-3';
 import { HomePage } from '../pages/home/home';
+import { HomePartnerMorePage } from '../pages/home/home-partner-more';
 import { LandingPage } from '../pages/landing/landing';
 import { LoginPage } from '../pages/login/login';
 import { LoginForgetPasswordPage } from '../pages/login/login-forget-password';
@@ -90,6 +91,7 @@ let pages = [
   CreatePartnerAccount2Page,
   CreatePartnerAccount3Page,
   HomePage,
+  HomePartnerMorePage,
   LandingPage,
   LoginPage,
   LoginForgetPasswordPage,
