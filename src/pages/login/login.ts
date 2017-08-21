@@ -35,7 +35,7 @@ export class LoginPage {
   }
 
   navPrevPage() {
-    this.navCtrl.push(HomePage);
+    this.navCtrl.pop();
   }
 
   navNextPage() {
