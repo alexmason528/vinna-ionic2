@@ -159,7 +159,8 @@ export function entryComponents() {
       platforms: {
           ios: {
             scrollAssist: false,
-            autoFocusAssist: false
+            autoFocusAssist: false,
+            statusbarPadding: false,
           }
       }
     }),
