@@ -28,13 +28,13 @@ export class RegisterSalePage {
   constructor(
     public alertCtrl: AlertController, 
     public api: Api,
-    public authProvider: AuthenticationProvider,
+    public authentication: AuthenticationProvider,
     public barcodeScanner: BarcodeScanner, 
     public loadingCtrl: LoadingController,
     public navCtrl: NavController, 
     public navParams: NavParams) {
 
-    this.profile = this.authProvider.getProfile();
+    this.profile = this.authentication.getProfile();
   }
 
   numpadClicked(number) {
@@ -91,7 +91,7 @@ export class RegisterSalePage {
         'cashier_account_id': this.profile.object.account_id
       };
 
-      let seq = this.api.post('api/purchase', saleInfo, this.authProvider.getRequestOptions());
+      let seq = this.api.post('api/purchase', saleInfo, this.authentication.getRequestOptions());
 
       seq
       .map(res => res.json())

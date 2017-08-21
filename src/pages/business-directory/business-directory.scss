@@ -1,24 +1,19 @@
 page-business-directory {
   .toolbar {
-    margin: 0px 3px !important;
+    margin: 0;
+    padding: 4px;
     .toolbar-background {
       border-width: 0px !important;
     }
   }
   
   .searchbar {
+    min-height: 0;
     .searchbar-input-container {
-      margin: 0px 8px 1px 8px;
-
-      .searchbar-search-icon {
-        top: 13px;
-      }
-
       .searchbar-input {
         background: none !important;
         border: 1px solid #ddd;
         border-radius: 0px;
-        height: 3.8rem;
 
         &::-webkit-input-placeholder {
           color: #ddd;
@@ -29,16 +24,12 @@ page-business-directory {
 
   .card {
     position: relative;
-    margin: 10px 0 0px 0;
     width: 100%;
     box-shadow: none;
     border-radius: 0px;
     padding-bottom:5px;
     border-bottom: 0px;
-
-    &:last-child {
-      margin-bottom: 0px;
-    }
+    margin: 0 0 10px 0;
 
     .image-wrapper {
       height: 56vw;

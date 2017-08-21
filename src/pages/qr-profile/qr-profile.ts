@@ -20,17 +20,17 @@ export class QrProfilePage {
   account: any;
 
   constructor(
-    public authProvider: AuthenticationProvider,
+    public authentication: AuthenticationProvider,
     public navCtrl: NavController, 
     public navParams: NavParams) {
-    this.authProvider.updates().subscribe(data => {
+    this.authentication.updates().subscribe(data => {
       if (data) {
-        const auth = this.authProvider.getAuthorization();
+        const auth = this.authentication.getAuthorization();
         this.account = auth.account;
       }
     });
 
-    const auth = this.authProvider.getAuthorization();
+    const auth = this.authentication.getAuthorization();
     this.account = auth.account;
   }
 

@@ -32,9 +32,9 @@ export class VerificationPage {
     public api: Api,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    public authProvider: AuthenticationProvider) {
+    public authentication: AuthenticationProvider) {
 
-    const auth = this.authProvider.getAuthorization();
+    const auth = this.authentication.getAuthorization();
     this.account = auth.account;
 
     this.emailForm = formBuilder.group({
@@ -55,7 +55,7 @@ export class VerificationPage {
   }
 
   verify(type) {
-    let auth = this.authProvider.getAuthorization();
+    let auth = this.authentication.getAuthorization();
     let loading = this.loadingCtrl.create({
       spinner: 'ios'
     });
@@ -65,19 +65,19 @@ export class VerificationPage {
     let seq;
 
     if (type == 'email')
-      seq = this.api.post('api/account/' + this.account.id + '/verify_email', this.emailForm.value, this.authProvider.getRequestOptions());
+      seq = this.api.post('api/account/' + this.account.id + '/verify_email', this.emailForm.value, this.authentication.getRequestOptions());
     else if(type == 'phone')
-      seq = this.api.post('api/account/' + this.account.id + '/verify_phone', this.phoneForm.value, this.authProvider.getRequestOptions());
+      seq = this.api.post('api/account/' + this.account.id + '/verify_phone', this.phoneForm.value, this.authentication.getRequestOptions());
 
     seq
       .map(res => res.json())
       .subscribe(res => {
         if (res == 'new_email_verified') {
           auth.user.username = auth.account.new_email;
-          this.authProvider.saveAuthorization(auth);
+          this.authentication.saveAuthorization(auth);
         }
         
-        this.authProvider.reAuthenticate(res => {
+        this.authentication.reAuthenticate(res => {
           loading.dismiss();
           this.account = res.account;
           this.alertCtrl.create({
@@ -113,9 +113,9 @@ export class VerificationPage {
     let seq;
     
     if (type == 'email')
-      seq = this.api.get('api/account/' + this.account.id + '/send_email_code', {}, this.authProvider.getRequestOptions());
+      seq = this.api.get('api/account/' + this.account.id + '/send_email_code', {}, this.authentication.getRequestOptions());
     else if (type == 'phone')
-      seq = this.api.get('api/account/' + this.account.id + '/send_phone_code', {}, this.authProvider.getRequestOptions());
+      seq = this.api.get('api/account/' + this.account.id + '/send_phone_code', {}, this.authentication.getRequestOptions());
 
     seq
       .map(res => res.json())

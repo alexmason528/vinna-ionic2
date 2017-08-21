@@ -49,9 +49,9 @@ export class ProfilePage {
     public alertCtrl: AlertController,
     public socialSharing:SocialSharing, 
     public api: Api, 
-    public authProvider: AuthenticationProvider) {
+    public authentication: AuthenticationProvider) {
 
-    const auth = this.authProvider.getAuthorization();
+    const auth = this.authentication.getAuthorization();
     
     this.account = auth.account;
     this.member = auth.member;
@@ -59,12 +59,12 @@ export class ProfilePage {
     this.verified = this.account.email_verified && this.account.phone_verified;
 
     this.doProfile();
-    this.authProvider.updates().subscribe(data => {
+    this.authentication.updates().subscribe(data => {
        this.doProfile();
     });
 
     let loader = this.loadingCtrl.create({ spinner: 'ios'});
-    let seq = this.api.get(`api/account/${this.account.id}/purchase_info`, {}, this.authProvider.getRequestOptions());
+    let seq = this.api.get(`api/account/${this.account.id}/purchase_info`, {}, this.authentication.getRequestOptions());
 
     loader.present();
 
@@ -81,7 +81,7 @@ export class ProfilePage {
   }
 
   ionViewWillEnter() {
-    this.authProvider.verifyToken();
+    this.authentication.verifyToken();
     this.doProfile();
   }
 
@@ -107,9 +107,9 @@ export class ProfilePage {
   }
 
   doProfile() {
-    let profile = this.authProvider.getProfile();
+    let profile = this.authentication.getProfile();
 
-    const auth = this.authProvider.getAuthorization();
+    const auth = this.authentication.getAuthorization();
 
     if (auth) {
       this.account = auth.account;

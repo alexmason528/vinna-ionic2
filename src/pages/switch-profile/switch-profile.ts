@@ -29,13 +29,13 @@ export class SwitchProfilePage {
 
   constructor(
     public api: Api,
-    public authProvider: AuthenticationProvider,
+    public authentication: AuthenticationProvider,
     public navCtrl: NavController, 
     public navParams: NavParams,
     public viewCtrl: ViewController) {
 
-    const auth = this.authProvider.getAuthorization();
-    this.profile = this.authProvider.getProfile();
+    const auth = this.authentication.getAuthorization();
+    this.profile = this.authentication.getProfile();
     
     if (!this.profile) {
       const profile = {
@@ -55,7 +55,7 @@ export class SwitchProfilePage {
   }
 
   navToSettings() {
-    this.profile = this.authProvider.getProfile();
+    this.profile = this.authentication.getProfile();
 
     if (this.profile.type == 'member') {
       this.navCtrl.push(MemberSettingsPage);
@@ -81,7 +81,7 @@ export class SwitchProfilePage {
 
     this.profile = profile;
 
-    this.authProvider.saveProfile(profile);
+    this.authentication.saveProfile(profile);
 
     this.navCtrl.popToRoot();
   }

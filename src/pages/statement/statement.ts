@@ -21,7 +21,7 @@ export class StatementPage {
 
   constructor(
     public navCtrl: NavController, 
-    public authProvider: AuthenticationProvider,
+    public authentication: AuthenticationProvider,
     public transactionProvider: TransactionProvider) {
 
     this.transactionProvider.updates().subscribe(data => {
@@ -37,9 +37,9 @@ export class StatementPage {
   }
 
   doProfile() {
-    let profile = this.authProvider.getProfile();
+    let profile = this.authentication.getProfile();
 
-    const auth = this.authProvider.getAuthorization();
+    const auth = this.authentication.getAuthorization();
 
     this.profileView ='member';
 

@@ -48,9 +48,9 @@ export class ProfileMenuPage {
     public alertCtrl: AlertController,
     public socialSharing:SocialSharing, 
     public api: Api, 
-    public authProvider: AuthenticationProvider) {
+    public authentication: AuthenticationProvider) {
 
-    const auth = this.authProvider.getAuthorization();
+    const auth = this.authentication.getAuthorization();
     
     this.account = auth.account;
     this.member = auth.member;
@@ -120,7 +120,7 @@ export class ProfileMenuPage {
         {
           text: 'Logout',
           handler: () => {
-            this.authProvider.logOut();
+            this.authentication.logOut();
             this.app.getRootNav().setRoot(HomePage).then(() => {
               this.app.getRootNav().popToRoot();
             });
@@ -155,9 +155,9 @@ export class ProfileMenuPage {
   }
 
   doProfile() {
-    let profile = this.authProvider.getProfile();
+    let profile = this.authentication.getProfile();
 
-    const auth = this.authProvider.getAuthorization();
+    const auth = this.authentication.getAuthorization();
 
     if (auth) {
       this.account = auth.account;

@@ -1,18 +1,19 @@
 page-notification {
-
+  .toolbar {
+    margin: 0;
+    padding: 4px;
+    .toolbar-background {
+      border-width: 0px !important;
+    }
+  }
+  
   .searchbar {
+    min-height: 0;
     .searchbar-input-container {
-      margin: 0px 8px 1px 8px;
-
-      .searchbar-search-icon {
-        top: 13px;
-      }
-
       .searchbar-input {
         background: none !important;
         border: 1px solid #ddd;
         border-radius: 0px;
-        height: 3.8rem;
 
         &::-webkit-input-placeholder {
           color: #ddd;
@@ -22,16 +23,16 @@ page-notification {
   }
   
   .card {
-    margin: 15px 0 0px 0;
+    margin: 0;
     width: 100%;
     box-shadow: none;
     border-radius: 0p;
     padding-bottom:10px;
-    border-bottom: 7px solid map-get($colors, vinnalightgrey);
     
-    &:last-child {
-      margin-bottom: 0;
-      border-bottom-width: 0px;
+
+    &:not(:last-child) {
+      margin: 0 0 15px 0;
+      border-bottom: 7px solid map-get($colors, vinnalightgrey);
     }
 
     .image {
