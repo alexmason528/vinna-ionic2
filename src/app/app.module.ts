@@ -173,6 +173,7 @@ export function entryComponents() {
   entryComponents: entryComponents(),
   providers: [
     Api,
+    BarcodeScanner,
     Camera,
     GoogleMaps,
     SocialSharing,
