@@ -36,7 +36,11 @@
         "angular2-text-mask": "^8.0.3",
         "com.telerik.plugins.nativepagetransitions": "^0.6.5",
         "cordova-android": "^6.2.3",
+        "cordova-android-support-gradle-release": "0.0.2",
+        "cordova-browser": "^4.1.0",
         "cordova-ios": "^4.4.0",
+        "cordova-plugin-app-version": "^0.1.9",
+        "cordova-plugin-camera": "^2.4.1",
         "cordova-plugin-compat": "^1.1.0",
         "cordova-plugin-console": "^1.0.5",
         "cordova-plugin-device": "^1.1.4",
@@ -65,7 +69,9 @@
         "plugins": {
             "cordova-sqlite-storage": {},
             "cordova-plugin-stripe": {},
-            "phonegap-plugin-barcodescanner": {},
+            "phonegap-plugin-barcodescanner": {
+                "CAMERA_USAGE_DESCRIPTION": " "
+            },
             "cordova-plugin-x-socialsharing": {},
             "cordova-plugin-console": {},
             "cordova-plugin-device": {},
@@ -74,10 +80,17 @@
             "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {},
             "cordova-plugin-wkwebview-engine": {},
-            "com.telerik.plugins.nativepagetransitions": {}
+            "com.telerik.plugins.nativepagetransitions": {},
+            "cordova-android-support-gradle-release": {},
+            "cordova-plugin-app-version": {},
+            "cordova-plugin-camera": {
+                "CAMERA_USAGE_DESCRIPTION": " ",
+                "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
+            }
         },
         "platforms": [
             "android",
+            "browser",
             "ios"
         ]
     }
