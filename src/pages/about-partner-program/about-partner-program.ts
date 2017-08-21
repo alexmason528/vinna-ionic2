@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { CreatePartnerAccountPage } from '../create-partner-account/create-partner-account';
 import { BusinessProfilePage } from '../business-profile/business-profile';
@@ -11,7 +11,6 @@ import { BusinessProfilePage } from '../business-profile/business-profile';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-about-partner-program',
   templateUrl: 'about-partner-program.html',
