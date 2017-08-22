@@ -84,6 +84,7 @@ export function HttpLoaderFactory(http: Http) {
 
 let pages = [
   MyApp,
+  AccountRegistrationPage,
   AccountRegistrationConfirmPage,
   BusinessDirectoryPage,
   BusinessProfilePage,
