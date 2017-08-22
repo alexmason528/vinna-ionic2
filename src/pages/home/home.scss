@@ -7,10 +7,36 @@ page-home{
     margin: 0;
 
     .row {
-      &.logo-row {
-        height: 17vh;
-        margin: 2vh 10px 0 0;
+      &.logo-row {        
         text-align: right;
+
+        img {
+          height:10.5vw;
+          margin:2.5vw;
+        }
+      }
+
+      .name {
+        white-space: nowrap;
+        font-weight: 600;
+        color: #fff;
+
+        position: relative;
+        font-size: 10vw;
+        font-family: 'Helvetica LT Condensed Bold';
+        bottom:-1vw;
+      }
+
+      .more_back {
+        color: #fff;
+        font-size:8vw;
+        position: relative;
+        bottom:-3.5vw;
+        
+        .icon {
+          color: #fff;
+        }
+
       }
 
       .learn_more {
@@ -23,7 +49,7 @@ page-home{
 
       &.slide-row {
         height: 72vh;
-        padding: 0 10px;
+        padding: 8vw 10px;
 
         .slide-zoom {
           height: 100%;
@@ -32,22 +58,10 @@ page-home{
 
         .name {
           /*text-transform: uppercase;*/
-          white-space: nowrap;
-          font-size: 40px;
-          font-family: 'Helvetica LT Condensed Bold';
-          font-weight: 600;
-          line-height: 0.9;
-          color: #fff;
         }
 
         .more_back {
-          color: #fff;
-          line-height: 0.7;
-          font-size:26px;
-          
-          .icon {
-            color: #fff;
-          }
+
         }
 
         .group {  
@@ -56,22 +70,17 @@ page-home{
           align-items: flex-start;
           border-bottom: 1px solid map-get($colors, vinnawhite);
           width: 100%;
-          height: 4.5vh;
 
           .name {
             position: relative;
-            top:-7px;
-            font-size: 42px;          
           }
 
           .more_back {
-            top:8px;
-            position:absolute;                
           }
         }        
 
         .home-grid {
-          height: 70%;
+          height: 77%;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -86,11 +95,11 @@ page-home{
             text-align: left;
 
             .name {
-              left:-3px;
+              left:0;
             }
 
             .more_back {
-              right:0.8vh;
+              right:0;
             }
           }        
         }
@@ -103,9 +112,6 @@ page-home{
             text-align: right;
 
             .name {
-              position: absolute;
-              right:4px;
-              top:-2px;
             }
 
             .more_back {
@@ -133,7 +139,6 @@ page-home{
       }
 
       &.phone-row {
-        height: 145px;
 
         .col {
           display: flex;
@@ -142,37 +147,35 @@ page-home{
           padding: 0;
 
           div.bottom {
-            height:35px;
+            height:9vh;
             background-color: black;
           }
 
           div.wrap {
-            height:110px;
-            padding: 9px 15px;
+            height:15vh;
+            padding: 0.5vh 15px;
             background: map-get($colors, vinnawhite);
             width:100%;
 
             div.message {
-              height:35px;
+              height:9vw;
               font-family: 'Open Sans Light';
-              font-size:18px;
+              font-size:4.3vw;
               color: map-get($colors, vinnamiddarkgrey);
-              margin-top:2px;
-              padding:0px 0 4px 0;
+              margin-top:1vw;
 
             }
 
             div.input {
               border-top:1px solid map-get($colors, vinnamidgrey);
-              padding-top:10px;
+              padding-top:3vw;
 
-              height:50px; /* GOOD */
 
               display: flex;
               justify-content: flex-start;
               align-items: center;
 
-              font-size:14px;
+              font-size:4vw;
 
               input {
                 /* padding-top:.5vh; */
@@ -182,8 +185,8 @@ page-home{
               }
 
               img {
-                height: 33px;
-                margin-right: 12px;
+                height: 9vw;
+                margin-right: 2vw;
               }
             }
           }

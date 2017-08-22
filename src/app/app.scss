@@ -19,7 +19,7 @@
   color: map-get($colors, vinnadarkgrey);
   /* font-weight: 400; */
   font-family: 'Open Sans Light';
-  font-size:15px;
+  font-size:3.8vw;
 }
 
 a {
@@ -33,7 +33,7 @@ div.header {
 }
 
 input {
-  font-size:15px;
+  font-size:3.8vw;
   border-radius: 0px;
   box-shadow: none;
   border: 1px solid map-get($colors, vinnalightgrey);
@@ -119,11 +119,9 @@ button {
   border:none !important;
   box-shadow:none !important;
 
-
-
-
   &.activated {
     background: none !important;
+    border:1px solid map-get($colors, vinnared);
   }
 
   &.no-background-button {
@@ -135,21 +133,21 @@ button {
 
   &.vinna-button {
     border-radius: 7px !important;
-    font-size: 16px !important;
+    font-size: 5vw !important;
     font-family: 'Open Sans' !important;
     text-transform: none !important;
     color:#ffffff !important;
   }
 
   &.red-background-button {
-    height:51px !important;
+    height:7vh !important;
     border-radius: 7px !important;
-    font-size: 16px !important;
+    font-size: 5vw !important;
     font-family: 'Open Sans' !important;
     text-transform: none !important;
     color:#ffffff !important;
 
-    min-width: 145px !important;
+    min-width: 34.5vw !important;
     background-color: map-get($colors, vinnared);
 
     .button-inner {
@@ -158,9 +156,9 @@ button {
   }
 
   &.white-background-button {
-    height:51px !important;
+    height:7vh !important;
     border-radius: 7px !important;
-    font-size: 16px !important;
+    font-size: 5vw !important;
     font-family: 'Open Sans' !important;
     text-transform: none !important;
     color:#ffffff !important;

@@ -9,8 +9,23 @@
     <ion-row>
       <ion-col>
         <ion-slides #memberRegistration>
-          <ion-slide>
 
+          <ion-slide>
+            <form *ngIf="emailForm" [formGroup]="emailForm">
+              <ion-grid>
+                <ion-row text-left>
+                  <ion-col col-12>
+                    <div class="header">Enter your Email</div>
+                  </ion-col>
+                  <ion-col col-12>
+                    <ion-input type="email" placeholder="name@example.com" formControlName="email" clearInput></ion-input>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </form>
+          </ion-slide>
+
+          <ion-slide>
             <form *ngIf="nameForm" [formGroup]="nameForm">
               <ion-grid ion-fixed>
                 <ion-row text-left>
@@ -29,20 +44,6 @@
 
           </ion-slide>
 
-          <ion-slide>
-            <form *ngIf="emailForm" [formGroup]="emailForm">
-              <ion-grid>
-                <ion-row text-left>
-                  <ion-col col-12>
-                    <div class="header">Enter your Email</div>
-                  </ion-col>
-                  <ion-col col-12>
-                    <ion-input type="email" placeholder="name@example.com" formControlName="email" clearInput></ion-input>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-            </form>
-          </ion-slide>
 
           <ion-slide>
             <form *ngIf="passwordForm" [formGroup]="passwordForm">
