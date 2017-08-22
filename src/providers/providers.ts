@@ -6,10 +6,10 @@ import { NotificationProvider } from './notification';
 import { TransactionProvider } from './transaction';
 
 export {
-Api,
-AuthenticationProvider,
-DirectoryProvider,
-FormHelperProvider,
-NotificationProvider,
-TransactionProvider,
+  Api,
+  AuthenticationProvider,
+  DirectoryProvider,
+  FormHelperProvider,
+  NotificationProvider,
+  TransactionProvider,
 };
