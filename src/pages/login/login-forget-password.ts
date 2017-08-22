@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { AlertController, IonicPage, NavController, NavParams, ModalController, Slides } from 'ionic-angular';
+import { App, AlertController, IonicPage, NavController, NavParams, ModalController, Slides, LoadingController } from 'ionic-angular';
 
 import { AccountRegistrationPage } from '../account-registration/account-registration';
 import { LoginPage } from './login';
@@ -38,11 +38,14 @@ export class LoginForgetPasswordPage {
   constructor(
     public alertCtrl: AlertController,
     public authentication: AuthenticationProvider,
+    public app: App, 
     public api: Api,
     public formBuilder: FormBuilder,
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    public loadingCtrl: LoadingController
+    ) {
 
     this.resetCodeForm = this.formBuilder.group({
       reset_code : ['', Validators.required],
@@ -139,14 +142,37 @@ export class LoginForgetPasswordPage {
       }).present();
     } else {
       if (currentIndex == 1) {
+        let loading = this.loadingCtrl.create({ spinner: 'ios' }); 
+        loading.present();
+
         let seq = this.api.post('api/core/reset_password', {phone: this.phone, password: this.passwordForm.value['password']});
 
         seq
         .map(res => res.json())
         .subscribe(res => {
-          let confirmModal = this.modalCtrl.create(LoginPasswordChangeSuccessPage, {phone: this.phone, password: this.passwordForm.value['password'], showBackdrop: true});
-          confirmModal.present();
+          this.authentication.logIn({'username': this.phone, 'password': this.passwordForm.value['password']}, 
+              (res) => {
+                loading.dismiss();
+                this.app.getRootNav().setRoot(TabsAccountPage);
+              }, 
+              (err) => {
+                loading.dismiss();
+
+                if(err.status == 400) {
+                  this.alertCtrl.create({
+                    message: 'Invalid Phone Number or Password',
+                    buttons: ['Okay']
+                  }).present();
+                } else {
+                  this.alertCtrl.create({
+                    message: 'Error. ' + err,
+                    buttons: ['Okay']
+                  }).present();        
+                }
+              });
         }, err => {
+          loading.dismiss();
+    
           this.alertCtrl.create({
             message: 'Failed to reset your password. Please try again later',
             buttons: ['Okay']

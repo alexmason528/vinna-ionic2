@@ -26,6 +26,9 @@ export class BusinessProfilePage {
     public navParams: NavParams) {
     this.media = "videos";    
     this.partner = this.navParams.get('partner');
+
+    if (!this.partner) this.navCtrl.pop();
+
     this.ratings.push({
       value: 1,
       icon: 'star-outline'
