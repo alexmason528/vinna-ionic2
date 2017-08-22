@@ -41,7 +41,7 @@ export class QrProfilePage {
     seq
     .map(res => res.json())
     .subscribe(res => {
-      console.log(res);
+      
     }, err => {
       console.log(err);
     });

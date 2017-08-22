@@ -1,4 +1,10 @@
 page-about-partner-program {
-  background-color: map-get($colors, vinnablack);
-  color: map-get($colors, vinnawhite);
+  .grid {
+    color: map-get($colors, vinnawhite);
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }
