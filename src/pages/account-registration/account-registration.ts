@@ -63,7 +63,7 @@ export class AccountRegistrationPage {
       profile_photo: ['', Validators.required]
     });
 
-    this.forms = [this.nameForm, this.emailForm, this.passwordForm, this.bioForm, this.photoForm];
+    this.forms = [this.emailForm, this.nameForm, this.passwordForm, this.bioForm, this.photoForm];
 
     let today = new Date();
 
@@ -156,18 +156,22 @@ export class AccountRegistrationPage {
 
     switch (currentIndex) {
       case 0:
-        if (form.get('first_name').hasError('required')) 
-          error_message = 'Please input your first name';
-        else if (form.get('last_name').hasError('required'))
-          error_message = 'Please input your last name';
-        break;
-
-      case 1:
         if (form.get('email').hasError('required'))
           error_message = 'Please input your email';
         else if (form.get('email').hasError('email'))
           error_message = 'Please input valid email';
+
+        let email_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        if (!this.emailForm.value['email'].match(email_regex))
+          error_message = 'Please check your email again';
         break;
+
+      case 1:
+        if (form.get('first_name').hasError('required')) 
+          error_message = 'Please input your first name';
+        else if (form.get('last_name').hasError('required'))
+          error_message = 'Please input your last name';
+        break;        
 
       case 2:
         if (form.get('password').hasError('required'))
@@ -175,7 +179,7 @@ export class AccountRegistrationPage {
         else if (form.get('password_confirm').hasError('required'))
           error_message = 'Please input confirm password';
         else if (form.value['password'] != form.value['password_confirm'])
-          error_message = 'Passwords do not match.';
+          error_message = 'Passwords do not match';
         break;
 
       case 3:
@@ -189,6 +193,7 @@ export class AccountRegistrationPage {
         if (form.get('profile_photo').hasError('required'))
           error_message = 'Please add your profile photo';
         
+        // Used for setting profile image for browser-based testing.
         if (this.platform.is('core') || this.platform.is('mobileweb')) {
           this.photoForm.value['profile_photo'] = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX/TQBcNTh/AAAAAXRSTlPM0jRW/QAAAApJREFUeJxjYgAAAAYAAzY3fKgAAAAASUVORK5CYII=";
           error_message = '';
