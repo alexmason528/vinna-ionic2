@@ -16,6 +16,7 @@ npm-debug.log*
 .sass-cache/
 .tmp/
 .versions/
+.sourcemaps/
 coverage/
 dist/
 node_modules/
@@ -27,6 +28,8 @@ plugins/
 plugins/android.json
 plugins/ios.json
 www/
+resources/ios
+resources/android
 $RECYCLE.BIN/
 
 .DS_Store

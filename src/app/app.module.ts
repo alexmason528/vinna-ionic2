@@ -33,6 +33,7 @@ import { TabsAccountPage } from '../pages/tabs/tabs-account';
 import { CompleteMemberAccountPage } from '../pages/complete-member-account/complete-member-account';
 import { CompleteMemberAccount2Page } from '../pages/complete-member-account/complete-member-account-2';
 
+import { AboutPartnerProgramPage } from '../pages/about-partner-program/about-partner-program';
 import { BusinessDirectoryPage } from '../pages/business-directory/business-directory';
 import { BusinessProfilePage } from '../pages/business-profile/business-profile';
 
@@ -84,6 +85,7 @@ export function HttpLoaderFactory(http: Http) {
 
 let pages = [
   MyApp,
+  AboutPartnerProgramPage,
   AccountRegistrationPage,
   AccountRegistrationConfirmPage,
   BusinessDirectoryPage,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController, IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
+import { AlertController, LoadingController, NavController, NavParams } from 'ionic-angular';
 
 import { WelcomeMemberPage } from '../welcome-member/welcome-member';
 
@@ -12,7 +12,6 @@ import { Api, AuthenticationProvider } from '../../providers/providers';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-account-registration-confirm',
   templateUrl: 'account-registration-confirm.html',

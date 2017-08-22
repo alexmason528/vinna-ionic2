@@ -13,7 +13,6 @@ import { LoginPage } from '../login/login';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-account-registration',
   templateUrl: 'account-registration.html',

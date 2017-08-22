@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { AuthenticationProvider } from '../../providers/providers';
 
 /**
@@ -9,7 +9,6 @@ import { AuthenticationProvider } from '../../providers/providers';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-business-profile',
   templateUrl: 'business-profile.html',
@@ -17,6 +16,7 @@ import { AuthenticationProvider } from '../../providers/providers';
 export class BusinessProfilePage {
   media;
   partner;
+  partner_phone_formatted: any;
   ratings: Array<{ value: number, icon: string }> = [];
   tab;
 
@@ -28,6 +28,9 @@ export class BusinessProfilePage {
     this.partner = this.navParams.get('partner');
 
     if (!this.partner) this.navCtrl.pop();
+
+    let number = '(' + this.partner.phone.slice(0,3) + ') ' + this.partner.phone.slice(3,6) + '-' + this.partner.phone.slice(6);
+    this.partner_phone_formatted = '+1 ' + number;
 
     this.ratings.push({
       value: 1,

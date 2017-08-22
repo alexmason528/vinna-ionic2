@@ -19,10 +19,12 @@
               </ion-card-title>
               <p> {{ partner.category.text }}</p>
             </div>
+            <!--
             <div class="rating">
               <ion-icon *ngFor="let star of ratings" class="rating" [name]="star.icon" (click)="rate(star.value)"></ion-icon>
               <span class="counter">(25)</span>
             </div>
+            -->
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -103,10 +105,18 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        Phone Number: <a href='tel://{{ partner.phone }}'>{{ partner.phone }}</a>
-        <br>
+        <div>
+        Phone Number: <a href='tel://{{ partner.phone }}'>{{ partner_phone_formatted }}</a>
+        </div>
+        <div>
         Email: <a href='mailto://{{ partner.email }}'>{{ partner.email }}</a>
+        </div>
       </ion-col>
     </ion-row>    
+    <ion-row>
+      <ion-col>
+        <br><br>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>

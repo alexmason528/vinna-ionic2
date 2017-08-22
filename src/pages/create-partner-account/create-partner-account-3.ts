@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Stripe } from '@ionic-native/stripe';
 
-import { AlertController, ActionSheetController, IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
+import { AlertController, ActionSheetController, LoadingController, NavController, NavParams } from 'ionic-angular';
 
 import { WelcomeToPartnerPage } from '../welcome-to-partner/welcome-to-partner';
 
@@ -16,7 +16,6 @@ import { Api, AuthenticationProvider, DirectoryProvider, FormHelperProvider } fr
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-create-partner-account-3',
   templateUrl: 'create-partner-account-3.html',

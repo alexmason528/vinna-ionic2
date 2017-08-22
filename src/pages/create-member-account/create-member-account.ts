@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, NavController, NavParams } from 'ionic-angular';
 
 import { CreateMemberAccount2Page } from './create-member-account-2';
 import { FormHelperProvider } from '../../providers/providers';
@@ -13,7 +13,6 @@ import { FormHelperProvider } from '../../providers/providers';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-create-member-account',
   templateUrl: 'create-member-account.html',

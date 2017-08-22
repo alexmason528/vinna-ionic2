@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { ActionSheetController, AlertController, IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
+import { ActionSheetController, AlertController, LoadingController, NavController, NavParams } from 'ionic-angular';
 
 import { Api, AuthenticationProvider } from '../../providers/providers';
 
@@ -12,7 +12,6 @@ import { Api, AuthenticationProvider } from '../../providers/providers';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-partner-settings',
   templateUrl: 'partner-settings-pictures.html',

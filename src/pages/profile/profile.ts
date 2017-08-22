@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController, App, IonicPage, LoadingController, ModalController, NavController, NavParams } from 'ionic-angular';
+import { AlertController, App, LoadingController, ModalController, NavController, NavParams } from 'ionic-angular';
 
 import { SocialSharing } from '@ionic-native/social-sharing';
 
@@ -24,7 +24,6 @@ import { Api, AuthenticationProvider } from '../../providers/providers';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html',

@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { App, AlertController, IonicPage, NavController, NavParams, ModalController, Slides, LoadingController } from 'ionic-angular';
+import { App, AlertController, NavController, NavParams, ModalController, Slides, LoadingController } from 'ionic-angular';
 
 import { AccountRegistrationPage } from '../account-registration/account-registration';
 import { LoginPage } from './login';
@@ -18,7 +18,6 @@ import { Api, AuthenticationProvider } from '../../providers/providers';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-login-forget-password',
   templateUrl: 'login-forget-password.html',

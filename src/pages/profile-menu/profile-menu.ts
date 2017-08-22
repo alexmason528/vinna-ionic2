@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { App, IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
+import { App, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 
 import { SocialSharing } from '@ionic-native/social-sharing';
 
@@ -13,6 +13,7 @@ import { PartnerSettingsCashiersPage } from '../partner-settings/partner-setting
 import { RegisterSalePage } from '../register-sale/register-sale';
 import { SwitchProfilePage } from "../switch-profile/switch-profile";
 import { VerificationPage } from '../verification/verification';
+import { AboutPartnerProgramPage } from '../about-partner-program/about-partner-program';
 
 import { Api, AuthenticationProvider } from '../../providers/providers';
 
@@ -24,7 +25,6 @@ import { Api, AuthenticationProvider } from '../../providers/providers';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-profile-menu',
   templateUrl: 'profile-menu.html',
@@ -140,6 +140,10 @@ export class ProfileMenuPage {
 
   goPartnerProgram() {
     this.navCtrl.push(CreatePartnerAccountPage);
+  }
+
+  goAboutPartnerProgram() {
+    this.navCtrl.push(AboutPartnerProgramPage);
   }
 
   goPartnerSettings() {

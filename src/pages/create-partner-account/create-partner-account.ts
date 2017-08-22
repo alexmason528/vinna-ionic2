@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, NavController, NavParams } from 'ionic-angular';
 
 import { CreatePartnerAccount2Page } from './create-partner-account-2';
 import { Api, AuthenticationProvider, FormHelperProvider } from '../../providers/providers';
@@ -13,7 +13,6 @@ import { Api, AuthenticationProvider, FormHelperProvider } from '../../providers
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-create-partner-account',
   templateUrl: 'create-partner-account.html',
