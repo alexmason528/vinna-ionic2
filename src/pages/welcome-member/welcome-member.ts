@@ -20,9 +20,9 @@ export class WelcomeMemberPage {
 
   constructor(
     public app: App, 
+    public authentication: AuthenticationProvider,
     public navCtrl: NavController, 
-    public navParams: NavParams,
-    public authentication: AuthenticationProvider) {
+    public navParams: NavParams) {
 
     let auth = authentication.getAuthorization();
     this.account = auth.account;

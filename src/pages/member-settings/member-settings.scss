@@ -1,3 +1,73 @@
 page-member-settings {
 
+  .profilePicture {
+    width: 200px;
+    height: 200px;
+    border-color: map-get($colors, vinnared);
+  }
+
+  .input {
+    border: 1px solid #ddd;
+    width: calc(100%);
+    padding: 8px;
+
+    .text-input {
+      margin: 0px;
+      width: calc(100%);
+    }
+  }
+
+  input {
+    border: 1px solid #ddd;
+    width: calc(100%);
+    padding: 8px;
+    margin-bottom: 15px;
+  }
+
+  .list {
+    margin: 0px;
+
+    .item {
+      margin: 0px 0px 3px 0px;
+      padding: 0px;
+      font-size:inherit;
+      border-width: 0px;
+
+      .select {
+        max-width: none;
+        border: 1px solid #ddd;
+        padding: 8px;
+        width: 100%;
+      }
+
+      .label {
+        margin: 0px;
+        font-size: 15px;
+        border-bottom-width: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+
+      &:last-child {
+        border-bottom-width: 0px !important;
+      }
+
+      &:first-child {
+        border-top-width: 0px !important;
+      }
+
+      .item-inner {
+        padding-right: 0px;
+        border-bottom: 0px;
+      }
+    }
+
+    &.member-settings-nav {
+      .label {
+        margin: 25px 0px;
+      }
+    }
+  }
 }

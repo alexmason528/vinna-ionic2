@@ -5,14 +5,41 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>partner-settings</ion-title>
+    <ion-title>Partner Settings</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-
+  <ion-list *ngIf="profile && profile.type == 'partner'" class="partner-settings-nav">
+    <button ion-item (click)="openNavDetailsPage('PicturesPage')">
+      Pictures
+    </button>
+    <button ion-item (click)="openNavDetailsPage('BusinessDescriptionPage')">
+      Business Description
+    </button>
+    <button ion-item (click)="openNavDetailsPage('BusinessHoursPage')">
+      Business Hours
+    </button>
+    <button ion-item (click)="openNavDetailsPage('CashiersPage')">
+      Cashiers
+    </button>
+    <button ion-item (click)="openNavDetailsPage('EmailAddressPage')">
+      Email Address
+    </button>
+    <button ion-item (click)="openNavDetailsPage('PhoneNumberPage')">
+      Phone Number
+    </button>
+    <button ion-item (click)="openNavDetailsPage('MailingAddressPage')">
+      Mailing Address
+    </button>
+    <button ion-item (click)="openNavDetailsPage('BankAccountPage')">
+      Bank Account
+    </button>
+<!--    
+    <button ion-item (click)="openNavDetailsPage('PercentagesPage')">
+      Percentages
+    </button> 
+    -->
+  </ion-list>
 </ion-content>

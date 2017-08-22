@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertController, IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
+
+import { Api, AuthenticationProvider } from '../../providers/providers';
+
 
 /**
  * Generated class for the MemberSettingsNotificationPage page.
@@ -10,12 +14,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-member-settings-notification',
+  selector: 'page-member-settings',
   templateUrl: 'member-settings-notification.html',
 })
 export class MemberSettingsNotificationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public alertCtrl: AlertController, 
+    public api: Api, 
+    public authentication: AuthenticationProvider,
+    public loadingCtrl: LoadingController, 
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
   }
 
   ionViewDidLoad() {

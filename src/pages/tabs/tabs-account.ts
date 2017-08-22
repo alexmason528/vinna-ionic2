@@ -29,9 +29,9 @@ export class TabsAccountPage {
   Statement = StatementPage;
   
   constructor(
+    public authentication: AuthenticationProvider,
     public navCtrl: NavController, 
-    public navParams: NavParams,
-    public authentication: AuthenticationProvider) {
+    public navParams: NavParams) {
   }
 
   ionViewDidLoad() {

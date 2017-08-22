@@ -41,14 +41,14 @@ export class ProfileMenuPage {
   verified: boolean = false;
 
   constructor(
+    public alertCtrl: AlertController,
+    public api: Api, 
     public app: App,
+    public authentication: AuthenticationProvider,
+    public modalCtrl: ModalController, 
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    public modalCtrl: ModalController, 
-    public alertCtrl: AlertController,
-    public socialSharing:SocialSharing, 
-    public api: Api, 
-    public authentication: AuthenticationProvider) {
+    public socialSharing:SocialSharing) {
 
     const auth = this.authentication.getAuthorization();
     

@@ -26,13 +26,13 @@ export class VerificationPage {
   phoneForm: FormGroup;
 
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams,
-    public formBuilder: FormBuilder,
-    public api: Api,
     public alertCtrl: AlertController,
+    public api: Api,
+    public authentication: AuthenticationProvider,
+    public formBuilder: FormBuilder,
     public loadingCtrl: LoadingController,
-    public authentication: AuthenticationProvider) {
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
 
     const auth = this.authentication.getAuthorization();
     this.account = auth.account;

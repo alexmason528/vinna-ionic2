@@ -5,14 +5,26 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>partner-settings-email</ion-title>
+    <ion-title></ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-
+  <form *ngIf="emailForm" [formGroup]="emailForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-input type="email" placeholder="Current Email" formControlName="current_email"></ion-input><br/>
+          <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="flex-content-between">
+          <button ion-button class="no-background-button" navPop>Cancel</button>
+          <button ion-button class="red-background-button" (click)="changeEmail()" [disabled]="!isReadyToUpdate">Change Email Address</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

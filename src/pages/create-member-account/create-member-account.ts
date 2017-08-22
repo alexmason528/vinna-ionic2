@@ -24,9 +24,9 @@ export class CreateMemberAccountPage {
   phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
   constructor(
+    public alertCtrl: AlertController,
     public formBuilder: FormBuilder,
     public formHelper: FormHelperProvider,
-    public alertCtrl: AlertController,
     public navCtrl: NavController, 
     public navParams: NavParams) {
 

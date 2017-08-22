@@ -7,10 +7,11 @@ import { IonicStorageModule } from '@ionic/storage';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Camera } from '@ionic-native/camera';
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { Stripe } from '@ionic-native/stripe';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -59,7 +60,7 @@ import { PartnerSettingsHoursPage } from '../pages/partner-settings/partner-sett
 import { PartnerSettingsMailingPage } from '../pages/partner-settings/partner-settings-mailing';
 import { PartnerSettingsPercentagesPage } from '../pages/partner-settings/partner-settings-percentages';
 import { PartnerSettingsPhonePage } from '../pages/partner-settings/partner-settings-phone';
-import { PartnerSettingsPicturePage } from '../pages/partner-settings/partner-settings-picture';
+import { PartnerSettingsPicturesPage } from '../pages/partner-settings/partner-settings-pictures';
 import { ProfilePage } from '../pages/profile/profile';
 import { ProfileMenuPage } from '../pages/profile-menu/profile-menu';
 import { QrProfilePage } from '../pages/qr-profile/qr-profile';
@@ -118,7 +119,7 @@ let pages = [
   PartnerSettingsMailingPage,
   PartnerSettingsPercentagesPage,
   PartnerSettingsPhonePage,
-  PartnerSettingsPicturePage,
+  PartnerSettingsPicturesPage,
   ProfilePage,
   ProfileMenuPage,
   QrProfilePage,
@@ -179,6 +180,7 @@ export function entryComponents() {
     SocialSharing,
     SplashScreen,
     StatusBar,
+    Stripe,
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthenticationProvider,

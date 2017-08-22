@@ -10,12 +10,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-partner-settings-percentages',
+  selector: 'page-partner-settings',
   templateUrl: 'partner-settings-percentages.html',
 })
 export class PartnerSettingsPercentagesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
   }
 
   ionViewDidLoad() {

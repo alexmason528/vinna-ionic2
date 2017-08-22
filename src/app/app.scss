@@ -67,6 +67,10 @@ input[input=text] {
   padding: 10px 0px;
   min-height: 55px;
 
+  .back-button-icon-ios {
+    font-size: 27px;
+  }
+
   .toolbar-background {
     background: none;
   }
@@ -288,20 +292,25 @@ button {
 
 @font-face {
     font-family: 'Helvetica LT';
-    src: url('../assets/fonts/Helvetica LT.ttf') format('truetype');
+    src: url('../assets/fonts/helvetica-lt.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Helvetica LT Condensed Light';
-    src: url('../assets/fonts/Helvetica LT Condensed Light.ttf') format('truetype');
+    src: url('../assets/fonts/helvetica-lt-condensed-light.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Helvetica LT Condensed Bold';
-    src: url('../assets/fonts/Helvetica LT Condensed Bold.ttf') format('truetype');
+    src: url('../assets/fonts/helvetica-lt-condensed-bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Open Sans Light';
-  src: url(../assets/fonts/OpenSans-Light.ttf) format("truetype");
+  src: url('../assets/fonts/opensans-light.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../assets/fonts/opensans.woff') format("woff");
 }

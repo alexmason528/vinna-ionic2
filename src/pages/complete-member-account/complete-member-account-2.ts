@@ -22,14 +22,14 @@ export class CompleteMemberAccount2Page {
   form: FormGroup;
 
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
-    public authentication: AuthenticationProvider, 
-    public loadingCtrl: LoadingController, 
     public alertCtrl: AlertController,
     public api: Api,
+    public authentication: AuthenticationProvider, 
     public formHelper: FormHelperProvider,
     public formBuilder: FormBuilder,
+    public loadingCtrl: LoadingController, 
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
     public stripe: Stripe) {
 
     this.mailingInfo = this.navParams.get('mailingInfo');
