@@ -13,13 +13,16 @@ page-account-registration-confirm {
   }
 
   .grid {
-    padding: 2vh 5vw;
+    padding: 0 5vw 2vh 5vw;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .title-row {
       border-bottom: 1px solid map-get($colors, vinnamidgrey);
-      height: 10%;
       .col {
+        padding: 20px 0 15px 0;
         font-weight: bold;
         font-size: 4vw;
         display: flex;
@@ -29,7 +32,6 @@ page-account-registration-confirm {
     }
 
     .content-row {
-      height: 80%;
       .col {
         line-height: 240%;
         font-size: 4vw;
@@ -37,7 +39,7 @@ page-account-registration-confirm {
     }
 
     .button-row {
-      height: 10%;
+      
     }
   }
 }
