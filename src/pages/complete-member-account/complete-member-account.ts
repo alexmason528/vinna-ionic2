@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AlertController, IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
+import { AlertController, LoadingController, NavController, NavParams } from 'ionic-angular';
 
 import { CompleteMemberAccount2Page } from './complete-member-account-2';
 
@@ -12,7 +12,6 @@ import { Api, AuthenticationProvider, FormHelperProvider } from '../../providers
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-complete-member-account',
   templateUrl: 'complete-member-account.html',

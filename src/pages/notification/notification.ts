@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
+import { LoadingController, NavController, NavParams } from 'ionic-angular';
 
 import { NotificationProvider } from '../../providers/notification';
 
@@ -10,7 +10,6 @@ import { NotificationProvider } from '../../providers/notification';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-notification',
   templateUrl: 'notification.html',

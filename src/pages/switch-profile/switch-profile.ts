@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 
 import { MemberSettingsPage } from '../member-settings/member-settings';
 import { PartnerSettingsPage } from '../partner-settings/partner-settings';
@@ -13,7 +13,6 @@ import { Api, AuthenticationProvider } from '../../providers/providers';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-switch-profile',
   templateUrl: 'switch-profile.html',

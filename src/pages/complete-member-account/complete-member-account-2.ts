@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { Stripe } from '@ionic-native/stripe';
 
 import { ProfilePage } from '../profile/profile';
@@ -11,8 +11,6 @@ import { Api, AuthenticationProvider, FormHelperProvider } from '../../providers
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-
-@IonicPage()
 @Component({
   selector: 'page-complete-member-account-2',
   templateUrl: 'complete-member-account-2.html',

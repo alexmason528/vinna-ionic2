@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
-import { ActionSheetController, AlertController, IonicPage, LoadingController, NavController, NavParams, Platform } from 'ionic-angular';
+import { ActionSheetController, AlertController, LoadingController, NavController, NavParams, Platform } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 import { WelcomeMemberPage } from '../welcome-member/welcome-member';
@@ -18,7 +18,6 @@ import { Api, AuthenticationProvider, FormHelperProvider } from '../../providers
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-create-member-account-2',
   templateUrl: 'create-member-account-2.html',
