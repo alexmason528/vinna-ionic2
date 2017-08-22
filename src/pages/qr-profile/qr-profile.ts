@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { AuthenticationProvider } from '../../providers/providers';
+import { Api, AuthenticationProvider } from '../../providers/providers';
 
 /**
  * Generated class for the QrProfilePage page.
@@ -19,6 +19,7 @@ export class QrProfilePage {
   account: any;
 
   constructor(
+    public api: Api,
     public authentication: AuthenticationProvider,
     public navCtrl: NavController, 
     public navParams: NavParams) {
@@ -31,6 +32,19 @@ export class QrProfilePage {
 
     const auth = this.authentication.getAuthorization();
     this.account = auth.account;
+
+    this.getVersionInfo();
+  }
+
+  getVersionInfo() {
+    let seq = this.api.get(`api/core/mapp/ios/version`);
+    seq
+    .map(res => res.json())
+    .subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
   }
 
   ionViewDidLoad() {
