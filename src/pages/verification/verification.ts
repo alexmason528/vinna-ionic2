@@ -81,7 +81,16 @@ export class VerificationPage {
           this.account = res.account;
           this.alertCtrl.create({
             message: 'Successfully verified your ' + type,
-            buttons: ['OK']
+            buttons: [
+              {
+                text: 'Okay',
+                handler: () => {
+                  if (this.account.email_verified && this.account.phone_verified) {
+                    this.navCtrl.pop();
+                  }
+                }
+              }
+            ]
           }).present();
         }, err => {
           loading.dismiss();
