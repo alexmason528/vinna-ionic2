@@ -5,14 +5,28 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>partner-settings-cashiers</ion-title>
+    <ion-title>Cashiers</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-
+  <ion-grid>
+    <ion-row *ngFor="let cashier of cashiers">
+      <ion-col class="flex-content-between">
+        <div>{{cashier.account.first_name}} {{cashier.account.last_name}}</div>
+        <div>
+          <button *ngIf="cashier.account.id != account.id" ion-button class="no-background-button" (click)="removeCashier(cashier.id)">Remove</button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <form *ngIf="cashierForm" [formGroup]="cashierForm">
+          <ion-input type="email" placeholder="Email" formControlName="email"></ion-input><br/>
+          <button ion-button class="red-background-button" (click)="addCashier()" [disabled]="!isReadyToAdd">Add Cashier</button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

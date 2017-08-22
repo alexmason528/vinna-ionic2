@@ -41,15 +41,15 @@ export class ProfilePage {
   verified: boolean = false;
 
   constructor(
+    public alertCtrl: AlertController,
     public app: App,
+    public api: Api, 
+    public authentication: AuthenticationProvider,
+    public loadingCtrl: LoadingController,
+    public modalCtrl: ModalController, 
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    public modalCtrl: ModalController, 
-    public loadingCtrl: LoadingController,
-    public alertCtrl: AlertController,
-    public socialSharing:SocialSharing, 
-    public api: Api, 
-    public authentication: AuthenticationProvider) {
+    public socialSharing:SocialSharing) {
 
     const auth = this.authentication.getAuthorization();
     

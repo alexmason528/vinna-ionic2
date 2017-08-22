@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { CreatePartnerAccountPage } from '../create-partner-account/create-partner-account';
 import { BusinessProfilePage } from '../business-profile/business-profile';
+import { CreatePartnerAccountPage } from '../create-partner-account/create-partner-account';
 
 /**
  * Generated class for the AboutPartnerProgramPage page.
@@ -17,15 +17,17 @@ import { BusinessProfilePage } from '../business-profile/business-profile';
 })
 export class AboutPartnerProgramPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  goBack() {
-    this.navCtrl.pop();
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
   }
 
   goCreatePartnerAccount() {
     this.navCtrl.push(CreatePartnerAccountPage);
+  }
+
+  goBack() {
+    this.navCtrl.pop();
   }
 
   ionViewDidLoad() {

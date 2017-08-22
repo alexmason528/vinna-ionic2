@@ -1,9 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, Config } from 'ionic-angular';
+import { Nav, Config, Platform } from 'ionic-angular';
 
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { StatusBar } from '@ionic-native/status-bar';
 import { Storage } from '@ionic/storage';
 
 import { HomePage } from '../pages/home/home';
@@ -22,15 +21,15 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   constructor(
-    private platform: Platform, 
+    private authentication: AuthenticationProvider,
     private config: Config, 
+    private directory: DirectoryProvider,
+    private notification: NotificationProvider,
+    private platform: Platform, 
     private statusBar: StatusBar, 
     private splashScreen: SplashScreen,
     private storage: Storage,
-    private directory: DirectoryProvider,
-    private notification: NotificationProvider,
-    private transaction: TransactionProvider,
-    private authentication: AuthenticationProvider) {
+    private transaction: TransactionProvider) {
 
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

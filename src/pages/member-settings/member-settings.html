@@ -5,14 +5,33 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>member-settings</ion-title>
+    <ion-title>Member Settings</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-
+  <ion-list class="member-settings-nav">
+    <button ion-item *ngIf="account" (click)="openNavDetailsPage('IDPicturePage')">
+      Change your ID Picture
+    </button>
+    <button ion-item *ngIf="account" (click)="openNavDetailsPage('EmailAddressPage')">
+      Change your Email Address
+    </button>
+    <button ion-item *ngIf="account" (click)="openNavDetailsPage('PhoneNumberPage')">
+      Change your Phone Number
+    </button>
+    <button ion-item *ngIf="account" (click)="openNavDetailsPage('PasswordPage')">
+      Change your Password
+    </button>
+    <button ion-item *ngIf="member" (click)="openNavDetailsPage('MailingAddressPage')">
+      Change your Mailing Address
+    </button>
+    <button ion-item *ngIf="member" (click)="openNavDetailsPage('BankAccountPage')">
+      Change your Bank Account
+    </button>
+    <button ion-item *ngIf="account" (click)="openNavDetailsPage('ManageNotificationPage')">
+      Manage Notifications
+    </button> 
+  </ion-list>
 </ion-content>

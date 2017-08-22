@@ -50,12 +50,13 @@ export class CreatePartnerAccount2Page {
       });
 
     this.bankForm = this.formHelper.getForm('CreatePartnerAccount2-Bank');
-    if (!this.bankForm)
+    if (!this.bankForm) {
       this.bankForm = formBuilder.group({
         account_holder_name: ['', Validators.required],
         account_number: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(17)])],
         routing_number: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(17)])]
       });
+    }
   }
 
   nextPage() {

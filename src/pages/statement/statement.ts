@@ -20,8 +20,8 @@ export class StatementPage {
   profileView: any;
 
   constructor(
-    public navCtrl: NavController, 
     public authentication: AuthenticationProvider,
+    public navCtrl: NavController,     
     public transactionProvider: TransactionProvider) {
 
     this.transactionProvider.updates().subscribe(data => {
