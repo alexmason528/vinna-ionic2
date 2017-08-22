@@ -4,15 +4,26 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img src="assets/coffee-shop-bars-2.jpg">
+        <div class="welcome-message">
+          <div class="title" text-uppercase>
+            Welcome
+          </div>
+          <div class="content">
+            Congratulations <span *ngIf="account">{{account.first_name}}</span>, we welcome you as a new Member of our community. This is your first step into a new way of generating income by helping others live better. Help us spread the word and remember: The more people we help the more successful we become.
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
 
-  <ion-navbar>
-    <ion-title>welcome-member</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
+    <ion-row>
+      <ion-col class="button-wrapper flex-content-around">
+        <button ion-button class="red-background-button" (click)="enter()">Enter</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

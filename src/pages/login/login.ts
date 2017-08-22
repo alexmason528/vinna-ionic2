@@ -37,9 +37,9 @@ export class LoginPage {
 
   navPrevPage() {
     let options: NativeTransitionOptions = {
-        direction: 'down',
-        duration: 275,
-       };
+      direction: 'down',
+      duration: 275,
+    };
 
     this.nativePageTransitions.slide(options)
       .then(onSuccess => {})
