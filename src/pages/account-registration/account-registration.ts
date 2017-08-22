@@ -39,6 +39,7 @@ export class AccountRegistrationPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public platform: Platform) {
+    
     this.nameForm = this.formBuilder.group({
       first_name : ['', Validators.required],
       last_name: ['', Validators.required]

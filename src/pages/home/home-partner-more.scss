@@ -14,18 +14,19 @@ page-home-partner-more{
 
     .row-description {
       padding: 5px 10px;
-      font-size:13px !important;
+      font-size:1.8vh !important;
 
       div {
         line-height: 3vh;
         color: map-get($colors, vinnawhite);
         font-family: 'Open Sans';
-        font-size:13px !important;
+        /*font-size:13px !important;*/
+      font-size:1.8vh !important;
       }
 
       div.section {
         margin-bottom:10px;
-        font-size:13px !important;
+      font-size:1.8vh !important;
       }
 
       div.center {
@@ -44,7 +45,6 @@ page-home-partner-more{
           text-decoration: underline;
           text-transform: uppercase;
           text-align: center;
-          font-size: 13px !important;
           margin:5px 0px 12px;
         }
 
@@ -60,7 +60,7 @@ page-home-partner-more{
           font-family: 'Open Sans';
           font-weight: bold;
           color: map-get($colors, vinnawhite);
-          font-size:13px !important;
+          font-size:1vh !important;
         }
       }
     }
