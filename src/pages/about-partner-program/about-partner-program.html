@@ -1,44 +1,64 @@
 <!--
-  Generated template for the AboutParnterProgramPage page.
+  Generated template for the HomePartnerMorePage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-content padding>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <p>
-          PARTNER PROGRAM<br>
-          Thank you for your interest in learning more about Vinna's Partner Program<br>
+<ion-content no-bounce ion-fixed>
+    <ion-grid class='wrapper' ion-fixed>      
+      <ion-row class="row-description"> 
+        <ion-col>
+          <div class="title">Partner Program</div>
 
-          How it Works<br>
-          Only after completion of a sale to one of our Members, Vinna will automatically withdraw 10% of the total sale.
-          Out of that 10%, 7% automatically returns to our Members.<br>
+          <div class="center">Thank you for your interest in learning more about <br>
+            <div class="nobreak">Vinna's Partner Program</div>
+          </div>
 
-          Advantages<br>
-          1. Word of Mouth, the most powerful form of advertising<br>
-          According to Forbes, 92% of consumers admit that they would buy Products and Services recommedned by family and friends.<br>
+          <div class="section" style="margin-top:10px;">
+            <div class="sub-title">How it Works</div>
+            <div class="center">Only after completion of a sale to one of our Members, Vinna will automatically withdraw 10% of the total sale.</div>
+            <div class="center">Out of that 10%, 6% automatically returns to our Members.</div>
+          </div>
 
-          2. Zero investment risk and 100% guarantee in result<br>
-          In Vinna, business owners pay their advertising budget to their customer, but after, and only after the sale was completed.<br>
+          <div class="section">
+            <div class="sub-title">Advantages</div>
+              <div class="section">
+                <div>1. <span class="emphasize">Word of Mouth, the most powerful form of advertising</span></div>
+                <div>According to Forbes, 92% of consumers admit that they would buy Products and Services recommended by family and friends.</div>
+              </div>
 
-          3. Fully tax deductible<br>
-          All the money that Associated Businesses pay to Vinna is in its entirety tax deductible as a budget invested in promotion.<br>
+              <div class="section">
+                <div>2. <span class="emphasize">Zero investment risk and 100% guarantee in result</span></div>
+                <div>In Vinna, business owners pay their advertising budget to their customer, but after, and only after the sale was completed.</div>
+              </div>
 
-          4. Unlimited range<br>
-          Now you are exposed to millions of Promoters working to expand the reach of your business in an unlimited way.<br>
+              <div class="section">
+                <div>3. <span class="emphasize">Fully tax deductible</span></div>
+                <div>All the money that Associated Businesses pay to Vinna is in its entirety tax deductible as budget invested in promotion.</div>
+              </div>
 
-          IMPORTANT: If you own more than one business just create another Partner Profile, there is no limit on how many Businesses you connect to Vinna.<br>
-        </p>
-      </ion-col>
-    </ion-row>
+              <div class="section">
+                <div>4. <span class="emphasize">Unlimited range</span></div>
+                <div>Now you are exposed to millions of Promoters working to expand the reach of your business in an unlimited way.</div>
+                </div>
 
-    <ion-row>
-      <ion-col class="nav-buttons">
-        <button ion-button tappable class="red-background-button" (click)="goBack()">OK</button>
-        <button ion-button tappable class="red-background-button" (click)="goCreatePartnerAccount()">Join</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+              <div class="section">
+                <div>IMPORTANT: If you own more than one business just create another Partner Profile, there is no limit on how many Business you connect to Vinna.</div>
+              </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ok-row">
+        <ion-col>
+          <button class="red-background-button ok" (click)="goBack()">Later</button>
+        </ion-col>
+        <ion-col>
+          <button class="red-background-button ok" (click)="goCreatePartnerAccount()">Join</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>
+
+
+

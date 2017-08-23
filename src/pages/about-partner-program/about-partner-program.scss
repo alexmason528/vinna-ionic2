@@ -1,10 +1,89 @@
-page-about-partner-program {
-  .grid {
-    color: map-get($colors, vinnawhite);
+page-about-partner-program{
+  .grid.wrapper {
+    height: 100%;
+    background: url('../assets/img/bg.jpg');
+    background-size: cover;
+    padding: 0;
+    margin: 0;
 
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    font-family: 'Open Sans';
+
+    .row-description {
+      padding: 5px 10px;
+      font-size:1.8vh !important;
+
+      div {
+        line-height: 2.8vh;
+        color: map-get($colors, vinnawhite);
+        font-family: 'Open Sans';
+        /*font-size:13px !important;*/
+      font-size:1.8vh !important;
+      }
+
+      div.section {
+        margin-bottom:10px;
+      font-size:1.8vh !important;
+      }
+
+      div.center {
+        text-align: center;
+      }
+
+      div.nobreak {
+        white-space: nowrap;
+        color: map-get($colors, vinnawhite);
+      }
+
+      .col {
+        .title {
+          color: map-get($colors, vinnawhite);
+          font-family: 'Open Sans';
+          text-decoration: underline;
+          text-transform: uppercase;
+          text-align: center;
+          margin:5px 0px 12px;
+        }
+
+        .sub-title {
+          font-family: 'Open Sans';
+          color: map-get($colors, vinnawhite);
+          text-decoration: underline;
+          text-transform: uppercase;          
+          text-align: center;
+        }
+
+        .emphasize {
+          font-family: 'Open Sans';
+          font-weight: bold;
+          color: map-get($colors, vinnawhite);
+      font-size:1.8vh !important;
+        }
+      }
+    }
+
+    .ok-row {
+      width:100%;
+      height:90px;
+      background-color: map-get($colors, vinnawhite);
+      text-align: center;
+
+      .col {
+        color: map-get($colors, vinnawhite);
+        padding: 0 20px;
+      }
+
+      .ok { 
+        background-color: map-get($colors, vinnared);
+        color: map-get($colors, vinnawhite); 
+        padding:9px 35px;
+        text-transform: uppercase;
+        margin-top:20px;
+      }
+
     }
   }
 }

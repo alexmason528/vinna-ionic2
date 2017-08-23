@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, ModalController, NavParams } from 'ionic-angular';
 
 import { BusinessProfilePage } from '../business-profile/business-profile';
 import { CreatePartnerAccountPage } from '../create-partner-account/create-partner-account';
@@ -19,7 +19,8 @@ export class AboutPartnerProgramPage {
 
   constructor(
     public navCtrl: NavController, 
-    public navParams: NavParams) {
+    public navParams: NavParams,
+    public modalCtrl: ModalController) {
   }
 
   goCreatePartnerAccount() {
