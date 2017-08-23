@@ -28,9 +28,6 @@
       <ion-col>
         <button tappable class="red-background-button" (click)="connectMember()" ion-button> Connect a New Member </button><br/>
       </ion-col>
-      <ion-col col-12 *ngIf="!verified">
-        <button tappable class="white-background-button" (click)="verify()" ion-button>Verify Email / Phone</button><br/>
-      </ion-col>
     </ion-row>
 
     <ion-row class="padding">
@@ -130,9 +127,6 @@
     </ion-row>
 
     <ion-row text-center>
-      <ion-col col-12 *ngIf="!verified">
-        <button tappable class="red-background-button" (click)="verify()" ion-button>Verify Email / Phone</button><br/>
-      </ion-col>
       <ion-col col-12>
         <button tappable ion-button class="white-background-button" (click)="registerSale()">Register a Sale</button>
       </ion-col>

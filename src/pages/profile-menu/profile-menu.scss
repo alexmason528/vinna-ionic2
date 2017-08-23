@@ -38,6 +38,24 @@ page-profile-menu {
     flex-flow: column nowrap;
     justify-content: flex-start;
 
+    .profile-section {
+      position: absolute;
+      padding-top: 30px;
+      border-bottom: 1px solid #ccc; 
+      width: 110%; 
+      left: -5%; 
+      margin: 0px;
+      z-index: -1;
+      .name {
+        margin-left: 150px; 
+        margin-bottom: 5px;
+      }
+    }
+
+    img.profile-photo {
+      margin-left: 15px;
+    }
+
     img {
       border-radius: 50%;
       width: 100px;

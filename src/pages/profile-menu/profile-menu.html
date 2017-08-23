@@ -12,10 +12,10 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngIf="profileView=='member'">
-        <div style="position:absolute;padding-top:30px;border-bottom:1px solid #ccc; width:110%; left:-5%; margin:0px;z-index: -1;">
-            <div style="margin-left:150px; margin-bottom:5px;">{{account.first_name}} {{account.last_name}}</div>
+        <div class="profile-section">
+          <div class="name">{{account.first_name}} {{account.last_name}}</div>
         </div>
-        <img style="margin-left:13px;" class="red-border" text-left [src]="account.profile_photo_url">
+        <img class="profile-photo red-border" text-left [src]="account.profile_photo_url">
       </ion-col>
       <ion-col *ngIf="profileView=='partner'">
         <div style="position:absolute;padding-top:30px;border-bottom:1px solid #ccc; width:110%; left:-5%; margin:0px;z-index: -1;">
@@ -42,6 +42,7 @@
       <ion-col col-12>
         <ion-list class="menu">
           <ion-item tappable (click)="goAboutPartnerProgram()" class="bold-red"><span>Introducing: Partner Program</span></ion-item>
+          <ion-item tappable (click)="goVerify()" *ngIf="!verified">Verify Email/Phone</ion-item>
           <ion-item tappable (click)="goSwitchProfile()">Switch Profile</ion-item>
 <!--          <ion-item tappable (click)="goFavoritePartners()">Favorite Partners</ion-item>
           <ion-item tappable (click)="goFavoriteAnnouncements()">Favorite Announcements</ion-item>
@@ -55,6 +56,7 @@
       <ion-col col-12>
         <ion-list class="menu">
           <ion-item tappable (click)="goPartnerConnectCashier()">Connect a Cashier</ion-item>
+          <ion-item tappable (click)="goVerify()" *ngIf="!verified">Verify Email/Phone</ion-item>
           <ion-item tappable (click)="goSwitchProfile()">Switch Profile</ion-item>
 
 <!--          <ion-item tappable (click)="goFavoritePartners()">Favorite Partners</ion-item>
@@ -69,6 +71,7 @@
       <ion-col col-12>
         <ion-list class="menu">
           <ion-item tappable (click)="goPartnerProgram()" class="bold-red"><span>Introducing: Partner Program</span></ion-item>
+          <ion-item tappable (click)="goVerify()" *ngIf="!verified">Verify Email/Phone</ion-item>
           <ion-item tappable (click)="goSwitchProfile()">Switch Profile</ion-item>
 <!--          <ion-item tappable (click)="goFavoritePartners()">Favorite Partners</ion-item>
           <ion-item tappable (click)="goFavoriteAnnouncements()">Favorite Announcements</ion-item>
