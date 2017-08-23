@@ -70,19 +70,11 @@ page-make-announcement {
         .icon {
           font-size: 40px;
           font-weight: bold;
+        }
 
-          &[name=logo-twitter], &[name=logo-facebook] {
-          font-size: 30px;
-          font-weight: normal;
-          }
-
-          &[name=logo-facebook] {
-              color: #447BBF;
-          }
-
-          &[name=logo-twitter] {
-              color: #49A1DA;
-          }
+        .svg-icon {
+          width: 30px !important;
+          height: 30px !important;
         }
 
         .list {

@@ -1,7 +1,7 @@
 page-home{
   .grid.wrapper {
     height: 100%;
-    background: url('../assets/BG.jpg');
+    background: url('../assets/img/bg.jpg');
     background-size: cover;
     padding: 0;
     margin: 0;
@@ -27,14 +27,14 @@ page-home{
         bottom:-1vw;
       }
 
-      .more_back {
+      .more-back {
         color: #fff;
         font-size:8vw;
         position: relative;
         bottom:-3.5vw;
-        
-        .icon {
-          color: #fff;
+
+        .svg-icon {
+          margin-bottom: 5px;
         }
 
       }
@@ -55,15 +55,6 @@ page-home{
           height: 100%;
         }
 
-
-        .name {
-          /*text-transform: uppercase;*/
-        }
-
-        .more_back {
-
-        }
-
         .group {  
           display: flex;
           justify-content: space-between;
@@ -73,9 +64,6 @@ page-home{
 
           .name {
             position: relative;
-          }
-
-          .more_back {
           }
         }        
 
@@ -98,7 +86,7 @@ page-home{
               left:0;
             }
 
-            .more_back {
+            .more-back {
               right:0;
             }
           }        
@@ -110,17 +98,6 @@ page-home{
 
           .group {
             text-align: right;
-
-            .name {
-            }
-
-            .more_back {
-              .icon {
-                position:relative;
-                left:-1px;
-              }
-            }          
-
           }
 
           .row {

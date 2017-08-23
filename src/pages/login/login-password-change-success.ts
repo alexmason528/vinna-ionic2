@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 
-import { AlertController, App, LoadingController, NavController, NavParams } from 'ionic-angular';
-
-import { AccountRegistrationPage } from '../account-registration/account-registration';
-import { LoginForgetPasswordPage } from './login-forget-password';
-import { TabsAccountPage } from '../tabs/tabs-account';
+import { AlertController, App, IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
 
 import { Api, AuthenticationProvider } from '../../providers/providers';
+
+import { WelcomeMemberPage } from '../welcome-member/welcome-member';
+import { TabsAccountPage } from '../tabs/tabs-account';
 
 /**
  * Generated class for the LoginPasswordChangeSuccessPage page.
@@ -21,40 +20,24 @@ import { Api, AuthenticationProvider } from '../../providers/providers';
 })
 export class LoginPasswordChangeSuccessPage {
 
-  firstname: any;
-  phone: any;
-  password: any;
-
-  phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-
   constructor(
     public alertCtrl: AlertController,
     public api: Api,
-    public app: App, 
+    public app: App,
     public authentication: AuthenticationProvider, 
     public loadingCtrl: LoadingController,
     public navCtrl: NavController, 
     public navParams: NavParams) {
-    
-    this.phone = navParams.get('phone').replace(/\D+/g, '');;
-    this.firstname = navParams.get('firstname');
   }
 
-  ionViewWillEnter() {
-    this.password = '';
-  }
-
-  navPrevPage() {
-    this.navCtrl.pop();
-  }
-
-  navNextPage() {
+  enter() {
     let loading = this.loadingCtrl.create({ spinner: 'ios' }); 
     loading.present();
 
-    this.authentication.logIn({'username': this.phone, 'password': this.password}, 
+    this.authentication.logIn({'username': this.navParams.get('phone'), 'password': this.navParams.get('password')}, 
     (res) => {
       loading.dismiss();
+      this.navCtrl.pop();
       this.app.getRootNav().setRoot(TabsAccountPage);
     }, 
     (err) => {
@@ -73,13 +56,4 @@ export class LoginPasswordChangeSuccessPage {
       }
     });
   }
-
-  goForgotPassword() {
-    this.navCtrl.push(LoginForgetPasswordPage, {phone: this.phone, firstname: this.firstname});
-  }
-
-  goRegisterAccount() {
-    this.navCtrl.push(AccountRegistrationPage, {phone: this.phone, recreate: true});
-  }
-
 }

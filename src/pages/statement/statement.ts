@@ -21,17 +21,17 @@ export class StatementPage {
   constructor(
     public authentication: AuthenticationProvider,
     public navCtrl: NavController,     
-    public transactionProvider: TransactionProvider) {
+    public transaction: TransactionProvider) {
 
-    this.transactionProvider.updates().subscribe(data => {
+    this.transaction.updates().subscribe(data => {
       this.statements = data;
     });
 
-    this.statements = this.transactionProvider.getTransactions();
+    this.statements = this.transaction.getTransactions();
   }
 
   ionViewWillEnter() {
-    this.transactionProvider.refreshTransactions();
+    this.transaction.refreshTransactions();
     this.doProfile();
   }
 

@@ -56,10 +56,8 @@ export class TransactionProvider {
 
     this.authentication.getAuthorizationPromise2().then(auth => {
       if(auth.token) {
-        let headers = new Headers();
-        headers.append('Authorization', 'JWT ' + auth.token);
-
-        let seq = t.api.get('api/account/'+auth.account.id.toString()+'/purchases', {}, new RequestOptions({headers: headers}));
+        console.log(this.authentication.getRequestOptions());
+        let seq = t.api.get(`api/account/${auth.account.id}/purchases`, {}, this.authentication.getRequestOptions());
 
         seq
         .map(res => res.json())

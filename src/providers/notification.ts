@@ -52,11 +52,8 @@ export class NotificationProvider {
     this.isGetting = true;
 
     this.authentication.getAuthorizationPromise2().then(auth => {
-      if(auth['token']) {    
-        let headers = new Headers();
-        headers.append('Authorization', 'JWT ' + auth['token']);
-
-        let seq = this.api.get('api/notification', {}, new RequestOptions({headers: headers}));
+      if(auth.token) {
+        let seq = this.api.get('api/notification', {}, this.authentication.getRequestOptions());
 
         seq
         .map(res => res.json())
