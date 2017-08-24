@@ -83,6 +83,8 @@ export class RegisterSalePage {
         spinner: 'ios'
       });
 
+      loading.present();
+
       const saleInfo = {
         'amount': amountNumber,
         'qrcode': qrcode.text,

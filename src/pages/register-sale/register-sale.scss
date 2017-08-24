@@ -1,16 +1,21 @@
 page-register-sale {
   .grid {
-    padding: 0px !important;
+    height: 100%;
+    padding: 25px !important;
 
     .picture-row .col {
       padding: 0px !important;
 
     }
 
+    .wrapper {
+      width: 100%;
+      height: 100%;
+      border: 1px solid #ddd;
+    }
+
     .info {
       margin: 15px;
-      border: 1px solid #ddd;
-      padding: 0px 25px;
 
       .list {
         margin: 0px;
