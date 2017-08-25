@@ -27,12 +27,12 @@ export class StatementPage {
       this.statements = data;
     });
 
-    this.statements = this.transaction.getTransactions();
   }
 
   ionViewWillEnter() {
-    this.transaction.refreshTransactions();
     this.doProfile();
+
+    this.statements = this.transaction.getTransactions();
   }
 
   doProfile() {

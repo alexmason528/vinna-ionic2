@@ -78,8 +78,13 @@ export class TransactionProvider {
   }
 
   getTransactions() {
-    if (!this.transactions) this.refreshTransactions();
+    /*
+    // TODO uncomment after adding hash checking logic. 
+    // For now, refresh every time.
+    if (!this.transactions || !this.transactions.length) this.refreshTransactions();
     else return this.transactions;
+    */
+    this.refreshTransactions();
   }
 
 }

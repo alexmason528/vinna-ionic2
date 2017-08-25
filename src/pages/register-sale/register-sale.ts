@@ -123,4 +123,6 @@ export class RegisterSalePage {
     console.log('ionViewDidLoad RegisterSalePage');
   }
 
+
+
 }
