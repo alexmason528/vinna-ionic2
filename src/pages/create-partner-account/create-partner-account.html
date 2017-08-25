@@ -5,8 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
+  <ion-navbar hideBackButton>
     <ion-title>Create Partner Account</ion-title>
     <ion-buttons color="vinnared" end>
       <button ion-button icon-only (click)="navNextPage()">
@@ -33,7 +32,7 @@
               </ion-select>
             </ion-item>
             <ion-item>
-              <ion-select interface='popover' placeholder='Sub Category' formControlName="sub_category_id" [disabled]="sub_categories.length > 0">
+              <ion-select interface='popover' placeholder='Sub Category' formControlName="sub_category_id">
                 <ion-option *ngFor="let sub_category of sub_categories" [value]="sub_category.id">{{sub_category.text}}</ion-option>            
               </ion-select>
             </ion-item>

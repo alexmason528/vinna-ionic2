@@ -108,23 +108,27 @@ export class CreatePartnerAccountPage {
   }
 
   getStates(id) {
-    this.form.controls['state_id'].enable(false);
+    this.form.controls['state_id'].disable();
     for(let country of this.countries) {
       if (country.id == id) {
         this.states = country.states;
-        this.form.controls['state_id'].enable(true);
+        if (country.states.length > 0) {
+          this.form.controls['state_id'].enable();
+        }
         break;
       }
     }
   }
 
   getSubCategories(id) {
-    this.form.controls['sub_category_id'].enable(false);
+    this.form.controls['sub_category_id'].disable();
     for(let category of this.categories) {
       if (category.id == id) {
         this.sub_categories = category.sub_categories;
-        this.form.patchValue({ sub_category_id: ''});
-        this.form.controls['sub_category_id'].enable(true);
+        if(category.sub_categories.length > 0) {
+          this.form.controls['sub_category_id'].enable();
+        }
+        this.form.patchValue({ sub_category_id: ''});        
         break;
       }
     }

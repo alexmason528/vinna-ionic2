@@ -69,9 +69,15 @@ export class LoginPasswordPage {
         this.alertCtrl.create({
           message: 'Error. ' + err,
           buttons: ['Okay']
-        }).present();        
+        }).present();
       }
     });
+  }
+
+  onInput(keyCode) {
+    if (keyCode == 13) {
+      this.navNextPage();
+    }
   }
 
   goForgotPassword() {

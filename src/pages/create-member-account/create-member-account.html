@@ -8,7 +8,12 @@
 
   <ion-navbar>
     <ion-title>Create Member Account</ion-title>
-    <ion-buttons color="vinnared" end>
+    <ion-buttons start>
+      <button tappable ion-button icon-only navPop>
+        <img class="svg-icon" src="assets/icon/arrow-red-left.svg"/>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
       <button ion-button icon-only (click)="navNextPage()">
         <img class="svg-icon" src="assets/icon/arrow-red-right.svg"/>
       </button>

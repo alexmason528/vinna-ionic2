@@ -58,7 +58,7 @@ export class CreatePartnerAccount2Page {
     }
   }
 
-  nextPage() {
+  navNextPage() {
     if (this.payType == 'bank') {
       if(this.bankForm.invalid) {
         let error_message;
