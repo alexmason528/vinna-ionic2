@@ -6,52 +6,53 @@
 -->
 <ion-header>
   <ion-navbar>
-    Register Sale
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
   <ion-grid>
-    <ion-row class='info'>
-      <ion-col col-12 text-center>
-        <ion-list>
-          <ion-item class="title">
-            Register Sale
-          </ion-item>
-          <ion-item>
-            <ion-input placeholder="Amount" [(ngModel)]="amount" [disabled]="true"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-row>
-              <ion-col col-12>
-                <button ion-button tappable class="no-background-button" (click)="numpadClicked('1')">1</button>
-                <button ion-button tappable class="no-background-button" (click)="numpadClicked('2')">2</button>
-                <button ion-button tappable class="no-background-button" (click)="numpadClicked('3')">3</button>
-              </ion-col>
-              <ion-col col-12>
-                <button ion-button tappable class="no-background-button" (click)="numpadClicked('4')">4</button>
-                <button ion-button tappable class="no-background-button" (click)="numpadClicked('5')">5</button>
-                <button ion-button tappable class="no-background-button" (click)="numpadClicked('6')">6</button>
-              </ion-col>
-              <ion-col col-12>
-                <button ion-button tappable class="no-background-button" (click)="numpadClicked('7')">7</button>
-                <button ion-button tappable class="no-background-button" (click)="numpadClicked('8')">8</button>
-                <button ion-button tappable class="no-background-button" (click)="numpadClicked('9')">9</button>
-              </ion-col>
-              <ion-col col-12>
-                <button ion-button tappable class="no-background-button" (click)="numpadClicked('dot')"></button>
-                <button ion-button tappable class="no-background-button" (click)="numpadClicked('0')">0</button>
-                <button ion-button tappable class="no-background-button" (click)="numpadClicked('back')"><ion-icon name="ios-backspace"></ion-icon></button>
-              </ion-col>
-            </ion-row>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-      <ion-col col-12 text-center>
-        <button ion-button class="red-background-button" (click)="scanCode()" [disabled]="!isReadyToScan">Scan Code</button>
-        <br>
-      </ion-col>
-    </ion-row>
+    <div class="wrapper">
+      <ion-row class='info'>
+        <ion-col col-12 text-center>
+          <ion-list>
+            <ion-item class="title">
+              Register Sale
+            </ion-item>
+            <ion-item>
+              <ion-input placeholder="Amount" [(ngModel)]="amount" [disabled]="true"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-row>
+                <ion-col col-12>
+                  <button ion-button tappable class="no-background-button" (click)="numpadClicked('1')">1</button>
+                  <button ion-button tappable class="no-background-button" (click)="numpadClicked('2')">2</button>
+                  <button ion-button tappable class="no-background-button" (click)="numpadClicked('3')">3</button>
+                </ion-col>
+                <ion-col col-12>
+                  <button ion-button tappable class="no-background-button" (click)="numpadClicked('4')">4</button>
+                  <button ion-button tappable class="no-background-button" (click)="numpadClicked('5')">5</button>
+                  <button ion-button tappable class="no-background-button" (click)="numpadClicked('6')">6</button>
+                </ion-col>
+                <ion-col col-12>
+                  <button ion-button tappable class="no-background-button" (click)="numpadClicked('7')">7</button>
+                  <button ion-button tappable class="no-background-button" (click)="numpadClicked('8')">8</button>
+                  <button ion-button tappable class="no-background-button" (click)="numpadClicked('9')">9</button>
+                </ion-col>
+                <ion-col col-12>
+                  <button ion-button tappable class="no-background-button" (click)="numpadClicked('dot')"></button>
+                  <button ion-button tappable class="no-background-button" (click)="numpadClicked('0')">0</button>
+                  <button ion-button tappable class="no-background-button" (click)="numpadClicked('back')"><ion-icon name="ios-backspace"></ion-icon></button>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col col-12 text-center>
+          <button ion-button class="red-background-button" (click)="scanCode()" [disabled]="!isReadyToScan">Scan Code</button>
+          <br>
+        </ion-col>
+      </ion-row>
+    </div>
   </ion-grid>
 </ion-content>

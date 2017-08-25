@@ -101,7 +101,10 @@ export class CreatePartnerAccountPage {
       return;
     }
 
-    this.navCtrl.push(CreatePartnerAccount2Page, { businessInfo: this.form.value });
+    let businessInfo = this.form.value;
+    if (businessInfo.sub_category_id == '') delete businessInfo.sub_category_id;
+
+    this.navCtrl.push(CreatePartnerAccount2Page, { businessInfo: businessInfo });
   }
 
   getStates(id) {
@@ -120,6 +123,7 @@ export class CreatePartnerAccountPage {
     for(let category of this.categories) {
       if (category.id == id) {
         this.sub_categories = category.sub_categories;
+        this.form.patchValue({ sub_category_id: ''});
         this.form.controls['sub_category_id'].enable(true);
         break;
       }
