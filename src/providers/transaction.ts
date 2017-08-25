@@ -56,7 +56,6 @@ export class TransactionProvider {
 
     this.authentication.getAuthorizationPromise2().then(auth => {
       if(auth.token) {
-        console.log(this.authentication.getRequestOptions());
         let seq = t.api.get(`api/account/${auth.account.id}/purchases`, {}, this.authentication.getRequestOptions());
 
         seq

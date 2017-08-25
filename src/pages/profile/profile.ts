@@ -63,7 +63,8 @@ export class ProfilePage {
     });
 
     let loader = this.loadingCtrl.create({ spinner: 'ios'});
-    let seq = this.api.get(`api/account/${this.account.id}/purchase_info`, {}, this.authentication.getRequestOptions());
+
+    let seq = this.api.get(`api/account/${this.account.id}/purchase_info`, {}, this.authentication.getRequestOptions({name: 'account_id', value: this.account.id}));
 
     loader.present();
 
