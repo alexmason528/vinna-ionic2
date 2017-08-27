@@ -1,4 +1,6 @@
 page-profile-menu {
+  font-family: 'Open Sans Light';
+
   .toolbar-background {
     border-bottom-width: 0px !important;
   }
@@ -10,7 +12,6 @@ page-profile-menu {
 
     .item {
       .label {
-        font-family: Helvetica;
         padding:8px 0px;
         color:map-get($colors, vinnared);
       }
@@ -115,7 +116,6 @@ page-profile-menu {
 
         span {
           font-size:12px;
-          font-family: Helvetica;
           text-decoration: underline; 
           color: map-get($colors, vinnared);          
         }

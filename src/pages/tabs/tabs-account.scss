@@ -1,4 +1,14 @@
 page-tabs-account {
+  .tabs-md {
+    .tab-button[aria-selected=true] {
+      color: map-get($colors, vinnared) !important;
+
+      .tab-button-icon {
+        color: map-get($colors, vinnared) !important;
+      }
+    }
+  }
+
   .tabbar {
     .tab-button-icon {      
       &[ng-reflect-is-active=true] {

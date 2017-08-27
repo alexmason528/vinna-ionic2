@@ -130,11 +130,10 @@ page-home{
             width:100%;
 
             div.message {
-              height:9vw;
               font-family: 'Open Sans Light';
               font-size:4.3vw;
               color: map-get($colors, vinnamiddarkgrey);
-              margin-top:1vw;
+              margin:1vh 0 1.5vh 0;
 
             }
 
