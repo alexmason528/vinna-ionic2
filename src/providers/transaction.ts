@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, RequestOptions } from '@angular/http';
 
 import { Api } from './api';
 import { AuthenticationProvider } from './authentication';
@@ -17,73 +16,158 @@ import { Observable } from 'rxjs/Observable';
 */
 @Injectable()
 export class TransactionProvider {
-  public transactions: any = [];
+  private transactions: any = [];
+  private summary: any = [];
 
-  public transaction: any;
+  private isGettingTransactions:any = false;
+  private isGettingSummary:any = false;
+
+  // Observer variables
+  public transactionObservable: any;
   public transactionObserver: any;
-
-  public isGetting:any;
+  public summaryObservable: any;
+  public summaryObserver: any;
   
   constructor(
-    public http: Http,
     public authentication: AuthenticationProvider,
     public api: Api) {
 
-    this.isGetting = false;
+    this.isGettingTransactions = false;
+    this.isGettingSummary = false;
 
     this.transactions = [];
 
     this.authentication.updates().subscribe(authorized => {
-      console.log('refreshing');
-      this.transactions = this.refreshTransactions();    
+      console.log('refreshing after auth update');
+
+      this.refreshTransactions();
+      this.refreshSummary();
     });
 
-    this.transaction = Observable.create(observer => {
+    this.transactionObservable = Observable.create(observer => {
       this.transactionObserver = observer;
     });    
 
+    this.summaryObservable = Observable.create(observer => {
+      this.summaryObserver = observer;
+    });    
+
     this.refreshTransactions();
+    this.refreshSummary();
   }
 
-  updates(): Observable<any> { return this.transaction; }
+  transactionUpdates(): Observable<any> { return this.transactionObservable; }
+  summaryUpdates(): Observable<any> { return this.summaryObservable; }
 
-  refreshTransactions() {    
-    if (this.isGetting) return;
+  private refreshTransactions() {    
+    console.log('try getting ');
+    console.log(this.isGettingTransactions);
 
-    this.isGetting = true;
+    if (this.isGettingTransactions) return;
+    this.isGettingTransactions = true;
 
+    let profile = this.authentication.getProfile();
+      
     let t = this;
-
     this.authentication.getAuthorizationPromise2().then(auth => {
+      
       if(auth.token) {
-        let seq = t.api.get(`api/account/${auth.account.id}/purchases`, {}, this.authentication.getRequestOptions());
+        console.log('getting');
+        let seq:any; // = t.api.get(`api/account/${auth.account.id}/purchase`, {}, this.authentication.getRequestOptions());
+
+        if (profile.type == 'member') {
+          console.log('getting member statement')
+          seq = t.api.get(`api/account/${auth.account.id}/purchase`, {}, this.authentication.getRequestOptions());
+        } else if (profile.type == 'partner') {
+          console.log('getting partner statement')
+          seq = t.api.get(`api/business/${profile.object.id}/purchase`, {}, this.authentication.getRequestOptions());
+        } else if (profile.type == 'cashier') {
+          console.log('getting cashier statement')
+          seq = t.api.get(`api/business/${profile.object.id}/purchase`, {}, this.authentication.getRequestOptions());
+        }
 
         seq
         .map(res => res.json())
         .subscribe(res => {
-          t.isGetting = false;
+          t.isGettingTransactions = false;
           t.transactions = res;
           if (t.transactionObserver) t.transactionObserver.next(t.transactions);
         }, err => {
-          t.isGetting = false;
+          t.isGettingTransactions = false;
           console.log(err);
         });
+
       } else {
         console.log('noooo')
-        t.isGetting = false;        
+        t.isGettingTransactions = false;
       }
+
     });
   
   }
 
-  getTransactions() {
+  private refreshSummary() {    
+    console.log('try getting summary ');
+    console.log(this.isGettingSummary);
+
+    if (this.isGettingSummary) return;
+    this.isGettingSummary = true;
+
+    let profile = this.authentication.getProfile();
+      
+    let t = this;
+    this.authentication.getAuthorizationPromise2().then(auth => {
+      
+      if(auth.token) {
+        let seq:any;
+
+        if (profile.type == 'member') {
+          seq = this.api.get(`api/account/${auth.account.id}/purchase_summary`, {}, this.authentication.getRequestOptions());
+        } else if (profile.type == 'partner') {
+          seq = this.api.get(`api/business/${profile.object.id}/purchase_summary`, {}, this.authentication.getRequestOptions());
+        } else if (profile.type == 'cashier') {
+          seq = this.api.get(`api/business/${profile.object.id}/purchase_summary`, {}, this.authentication.getRequestOptions());
+        }
+
+        seq
+        .map(res => res.json())
+        .subscribe(res => {
+          t.isGettingSummary = false;
+          t.summary = res;
+          if (t.summaryObserver) t.summaryObserver.next(t.summary);
+        }, err => {
+          t.isGettingSummary = false;
+          console.log(err);
+        });
+      } else {
+        console.log('noooo')
+        t.isGettingSummary = false;
+      }
+
+    });
+  
+  }  
+
+  public getTransactions() {
     /*
-    // TODO uncomment after adding hash checking logic. 
+    // TODO Add hash checking logic.
     // For now, refresh every time.
-    if (!this.transactions || !this.transactions.length) this.refreshTransactions();
-    else return this.transactions;
     */
     this.refreshTransactions();
+
+    if (this.transactions && this.transactions.length > 0) 
+      return this.transactions;
   }
 
+  public getSummary() {
+    /*
+    // TODO Add hash checking logic.
+    // For now, refresh every time.
+    */
+    this.refreshSummary();
+
+    if (this.summary) {
+      return this.summary;
+    }
+  }
 }

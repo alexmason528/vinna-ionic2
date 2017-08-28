@@ -34,15 +34,15 @@
       <ion-col>
         <ion-item>
           <ion-label class="category">Total earned</ion-label>
-          <ion-label text-right *ngIf="purchaseInfo">{{purchaseInfo.total_earned | currency:'USD':true:'1.2-2'}}</ion-label>
+          <ion-label text-right *ngIf="summary">{{summary.total_earned | currency:'USD':true:'1.2-2'}}</ion-label>
         </ion-item>
         <ion-item>
           <ion-label class="category">Next payment</ion-label>
-          <ion-label text-right *ngIf="purchaseInfo">{{purchaseInfo.next_payment | currency:'USD':true:'1.2-2'}}</ion-label>
+          <ion-label text-right *ngIf="summary">{{summary.next_payment | currency:'USD':true:'1.2-2'}}</ion-label>
         </ion-item>
         <ion-item>
           <ion-label class="category">Payday</ion-label>
-          <ion-label text-right *ngIf="purchaseInfo">{{purchaseInfo.payday | date: 'yMMMMd'}}</ion-label>
+          <ion-label text-right *ngIf="summary">{{summary.payday | date: 'yMMMMd'}}</ion-label>
         </ion-item>
       </ion-col>
     </ion-row>    
@@ -68,16 +68,17 @@
     <ion-row class="padding" *ngIf="profile">
       <ion-col>
         <ion-item>
-          <ion-label class="category">Total earned</ion-label>
-          <ion-label text-right>{{0.00 | currency:'USD':true:'1.2-2'}}</ion-label>
+          <ion-label class="category">Total sales</ion-label>
+          <ion-label text-right>{{summary.total_sales | currency:'USD':true:'1.2-2'}}</ion-label>
         </ion-item>
-        <ion-item>
+<!--        <ion-item>
           <ion-label class="category">Sales</ion-label>
-          <ion-label text-right>0</ion-label>
+          <ion-label text-right></ion-label>
         </ion-item>
+        -->
         <ion-item>
           <ion-label class="category">Customers</ion-label>
-          <ion-label text-right>0</ion-label>
+          <ion-label text-right>{{ summary.total_customers }}</ion-label>
         </ion-item>
         <ion-item>
           <ion-label class="category">Next withdrawl</ion-label>

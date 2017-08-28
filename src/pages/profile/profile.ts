@@ -3,7 +3,6 @@ import { AlertController, App, LoadingController, ModalController, NavController
 
 import { SocialSharing } from '@ionic-native/social-sharing';
 
-import { HomePage } from '../home/home';
 import { CompleteMemberAccountPage } from '../complete-member-account/complete-member-account';
 import { CreatePartnerAccountPage } from '../create-partner-account/create-partner-account';
 import { MakeAnnouncementPage } from '../make-announcement/make-announcement';
@@ -15,7 +14,7 @@ import { RegisterSalePage } from '../register-sale/register-sale';
 import { SwitchProfilePage } from '../switch-profile/switch-profile';
 import { VerificationPage } from '../verification/verification';
 
-import { Api, AuthenticationProvider } from '../../providers/providers';
+import { Api, AuthenticationProvider, TransactionProvider } from '../../providers/providers';
 
 /**
  * Generated class for the ProfilePage page.
@@ -37,6 +36,8 @@ export class ProfilePage {
   profile: any;
   profileView: any;
 
+  summary: any = [];
+
   verified: boolean = false;
 
   constructor(
@@ -48,7 +49,8 @@ export class ProfilePage {
     public modalCtrl: ModalController, 
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    public socialSharing:SocialSharing) {
+    public socialSharing:SocialSharing,
+    public transaction: TransactionProvider) {
 
     const auth = this.authentication.getAuthorization();
     
@@ -62,9 +64,14 @@ export class ProfilePage {
        this.doProfile();
     });
 
+    this.transaction.summaryUpdates().subscribe(data => {
+      this.summary = data;
+      console.log(data);
+    });
+/*
     let loader = this.loadingCtrl.create({ spinner: 'ios'});
 
-    let seq = this.api.get(`api/account/${this.account.id}/purchase_info`, {name: 'account_id', value: this.account.id}, this.authentication.getRequestOptions());
+    let seq = this.api.get(`api/account/${this.account.id}/purchase_summary`, {name: 'account_id', value: this.account.id}, this.authentication.getRequestOptions());
 
     loader.present();
 
@@ -78,10 +85,10 @@ export class ProfilePage {
       loader.dismiss();
       console.log(err);
     });
+    */
   }
 
-  ionViewWillEnter() {
-    this.authentication.verifyToken();
+  ionViewWillEnter() {    
     this.doProfile();
   }
 
@@ -111,6 +118,8 @@ export class ProfilePage {
 
     const auth = this.authentication.getAuthorization();
 
+    this.summary = this.transaction.getSummary();
+
     if (auth) {
       this.account = auth.account;
       this.member = auth.member;
@@ -118,13 +127,9 @@ export class ProfilePage {
       this.verified = this.account.email_verified && this.account.phone_verified;
     }
 
-    this.profileView ='member';
+    this.profileView = profile.type;
 
-    if (profile.type == 'cashier') {
-      this.profileView ='cashier';
-      this.profile = profile.object;
-    } else if (profile.type == 'partner') {
-      this.profileView ='partner';
+    if (profile.type == 'cashier' || profile.type == 'partner') {
       this.profile = profile.object;
     } else {
       this.profile = this.member;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { AuthenticationProvider, TransactionProvider } from '../../providers/providers';
 
 /**
@@ -23,30 +23,28 @@ export class StatementPage {
     public navCtrl: NavController,     
     public transaction: TransactionProvider) {
 
-    this.transaction.updates().subscribe(data => {
+    this.transaction.transactionUpdates().subscribe(data => {
       this.statements = data;
+      console.log('statement got data');
     });
 
   }
 
   ionViewWillEnter() {
     this.doProfile();
-
-    this.statements = this.transaction.getTransactions();
   }
 
   doProfile() {
+    console.log('doProfile()');
+
     let profile = this.authentication.getProfile();
+    this.profileView = profile.type;
 
     const auth = this.authentication.getAuthorization();
 
-    this.profileView ='member';
+    this.statements = this.transaction.getTransactions();
 
-    if (profile.type == 'cashier') {
-      this.profileView ='cashier';
-      this.profile = profile.object;
-    } else if (profile.type == 'partner') {
-      this.profileView ='partner';
+    if (profile.type == 'partner' || profile.type == 'cashier') {
       this.profile = profile.object;
     } else { // member
       this.profile = auth.member;

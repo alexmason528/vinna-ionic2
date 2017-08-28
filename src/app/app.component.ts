@@ -47,8 +47,10 @@ export class MyApp {
 
       this.storage.get('auth')
       .then(val => {
-        if (val)
+        if (val) {                    
           this.rootPage = TabsAccountPage;
+          this.authentication.verifyToken();          
+        }
         else
           this.rootPage = HomePage;
 

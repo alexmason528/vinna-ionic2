@@ -39,6 +39,14 @@ export class AuthenticationProvider {
     } catch (err) {
       console.log(err);
     }
+
+    let intervalId = setInterval(() => {  
+      this.verifyToken();
+    }, 1000   // milliseconds
+      * 60    // seconds
+      * 60    // minutes
+      * .5    // hours
+    );    
   }
 
   updates(): Observable<any> {
@@ -76,6 +84,7 @@ export class AuthenticationProvider {
 
     return new Promise(function(resolve, reject) {
       if (t.auth) {
+
           resolve(t.auth);
       } else {
         return t.initAuthorization();
