@@ -1,4 +1,11 @@
 page-profile {
+  ion-header::after, .header-md::after, .header::after {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+  }
+
   .grid {
     font-family: 'Open Sans';
 
@@ -37,7 +44,7 @@ page-profile {
       }
 
       &.category {
-        color: map-get($colors, vinnared);
+        color: map-get($colors, vinnadarkgrey);
         text-transform: uppercase;
       }
     }

@@ -1,10 +1,24 @@
 page-statement {
+  ion-header::after, .header-md::after, .header::after {
+    border: 0px !important;
+    background-image: none !important;
+    border:0;
+    border-bottom:.5px solid map-get($colors, vinnamidgrey) !important;
+  }
+
+  .bar-header {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+  }
+
   .grid {
     padding: 0px 16px !important;
     
     .row {
       padding: 10px 0px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      border-bottom: .5px solid rgba(0, 0, 0, 0.3);
 
       &.heading {
         .col {
