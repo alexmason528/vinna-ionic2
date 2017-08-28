@@ -1,140 +1,211 @@
 page-business-profile {
-  .toolbar {
-    margin: 0;
-    padding: 4px;
-    .toolbar-background {
-      border-width: 0px !important;
-    }
-  }
-  
-  .searchbar {
-    min-height: 0;
-    .searchbar-input-container {
-      .searchbar-input {
-        -webkit-appearance: none !important;
-        -moz-appearance: none !important;
-        appearance: none !important;
-        box-shadow: none !important;
 
-        background: none !important;
-        border-radius: 0px !important;
-   
-        border: 1px solid #ddd;
+  .grid {
+    padding: 0;
 
-        &::-webkit-input-placeholder {
-          color: #ddd;
-        }
-      }
-    }
-  }
-
-
-  .card {
-    position: relative;
-    width: 100%;
-    box-shadow: none;
-    border-radius: 0px;
-    padding-bottom:5px;
-    border-bottom: 0px;
-    margin: 0 0 10px 0;
-
-    .image-wrapper {
-      height: 56vw;
-      position: relative;
-      overflow: hidden;
-      img {
-        position: absolute;
-        left: 0;
-        top: -25%;
-      }
+    .bold-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: map-get($colors, dark);
     }
 
-
-    .card-content {
-      background-color: rgba(255,255,255,0.75);
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      height:55px;
-      padding:10px; 
-
-      div {
-        margin:0;
-      }
-
-      .card-title, p {
-        padding:0;
-        margin:0;
-        position: relative;
-        bottom: 0%;
-        width: 100%;
-        margin-bottom: 0px;
-      }
-      .card-title {
-        font-size:14px;        
-        color: rgba(48,48,48,0.75);
-      }
-      p {
-        font-size:12px;
-        color: rgba(48,48,48,0.75);
-      }
-
-      .rating{
-        display: flex;
-        align-items: center;
-        flex-wrap: nowrap;
-        font-size: 1.2em;
-        color: yellow;
-        padding:0 0.1em 0 0.1em;
-
-        .counter {
-          color: rgba(48,48,48,0.75) !important;
-        }
-      }
-    }
-  }
-
-  .business-info {
     .row {
-      padding:10px 10px 0 10px;
+      padding: 20px;
 
-      a {
-        color: map-get($colors, vinnared);
-      }
+      .col {
+        padding: 0;
 
-      img:nth-child(even) { 
-      }
-
-      img:nth-child(odd) { 
-      }
-
-      &.header {
-        padding:0px;
-        margin:10px 10px 0px 10px;
-        border-bottom:1px solid map-get($colors, vinnamidgrey);
-        font-weight: bold;
-      }
-
-    }
-    .media-row {
-      div {
-        height: 28vw;
-        position: relative;
-        overflow: hidden;
-        img {
-          position: absolute;
-          left: 0;
-          top: -25%;
+        &.heading {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid map-get($colors, vinnadarkgrey);
+          padding-bottom: 10px;
+          margin-bottom: 10px;
         }
       }
 
-      div {
-        margin:3px;
+      &.business-picture-row {
+        padding: 0;
+
+        .col {
+          padding: 0;
+
+          .image-wrapper {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+
+            .profile-pic {
+              position: absolute;
+              width: 100%;
+            }
+
+            .toolbar {
+              position: absolute;
+              top: 0;
+              width: calc(100% - 30px);
+
+              .share-btn {
+                margin-right: 15px;
+              }
+            }
+          }
+        }
       }
 
+      &.business-info {
+        .col {
+          &.heading {
+            border-bottom: none;
+          }
+        }
+      }
 
+      &.business-what-is-new {
+        .col {
+          .card {
+            margin: 0;
+            width: 100%;
+            box-shadow: none;
+            border-radius: 0p;
+            padding-bottom:10px;
+          
+            &:not(:last-child) {
+              margin: 0 0 15px 0;
+              border-bottom: 7px solid map-get($colors, vinnalightgrey);
+            }
+
+            .card-content {
+              padding: 0;
+              margin:0;
+
+              .grid {
+                padding: 0;
+
+                .row {
+                  padding: 0;
+                  margin: 0;
+
+                  .col {
+                    padding: 0;
+                  }
+
+                  &.image-row {
+
+                    .image {
+                      height: 200px;
+                      position: relative;
+                      overflow: hidden;
+
+                      img {
+                        position: absolute;
+                        top: 0;
+                      }
+                    }
+                  }
+
+                  &.content-row {
+                    font-size: 12px;
+
+                    .col:first-child {
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.business-reviews {
+        .col {
+          * {
+            padding: 0;
+            margin: 0;
+          }
+
+          .item {
+            * { color: map-get($colors, dark); }
+
+            .item-inner {
+              border-bottom: none;
+
+              .label {
+                padding: 10px 0;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+
+                .reviewer-photo {
+                  width: 20vw !important;
+                  height: 20vw !important;
+                  border-radius: 50%;
+                  border: 1px solid map-get($colors, dark);
+                  margin-right: 20px;
+                }
+
+                .review-content {
+                  width: calc(80vw - 20px);
+
+                  .review-heading {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .icon {
+                      color: map-get($colors, vinnared);
+                      margin-right: 5px;
+                      width: 4vw !important;
+                      height: 4vw !important;
+                    }
+
+                    .review-rating {
+                      display: flex;
+                      align-items: center;
+
+                      .svg-icon {
+                        width: 4vw !important;
+                        height: 4vw !important;
+                      }
+                    }
+                  }
+
+                  .review-text {
+                    margin-top: 5px;
+                  }
+                }
+              }  
+            }
+          }
+        }
+      }
+
+      &.business-pictures {
+        .business-picture {
+          &:nth-child(2n) {
+            padding-right: 2.5px;
+          }
+
+          &:nth-child(2n+1) {
+            padding-left: 2.5px;
+          }
+        }
+      }
+
+      &.business-videos {
+        .business-video {
+          &:nth-child(2n) {
+            padding-right: 2.5px;
+          }
+
+          &:nth-child(2n+1) {
+            padding-left: 2.5px;
+          }
+        }
+      }
     }
   }
-
-
 }

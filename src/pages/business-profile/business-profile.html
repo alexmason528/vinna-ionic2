@@ -5,118 +5,198 @@
   Ionic pages and navigation.
 -->
 <ion-content>
-  <ion-grid no-padding>
-    <ion-row>
+  <ion-grid>
+    <ion-row class="business-picture-row">
+      <ion-col col-12>
+        <div class="image-wrapper">
+          <img class="profile-pic" [src]="partner.picture1" *ngIf="partner.picture1" />
+
+          <ion-navbar hideBackButton>
+            <ion-buttons start>
+              <button tappable ion-button icon-only navPop>
+                <img class="svg-icon" src="assets/icon/arrow-white-left.svg"/>
+              </button>
+            </ion-buttons>
+            <ion-buttons end>
+              <button tappable ion-button icon-only class="share-btn">
+                <img class="svg-icon" src="assets/icon/share-white.svg"/>
+              </button>
+              <button tappable ion-button icon-only>
+                <img class="svg-icon" src="assets/icon/favorite-white.svg"/>
+              </button>
+            </ion-buttons>
+          </ion-navbar>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="business-info">
+      <ion-col class="heading" col-12>
+        <div class="bold-text">
+          {{ partner.text }}
+        </div>
+        <div class="rating">
+          <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+          <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+          <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+          <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+          <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+        </div>
+      </ion-col>
       <ion-col>
-        <ion-card>
-          <div class="image-wrapper">
-            <img [src]="partner.picture1" *ngIf="partner.picture1" />
-          </div>
+        {{ partner.description }}
+      </ion-col>
+    </ion-row>
+
+    
+    <ion-row class="business-what-is-new">
+      <ion-col class="heading" col-12>
+        <div class="bold-text">
+          What's new (12)
+        </div>
+        <div><a>Show more</a></div>
+      </ion-col>
+      <ion-col>
+
+        <ion-card *ngFor="let notification of notifications">
           <ion-card-content>
-            <div>
-              <ion-card-title>
-                {{ partner.text }}
-              </ion-card-title>
-              <p> {{ partner.category.text }}</p>
-            </div>
-            <!--
-            <div class="rating">
-              <ion-icon *ngFor="let star of ratings" class="rating" [name]="star.icon" (click)="rate(star.value)"></ion-icon>
-              <span class="counter">(25)</span>
-            </div>
-            -->
+            <ion-grid>
+              <ion-row class="image-row">
+                <ion-col>
+                  <div class="image"><img [src]="notification.picture"></div>
+                </ion-col>
+              </ion-row>
+              <ion-row class="content-row">
+                <ion-col col-12>
+                  <div class="bold-text">{{ notification.category | uppercase }}: {{ notification.title }}</div>
+                  <div>
+                    <button tappable class="no-background-button" ion-button icon-only><img class="svg-icon" src="assets/icon/favorite-red.svg"/></button>
+                    <button tappable class="no-background-button" ion-button icon-only><img class="svg-icon" src="assets/icon/share-red.svg"/></button>
+                  </div>
+                </ion-col>
+                <ion-col col-12>
+                  Ending on {{ notification.end | date :  "M/d/yyyy" }} at {{ notification.end | date : "h:mm a" }}
+                </ion-col>
+                <ion-col col-12>
+                  {{ notification.description }}
+                </ion-col>
+              </ion-row>
+            </ion-grid>
           </ion-card-content>
         </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-grid no-padding class="business-info">
-    <ion-row class="header">
-      <ion-col>
-        About us
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-      {{ partner.description }}
 
       </ion-col>
     </ion-row>
 
-    <ion-row class="header">
-      <ion-col>
-        What's New
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-      Notifications    
-      <!-- TODO Show notifications -->  
-      </ion-col>
-    </ion-row>
-
-<!--
-    <ion-row class="header">
-      <ion-col>
-        Reviews
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-      Notifications      
-      </ion-col>
-    </ion-row>
--->
-
-    <ion-row class="header">
-      <ion-col>
-        Pictures
-      </ion-col>
-    </ion-row>
-    <ion-row class="media-row">
-      <ion-col *ngIf="partner.picture1" col-6>
-        <div>
-          <img src="{{partner.picture1}}">
+    <ion-row class="business-reviews">
+      <ion-col class="heading" col-12>
+        <div class="bold-text">
+          Reviews
         </div>
+        <div><a>Show more</a></div>
       </ion-col>
-      <ion-col *ngIf="partner.picture2" col-6>
-        <div>
-          <img src="{{partner.picture2}}">
-        </div>
-      </ion-col>
-      <ion-col *ngIf="partner.picture3" col-6>
-        <div>
-          <img src="{{partner.picture3}}">
-        </div>
-      </ion-col>
-      <ion-col *ngIf="partner.picture4" col-6>
-        <div>
-          <img src="{{partner.picture4}}">
-        </div>
+      <ion-col>
+        <ion-item>
+          <img class="reviewer-photo" src="assets/img/elon-musk.jpeg"/>
+          <div class="review-content">
+            <div class="review-heading">
+              <div class="reviewer-name">
+                Reggie Miller
+              </div>
+              <div class="review-rating">
+                <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+                <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+                <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+                <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+                <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+              </div>
+              <div class="reviewer-like">
+                <ion-icon name="ios-thumbs-up-outline"></ion-icon>9
+              </div>
+            </div>
+            <div class="review-text">ABCD</div>
+          </div>
+        </ion-item>
+
+        <ion-item>
+          <img class="reviewer-photo" src="assets/img/elon-musk.jpeg"/>
+          <div class="review-content">
+            <div class="review-heading">
+              <div class="reviewer-name">
+                Reggie Miller
+              </div>
+              <div class="review-rating">
+                <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+                <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+                <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+                <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+                <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
+              </div>
+              <div class="reviewer-like">
+                <ion-icon name="ios-thumbs-up-outline"></ion-icon>9
+              </div>
+            </div>
+            <div class="review-text">ABCD</div>
+          </div>
+        </ion-item>
+
       </ion-col>
     </ion-row>
 
+    <ion-row class="business-pictures">
+      <ion-col class="heading" col-12>
+        <div class="bold-text">
+          Pictures
+        </div>
+        <div><a>Show more</a></div>
+      </ion-col>
+      <ion-col *ngIf="partner.picture1" class="business-picture" col-6>
+        <img [src]="partner.picture1"/>
+      </ion-col>
+      <ion-col *ngIf="partner.picture2" class="business-picture" col-6>
+        <img [src]="partner.picture2"/>
+      </ion-col>
+      <ion-col *ngIf="partner.picture3" class="business-picture" col-6>
+        <img [src]="partner.picture3"/>
+      </ion-col>
+      <ion-col *ngIf="partner.picture4" class="business-picture" col-6>
+        <img [src]="partner.picture4"/>
+      </ion-col>
+    </ion-row>
 
-    <ion-row class="header">
-      <ion-col>
-        Keep in Touch
+    <ion-row class="business-videos">
+      <ion-col class="heading" col-12>
+        <div class="bold-text">
+          Videos
+        </div>
+        <div><a>Show more</a></div>
+      </ion-col>
+      <ion-col class="business-video" col-6>
+        <img src="assets/img/home-buyandwin.png"/>
+      </ion-col>
+      <ion-col class="business-video" col-6>
+        <img src="assets/img/home-buyandwin.png"/>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col>
-        <div>
-        Phone Number: <a href='tel://{{ partner.phone }}'>{{ partner_phone_formatted }}</a>
+
+    <ion-row class="business-keep-in-touch">
+      <ion-col class="heading" col-12>
+        <div class="bold-text">
+          Keep in Touch
         </div>
-        <div>
-        Email: <a href='mailto://{{ partner.email }}'>{{ partner.email }}</a>
-        </div>
+        <div><a>Show more</a></div>
       </ion-col>
-    </ion-row>    
-    <ion-row>
-      <ion-col>
-        <br><br>
+      <ion-col col-12>
+        Phone Number: <span class='red'>({{partner.phone | slice:0:3 }}) {{partner.phone | slice:3:6 }}-{{partner.phone | slice:6:10 }}</span>
+      </ion-col>
+      <ion-col col-12>
+        Email: <span class='red'>{{partner.email}}</span>
+      </ion-col>
+      <ion-col col-12>
+        Address: <span class='red'>{{ partner.address1 }}, {{ partner.city }}, {{ partner.state.text }}, {{ partner.country.english_text }} {{ partner.zip }}</span>
       </ion-col>
     </ion-row>
+  
   </ion-grid>
 </ion-content>
+ 

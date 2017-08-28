@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AuthenticationProvider } from '../../providers/providers';
+import { AuthenticationProvider,NotificationProvider } from '../../providers/providers';
 
 /**
  * Generated class for the BusinessProfilePage page.
@@ -16,21 +16,23 @@ import { AuthenticationProvider } from '../../providers/providers';
 export class BusinessProfilePage {
   media;
   partner;
-  partner_phone_formatted: any;
+  notifications = [];
   ratings: Array<{ value: number, icon: string }> = [];
   tab;
 
   constructor(
     public authentication: AuthenticationProvider,
+    public notificationProvider: NotificationProvider,
     public navCtrl: NavController, 
     public navParams: NavParams) {
     this.media = "videos";    
     this.partner = this.navParams.get('partner');
 
-    if (!this.partner) this.navCtrl.pop();
+    this.notificationProvider.updates().subscribe(data => {
+      this.notifications = data;
+    });
 
-    let number = '(' + this.partner.phone.slice(0,3) + ') ' + this.partner.phone.slice(3,6) + '-' + this.partner.phone.slice(6);
-    this.partner_phone_formatted = '+1 ' + number;
+    this.notifications = this.notificationProvider.getNotifications();
 
     this.ratings.push({
       value: 1,
@@ -53,6 +55,10 @@ export class BusinessProfilePage {
       icon: 'star-outline'
     });
     this.tab = "hello";
+
+    console.log(this.partner);
+
+    
   }
 
   rate(val) {
@@ -64,6 +70,10 @@ export class BusinessProfilePage {
         star.icon = 'star';
       }
     });
+  }
+
+  ionViewWillEnter() {
+    this.notificationProvider.refreshNotifications();
   }
 
   ionViewDidLoad() {
