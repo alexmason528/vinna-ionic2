@@ -20,7 +20,7 @@
   /* font-weight: 400; */
   font-family: 'Open Sans Light';
 
-  font-size:3.8vw;
+  font-size: 3.8vw;
 }
 
 a {
@@ -34,32 +34,34 @@ div.header {
 }
 
 input {
-  font-size:3.8vw;
+  font-size: 3.8vw;
   border-radius: 0px;
   box-shadow: none;
   border: 1px solid map-get($colors, vinnalightgrey);
-}
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  box-shadow: none !important;
 
-input[input=text] {
   font-family: 'Open Sans Light' !important;
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #cccccc;
+  color: map-get($colors, vinnamidgrey);
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #cccccc;
-   opacity:  1;
+  color: map-get($colors, vinnamidgrey);
+  opacity: 1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #cccccc;
-   opacity:  1;
+  color: map-get($colors, vinnamidgrey);
+  opacity: 1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #cccccc;
+  color: map-get($colors, vinnamidgrey);
 }
 ::-ms-input-placeholder { /* Microsoft Edge */
-   color:    #cccccc;
+  color: map-get($colors, vinnamidgrey);
 }
 
 .svg-icon {
@@ -121,18 +123,19 @@ button {
   padding-left: 7px;
   padding-right: 7px;
 
-  text-shadow:none !important;
-  border:none !important;
-  box-shadow:none !important;
+  text-shadow: none !important;
+  border: none !important;
+  box-shadow: none !important;
 
   &.activated {
     background: none !important;
-    border:1px solid map-get($colors, vinnared);
+    border: 1px solid map-get($colors, vinnared);
   }
 
   &.no-background-button {
     background: none;
     text-transform: none !important;
+
     .button-inner {
       color: map-get($colors, vinnared) !important;
     }
@@ -143,17 +146,17 @@ button {
     font-size: 5vw !important;
     font-family: 'Open Sans' !important;
     text-transform: none !important;
-    color:#ffffff !important;
+    color: map-get($colors, vinnawhite) !important;
   }
 
   &.red-background-button {
-    height:7vh !important;
+    height: 7vh !important;
     min-height: 45px;
     border-radius: 7px !important;
     font-size: 5vw !important;
     font-family: 'Open Sans' !important;
     text-transform: none !important;
-    color:#ffffff !important;
+    color: map-get($colors, vinnawhite) !important;
 
     min-width: 34.5vw !important;
     background-color: map-get($colors, vinnared);
@@ -164,15 +167,16 @@ button {
   }
 
   &.white-background-button {
-    height:7vh !important;
+    height: 7vh !important;
     border-radius: 7px !important;
     font-size: 5vw !important;
     font-family: 'Open Sans' !important;
     text-transform: none !important;
-    color:#ffffff !important;
+    color: map-get($colors, vinnawhite) !important;
 
     background-color: map-get($colors, vinnawhite);
     border: 1px solid map-get($colors, vinnared);
+
     .button-inner {
       color: map-get($colors, vinnared);
     }
@@ -189,7 +193,7 @@ button {
       width: 14px;
       height: 14px;
       border-radius: 3px;
-      background-color: #c8c7cc;
+      background-color: map-get($colors, vinnapopover);
       content: "";
       transform: rotate(45deg);
     }
@@ -202,13 +206,13 @@ button {
 
   .popover-content {
     border-radius: 0px !important;
-    border: 1px solid #c8c7cc;
+    border: 1px solid map-get($colors, vinnapopover);
     width: 300px !important;
     left: 55px;
     padding: 0px 20px;
 
     .item {
-      border-top: 1px solid #c8c7cc;
+      border-top: 1px solid map-get($colors, vinnapopover);
       border-bottom: none;
       padding: 0px;
       margin: 0px;
@@ -278,7 +282,7 @@ button {
   background-repeat: no-repeat;
   position: relative;
   margin-bottom: 0.9vh;
-  border-bottom: 1px solid #edeaea;  
+  border-bottom: 1px solid map-get($colors, vinnalightmidgrey);  
 }
 .card-title {
   // position: absolute;
@@ -298,30 +302,30 @@ button {
 
 @font-face {
   font-family: 'Helvetica LT';
-  src: url('../assets/fonts/helvetical-lt.ttf') format('truetype'),
+  src: url('../assets/helvetical-lt.ttf') format('truetype'),
        url('../assets/fonts/helvetical-lt.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Helvetica LT Condensed Light';
-  src: url('../assets/fonts/helvetica-lt-condensed-light.ttf') format('truetype'),
+  src: url('../assets/helvetica-lt-condensed-light.ttf') format('truetype'),
        url('../assets/fonts/helvetica-lt-condensed-light.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Helvetica LT Condensed Bold';
-  src: url('../assets/fonts/helvetica-lt-condensed-bold.ttf') format('truetype'),
+  src: url('../assets/helvetica-lt-condensed-bold.ttf') format('truetype'),
        url('../assets/fonts/helvetica-lt-condensed-bold.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Open Sans Light';
-  src: url('../assets/fonts/OpenSans-Light.ttf') format("truetype"),
-       url('../assets/fonts/OpenSans-Light.woff') format("woff");
+  src: url('../assets/opensans-Light.ttf') format("truetype"),
+       url('../assets/fonts/opensans-light.woff') format("woff");
 }
 
 @font-face {
   font-family: 'Open Sans';
-  src: url('../assets/fonts/opensans.ttf') format("truetype"),
+  src: url('../assets/opensans.ttf') format("truetype"),
        url('../assets/fonts/opensans.woff') format("woff");
 }
