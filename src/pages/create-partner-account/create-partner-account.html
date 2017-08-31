@@ -7,6 +7,11 @@
 <ion-header>
   <ion-navbar hideBackButton>
     <ion-title>Create Partner Account</ion-title>
+    <ion-buttons start>
+      <button tappable ion-button icon-only navPop>
+        <img class="svg-icon" src="assets/icon/arrow-red-left.svg"/>
+      </button>
+    </ion-buttons>
     <ion-buttons color="vinnared" end>
       <button ion-button icon-only (click)="navNextPage()">
         <img class="svg-icon" src="assets/icon/arrow-red-right.svg"/>
@@ -28,12 +33,12 @@
           <ion-list>
             <ion-item>
               <ion-select interface='popover' placeholder='Category' formControlName="category_id" (ionChange)="getSubCategories($event)" >
-                <ion-option *ngFor="let category of categories" [value]="category.id">{{category.text}}</ion-option>            
+                <ion-option *ngFor="let category of categories" [value]="category.id">{{category.text}}</ion-option>
               </ion-select>
             </ion-item>
             <ion-item>
               <ion-select interface='popover' placeholder='Sub Category' formControlName="sub_category_id">
-                <ion-option *ngFor="let sub_category of sub_categories" [value]="sub_category.id">{{sub_category.text}}</ion-option>            
+                <ion-option *ngFor="let sub_category of sub_categories" [value]="sub_category.id">{{sub_category.text}}</ion-option>
               </ion-select>
             </ion-item>
             <ion-item>
