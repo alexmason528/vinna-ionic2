@@ -10,13 +10,13 @@
       <ion-col col-12>
         <div class="image-wrapper">
           <img class="profile-pic" [src]="partner.picture1" *ngIf="partner.picture1" />
-
           <ion-navbar hideBackButton>
             <ion-buttons start>
               <button tappable ion-button icon-only navPop>
                 <img class="svg-icon" src="assets/icon/arrow-white-left.svg"/>
               </button>
             </ion-buttons>
+<!--
             <ion-buttons end>
               <button tappable ion-button icon-only class="share-btn">
                 <img class="svg-icon" src="assets/icon/share-white.svg"/>
@@ -25,6 +25,7 @@
                 <img class="svg-icon" src="assets/icon/favorite-white.svg"/>
               </button>
             </ion-buttons>
+-->
           </ion-navbar>
         </div>
       </ion-col>
@@ -35,6 +36,7 @@
         <div class="bold-text">
           {{ partner.text }}
         </div>
+        <!--
         <div class="rating">
           <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
           <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
@@ -42,19 +44,32 @@
           <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
           <img class="svg-icon" src="assets/icon/rating-star-inactive.svg"/>
         </div>
+        -->
       </ion-col>
       <ion-col>
-        {{ partner.description }}
+        {{ partner.category.text }}
       </ion-col>
     </ion-row>
 
-    
+    <ion-row class="business-about-us">
+      <ion-col class="heading" col-12>
+        <div class="bold-text">
+          About Us
+        </div>
+        <div class="showmore"><a>Show more</a></div>
+      </ion-col>
+      <ion-col col-12>
+        {{partner.description}}
+      </ion-col>
+    </ion-row>
+
+
     <ion-row class="business-what-is-new">
       <ion-col class="heading" col-12>
         <div class="bold-text">
-          What's new (12)
+          What's new <!-- TODO (12) Instead of 12, this should show total active notifications. -->
         </div>
-        <div><a>Show more</a></div>
+        <div class="showmore"><a>Show more</a></div>
       </ion-col>
       <ion-col>
 
@@ -69,10 +84,12 @@
               <ion-row class="content-row">
                 <ion-col col-12>
                   <div class="bold-text">{{ notification.category | uppercase }}: {{ notification.title }}</div>
+                  <!--
                   <div>
                     <button tappable class="no-background-button" ion-button icon-only><img class="svg-icon" src="assets/icon/favorite-red.svg"/></button>
                     <button tappable class="no-background-button" ion-button icon-only><img class="svg-icon" src="assets/icon/share-red.svg"/></button>
                   </div>
+                  -->
                 </ion-col>
                 <ion-col col-12>
                   Ending on {{ notification.end | date :  "M/d/yyyy" }} at {{ notification.end | date : "h:mm a" }}
@@ -88,12 +105,12 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="business-reviews">
+    <ion-row class="business-reviews" *ngIf="false">
       <ion-col class="heading" col-12>
         <div class="bold-text">
           Reviews
         </div>
-        <div><a>Show more</a></div>
+        <div class="showmore"><a>Show more</a></div>
       </ion-col>
       <ion-col>
         <ion-item>
@@ -148,7 +165,7 @@
         <div class="bold-text">
           Pictures
         </div>
-        <div><a>Show more</a></div>
+        <div class="showmore"><a>Show more</a></div>
       </ion-col>
       <ion-col *ngIf="partner.picture1" class="business-picture" col-6>
         <img [src]="partner.picture1"/>
@@ -164,12 +181,12 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="business-videos">
+    <ion-row class="business-videos" *ngIf="false">
       <ion-col class="heading" col-12>
         <div class="bold-text">
           Videos
         </div>
-        <div><a>Show more</a></div>
+        <div class="showmore"><a>Show more</a></div>
       </ion-col>
       <ion-col class="business-video" col-6>
         <img src="assets/img/home-buyandwin.png"/>
@@ -184,16 +201,21 @@
         <div class="bold-text">
           Keep in Touch
         </div>
-        <div><a>Show more</a></div>
+        <div class="showmore"><a>Show more</a></div>
       </ion-col>
       <ion-col col-12>
-        Phone Number: <span class='red'>({{partner.phone | slice:0:3 }}) {{partner.phone | slice:3:6 }}-{{partner.phone | slice:6:10 }}</span>
+        Phone Number: <span class='red'><a href='tel://{{partner.phone}}'>({{partner.phone | slice:0:3 }}) {{partner.phone | slice:3:6 }}-{{partner.phone | slice:6:10 }}</a></span>
       </ion-col>
       <ion-col col-12>
-        Email: <span class='red'>{{partner.email}}</span>
+        Email: <span class='red'><a href='mailto://{{partner.email}}'>{{partner.email}}</a></span>
       </ion-col>
       <ion-col col-12>
-        Address: <span class='red'>{{ partner.address1 }}, {{ partner.city }}, {{ partner.state.text }}, {{ partner.country.english_text }} {{ partner.zip }}</span>
+        Address: <span class='red'>
+          <a href="http://maps.google.com/?q={{partner.address1}},{{partner.city}},{{partner.state.abbr}} {{partner.zip}}">
+            <br>{{ partner.address1 }} 
+            <br>{{ partner.city }}, {{ partner.state.abbr }} {{ partner.zip }}
+            <br><!-- {{ partner.country.english_text }} -->
+          </a></span>
       </ion-col>
     </ion-row>
   

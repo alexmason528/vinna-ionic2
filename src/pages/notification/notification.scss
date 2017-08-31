@@ -52,6 +52,9 @@ page-notification {
 
     .contents {
       font-size:12px;
+      .col {
+        padding:10px;
+      }
     }
 
     .card-content {
@@ -62,7 +65,7 @@ page-notification {
         padding: 0;
 
         .row {
-          padding: 0 3vw;
+          padding: 0 0vw;
         }
 
         .image-row {

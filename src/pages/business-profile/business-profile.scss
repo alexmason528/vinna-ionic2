@@ -1,16 +1,18 @@
 page-business-profile {
+  font-family: "Helvetica LT";
+  font-size: 14px;
 
   .grid {
     padding: 0;
 
     .bold-text {
-      font-size: 18px;
+      font-size: 15px;
       font-weight: bold;
-      color: map-get($colors, dark);
+      color: map-get($colors, vinnadarkgrey);
     }
 
     .row {
-      padding: 20px;
+      padding: 0px 10px 10px 10px;
 
       .col {
         padding: 0;
@@ -19,9 +21,14 @@ page-business-profile {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          border-bottom: 1px solid map-get($colors, vinnadarkgrey);
-          padding-bottom: 10px;
-          margin-bottom: 10px;
+          border-bottom: .5px solid map-get($colors, vinnamiddarkgrey);
+          padding-top:5px;
+          padding-bottom: 5px;
+          margin-bottom: 17px;
+
+          .showmore {
+            display:none;
+          }
         }
       }
 
@@ -58,11 +65,13 @@ page-business-profile {
         .col {
           &.heading {
             border-bottom: none;
+            padding-bottom: 0px;
+            margin-bottom: 0px;            
           }
         }
       }
 
-      &.business-what-is-new {
+      &.business-what-is-new, &.business-about-us {
         .col {
           .card {
             margin: 0;
@@ -107,6 +116,7 @@ page-business-profile {
 
                   &.content-row {
                     font-size: 12px;
+                    padding-top:10px;
 
                     .col:first-child {
                       display: flex;
