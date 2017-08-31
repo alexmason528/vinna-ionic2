@@ -33,33 +33,48 @@ export class PartnerSettingsMailingPage {
 
     let auth = this.authentication.getAuthorization();
     this.countries = auth['countries'];
-
     this.partner = this.navParams.get('partner');
-
+    
     this.mailingForm = formBuilder.group({
       country_id: [this.partner.country_id, Validators.required],
       state_id: [this.partner.state_id, Validators.required],
       city: [this.partner.city, Validators.required],
       zip: [this.partner.zip, Validators.required],
       address1: [this.partner.address1, Validators.required],
-      address2: [this.partner.address2, Validators.required]
+      address2: [this.partner.address2]
     });
 
-    this.mailingForm.valueChanges.subscribe( e => {
-      this.isReadyToUpdate = this.mailingForm.valid;
-    });
-    
     this.getStates();
+    this.mailingForm.patchValue({ state_id: this.partner.state_id });
+
+    this.mailingForm.valueChanges.subscribe( e => {
+      let updated = false;
+      for(let key in this.mailingForm.value) {
+        if (this.mailingForm.value[key] != this.partner[key])
+          updated = true;
+      }
+
+      if (updated) {
+        this.isReadyToUpdate = this.mailingForm.valid;  
+      } else {
+        this.isReadyToUpdate = false;
+      }
+    });
+
+    
   }
 
   getStates() {
     const id = this.mailingForm.value['country_id'];
 
-    this.mailingForm.controls['state_id'].enable(true);
+    this.mailingForm.controls['state_id'].disable();
     for (let country of this.countries) {
       if (country.id == id) {
         this.states = country.states;
-        this.mailingForm.controls['state_id'].enable(false);
+        if (country.states.length > 0) {
+          this.mailingForm.controls['state_id'].enable();
+        }
+        this.mailingForm.patchValue({ state_id: ''});
         break;
       }
     }

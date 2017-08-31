@@ -21,14 +21,14 @@
       <ion-col col-3 *ngFor="let hour of hours">
         <ion-list>
           <ion-item>
-            <ion-checkbox [(ngModel)]="hour.enabled"></ion-checkbox>
+            <ion-checkbox [(ngModel)]="hour.enabled" (ionChange)="modified()"></ion-checkbox>
             <ion-label>{{ hour.dow }}</ion-label>
           </ion-item>
           <ion-item>
-            <ion-datetime [disabled]="!hour.enabled" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="hour.start"></ion-datetime>
+            <ion-datetime [disabled]="!hour.enabled" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="hour.start" (ionChange)="modified()"></ion-datetime>
           </ion-item>
           <ion-item>
-            <ion-datetime [disabled]="!hour.enabled" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="hour.end"></ion-datetime>
+            <ion-datetime [disabled]="!hour.enabled" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="hour.end" (ionChange)="modified()"></ion-datetime>
           </ion-item>
         </ion-list>
       </ion-col>
@@ -36,7 +36,7 @@
     <ion-row>
       <ion-col class="flex-content-between">
         <button ion-button class="no-background-button" navPop>Cancel</button>
-        <button ion-button class="red-background-button" (click)="changeHour()">Change Hour</button>
+        <button ion-button class="red-background-button" (click)="changeHour()" [disabled]="!isReadyToChange">Change Hour</button>
       </ion-col>
     </ion-row>
   </ion-grid>

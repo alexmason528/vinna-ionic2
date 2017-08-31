@@ -42,7 +42,7 @@ export class MemberSettingsPhonePage {
 
     this.phoneForm.valueChanges.subscribe( (evt) => {
       const phone_number = this.phoneForm.value.phone.replace(/\D+/g, '')
-      if (this.account.phone == phone_number) {
+      if (this.account.phone == phone_number || phone_number.length != 10) {
         this.isReadyToUpdate = false;
       } else {
         this.isReadyToUpdate = this.phoneForm.valid;
@@ -51,13 +51,14 @@ export class MemberSettingsPhonePage {
   }
 
   changePhone() {
+    this.phoneForm.patchValue({'phone': this.phoneForm.value.phone.replace(/\D+/g, '')});
+
     let loading = this.loadingCtrl.create({
       spinner: 'ios'
     });
     let auth = this.authService.getAuthorization();
     let seq = this.api.post('api/account/' + this.account.id + '/update_phone', this.phoneForm.value, this.authService.getRequestOptions());
 
-    this.phoneForm.patchValue({'phone': this.phoneForm.value.phone.replace(/\D+/g, '')});
     loading.present();
     seq
     .map(res => res.json())
@@ -65,7 +66,11 @@ export class MemberSettingsPhonePage {
       loading.dismiss();
       this.alertCtrl.create({
         message: 'Updated the phone number successfully',
-        buttons: ['Okay']
+        buttons: [
+        {
+          text: 'Okay',
+          handler: () => { this.navCtrl.pop(); }
+        }]
       }).present();
 
       auth.account.new_phone = this.account.new_phone = this.phoneForm.value.phone;

@@ -38,8 +38,8 @@ export class MemberSettingsBankPage {
 
     this.bankForm = this.formBuilder.group({
       account_holder_name: ['', Validators.required],
-      account_number: ['', Validators.compose([Validators.required, Validators.maxLength(4), Validators.minLength(17)])],
-      routing_number: ['', Validators.compose([Validators.required, Validators.maxLength(4), Validators.minLength(17)])]
+      account_number: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(17)])],
+      routing_number: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(17)])]
     });
 
     this.bankForm.valueChanges.subscribe( e => {
@@ -79,7 +79,11 @@ export class MemberSettingsBankPage {
           this.alertCtrl.create({
             title: 'Success!',
             subTitle: 'Updated the partner bank account successfully',
-            buttons: ['Okay']
+            buttons: [
+            {
+              text: 'Okay',
+              handler: () => { this.navCtrl.pop(); }
+            }]
           }).present();
         }, err => {
           console.log(err);

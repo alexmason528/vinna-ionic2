@@ -110,7 +110,11 @@ export class MemberSettingsPicturePage {
         loading.dismiss();
         this.alertCtrl.create({
           message: 'Updated the photo successfully',
-          buttons: ['Okay']
+          buttons: [
+          {
+            text: 'Okay',
+            handler: () => { this.navCtrl.pop(); }
+          }]
         }).present();
         auth['account']['profile_photo_url'] = res['profile_photo_url'];
         this.authentication.saveAuthorization(auth);

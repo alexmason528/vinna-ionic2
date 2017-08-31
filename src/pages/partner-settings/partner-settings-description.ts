@@ -20,7 +20,7 @@ export class PartnerSettingsDescriptionPage {
 
   partner: any;
 
-  isReadyToUpdate = true;
+  isReadyToUpdate = false;
 
   constructor(
     public alertCtrl: AlertController, 
@@ -39,7 +39,11 @@ export class PartnerSettingsDescriptionPage {
     });
     
     this.descForm.valueChanges.subscribe( e => {
-      this.isReadyToUpdate = this.descForm.valid;
+      if (this.descForm.value.description == this.partner.description) {
+        this.isReadyToUpdate = false;
+      } else {
+        this.isReadyToUpdate = this.descForm.valid;
+      }
     });
   }
 
@@ -74,7 +78,11 @@ export class PartnerSettingsDescriptionPage {
       this.partner = res;
       this.alertCtrl.create({
         message: 'Updated the business description successfully',
-        buttons: ['Okay']
+        buttons: [
+        {
+          text: 'Okay',
+          handler: () => { this.navCtrl.pop(); }
+        }]
       }).present();
     }, err => {
       loading.dismiss();
