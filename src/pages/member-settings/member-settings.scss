@@ -7,7 +7,7 @@ page-member-settings {
   }
 
   .input {
-    border: 1px solid #ddd;
+    border: 1px solid map-get($colors, vinnamidgrey);
     width: calc(100%);
     padding: 8px;
 
@@ -18,7 +18,7 @@ page-member-settings {
   }
 
   input {
-    border: 1px solid #ddd;
+    border: 1px solid map-get($colors, vinnamidgrey);
     width: calc(100%);
     padding: 8px;
     margin-bottom: 15px;
@@ -35,7 +35,7 @@ page-member-settings {
 
       .select {
         max-width: none;
-        border: 1px solid #ddd;
+        border: 1px solid map-get($colors, vinnamidgrey);
         padding: 8px;
         width: 100%;
       }
@@ -43,7 +43,7 @@ page-member-settings {
       .label {
         margin: 0px;
         font-size: 15px;
-        border-bottom-width: 1px solid #ddd;
+        border-bottom-width: 1px solid map-get($colors, vinnamidgrey);
         display: flex;
         justify-content: space-between;
         align-items: center;

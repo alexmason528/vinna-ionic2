@@ -78,7 +78,7 @@ export class MemberSettingsBankPage {
 
           this.alertCtrl.create({
             title: 'Success!',
-            subTitle: 'Updated the partner bank account successfully',
+            subTitle: 'Updated the bank account successfully',
             buttons: [
             {
               text: 'Okay',
@@ -90,7 +90,7 @@ export class MemberSettingsBankPage {
           loader.dismiss();
           this.alertCtrl.create({
             title: 'Sorry!',
-            subTitle: 'There was a problem to update the partner bank account.' + err,
+            subTitle: 'There was a problem to update the bank account.' + err,
             buttons: ['Okay']
           }).present();
         });
@@ -100,7 +100,7 @@ export class MemberSettingsBankPage {
       loader.dismiss();
       this.alertCtrl.create({
         title: 'Sorry!',
-        subTitle: 'There was a problem to update the partner bank account' + err,
+        subTitle: 'There was a problem to update the bank account' + err,
         buttons: ['OK']
       }).present();
     });

@@ -85,7 +85,11 @@ export class PartnerSettingsPhonePage {
 
       this.alertCtrl.create({
         message: 'Updated the business phone number successfully',
-        buttons: ['Okay']
+        buttons: [
+        {
+          text: 'Okay',
+          handler: () => { this.navCtrl.pop(); }
+        }]
       }).present();
     }, err => {
       loading.dismiss();

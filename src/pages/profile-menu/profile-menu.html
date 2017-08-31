@@ -24,16 +24,16 @@
         <img class="profile-photo red-border" text-left [src]="account.profile_photo_url">
       </ion-col>
       <ion-col *ngIf="profileView=='partner'">
-        <div style="position:absolute;padding-top:30px;border-bottom:1px solid #ccc; width:110%; left:-5%; margin:0px;z-index: -1;">
-            <div style="margin-left:150px; margin-bottom:5px;">{{ profile.text }}</div>
+        <div class="profile-section">
+          <div class="name">{{ profile.text }}</div>
         </div>
-        <img style="margin-left:13px;" class="red-border" text-left [src]="profile.picture1" *ngIf="profile.picture1">
+        <img class="profile-photo red-border" text-left [src]="profile.picture1" *ngIf="profile.picture1">
       </ion-col>
       <ion-col *ngIf="profileView=='cashier'">
-        <div style="position:absolute;padding-top:30px;border-bottom:1px solid #ccc; width:110%; left:-5%; margin:0px;z-index: -1;">
-            <div style="margin-left:150px; margin-bottom:5px;">{{account.first_name}} {{account.last_name}}</div>
+        <div class="profile-section">
+          <div class="name">{{account.first_name}} {{account.last_name}}</div>
         </div>
-        <img style="margin-left:13px;" class="red-border" text-left [src]="account.profile_photo_url">
+        <img class="profile-photo red-border" text-left [src]="account.profile_photo_url">
       </ion-col>
     </ion-row>
 

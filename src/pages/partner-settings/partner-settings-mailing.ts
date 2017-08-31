@@ -32,7 +32,7 @@ export class PartnerSettingsMailingPage {
     public navParams: NavParams) {
 
     let auth = this.authentication.getAuthorization();
-    this.countries = auth['countries'];
+    this.countries = auth.countries;
     this.partner = this.navParams.get('partner');
     
     this.mailingForm = formBuilder.group({
@@ -65,14 +65,14 @@ export class PartnerSettingsMailingPage {
   }
 
   getStates() {
-    const id = this.mailingForm.value['country_id'];
+    const id = this.mailingForm.value.country_id;
 
-    this.mailingForm.controls['state_id'].disable();
+    this.mailingForm.controls.state_id.disable();
     for (let country of this.countries) {
       if (country.id == id) {
         this.states = country.states;
         if (country.states.length > 0) {
-          this.mailingForm.controls['state_id'].enable();
+          this.mailingForm.controls.state_id.enable();
         }
         this.mailingForm.patchValue({ state_id: ''});
         break;
@@ -97,7 +97,7 @@ export class PartnerSettingsMailingPage {
       .subscribe(res => {
         loading.dismiss();
 
-        for (const key in auth['partners']) {
+        for (let key in auth['partners']) {
           if (auth['partners'][key]['id'] == res.id) {
             auth['partners'][key] = res;
             break;
@@ -110,11 +110,14 @@ export class PartnerSettingsMailingPage {
           object: res
         });
 
-        alert = this.alertCtrl.create({
+        this.alertCtrl.create({
           message: 'Updated the business mailing address successfully',
-          buttons: ['Okay']
-        });
-        alert.present();
+          buttons: [
+          {
+            text: 'Okay',
+            handler: () => { this.navCtrl.pop(); }
+          }]
+        }).present();
       }, err => {
         loading.dismiss();
         alert = this.alertCtrl.create({

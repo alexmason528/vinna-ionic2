@@ -11,27 +11,27 @@ page-home{
         text-align: right;
 
         img {
-          height:10.5vw;
-          margin:2.5vw;
+          height: 10.5vw;
+          margin: 2.5vw;
         }
       }
 
       .name {
         white-space: nowrap;
         font-weight: 600;
-        color: #fff;
+        color: map-get($colors, vinnawhite);;
 
         position: relative;
         font-size: 10vw;
         font-family: 'Helvetica LT Condensed Bold';
-        bottom:-1vw;
+        bottom: -1vw;
       }
 
       .more-back {
-        color: #fff;
-        font-size:8vw;
+        color: map-get($colors, vinnawhite);;
+        font-size: 8vw;
         position: relative;
-        bottom:-3.5vw;
+        bottom: -3.5vw;
 
         .svg-icon {
           margin-bottom: 5px;
@@ -41,8 +41,8 @@ page-home{
 
       .learn_more {
         text-decoration: underline;
-        color: white;
-        font-size:1.9vh;
+        color: map-get($colors, vinnawhite);
+        font-size: 1.9vh;
         line-height: 3vh;
         white-space: nowrap;
       }
@@ -83,18 +83,18 @@ page-home{
             text-align: left;
 
             .name {
-              left:0;
+              left: 0;
             }
 
             .more-back {
-              right:0;
+              right: 0;
             }
           }        
         }
 
         .info-grid {
           height: 70%;
-          font-size:2.5vh;
+          font-size: 2.5vh;
 
           .group {
             text-align: right;
@@ -105,7 +105,7 @@ page-home{
               .col{
                 text-align: center;
                 font-family: 'Helvetica LT Condensed Light';
-                font-size:3vh;
+                font-size: 3vh;
                 color: map-get($colors, vinnawhite);
                 margin-top: 10px;
                 line-height: 7vh;
@@ -124,32 +124,32 @@ page-home{
           padding: 0;
 
           div.wrap {
-            height:15vh;
+            height: 15vh;
             padding: 0.5vh 15px;
             background: map-get($colors, vinnawhite);
-            width:100%;
+            width: 100%;
 
             div.message {
               font-family: 'Open Sans Light';
-              font-size:4.3vw;
+              font-size: 4.3vw;
               color: map-get($colors, vinnamiddarkgrey);
-              margin:1vh 0 1.5vh 0;
+              margin: 1vh 0 1.5vh 0;
 
             }
 
             div.input {
-              border-top:1px solid map-get($colors, vinnamidgrey);
-              padding-top:3vw;
+              border-top: 1px solid map-get($colors, vinnamidgrey);
+              padding-top: 3vw;
 
 
               display: flex;
               justify-content: flex-start;
               align-items: center;
 
-              font-size:4vw;
+              font-size: 4vw;
 
               input {
-                /* padding-top:.5vh; */
+                /* padding-top: .5vh; */
                 margin-left: 10px;
                 width: 100%;
                 border: none;
@@ -161,7 +161,6 @@ page-home{
               }
             }
           }
-
         }
       }
     }

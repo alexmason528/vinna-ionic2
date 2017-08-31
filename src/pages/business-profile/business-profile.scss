@@ -22,12 +22,12 @@ page-business-profile {
           justify-content: space-between;
           align-items: center;
           border-bottom: .5px solid map-get($colors, vinnamiddarkgrey);
-          padding-top:5px;
+          padding-top: 5px;
           padding-bottom: 5px;
           margin-bottom: 17px;
 
           .showmore {
-            display:none;
+            display: none;
           }
         }
       }
@@ -78,7 +78,7 @@ page-business-profile {
             width: 100%;
             box-shadow: none;
             border-radius: 0p;
-            padding-bottom:10px;
+            padding-bottom: 10px;
           
             &:not(:last-child) {
               margin: 0 0 15px 0;
@@ -87,7 +87,7 @@ page-business-profile {
 
             .card-content {
               padding: 0;
-              margin:0;
+              margin: 0;
 
               .grid {
                 padding: 0;

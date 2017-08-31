@@ -11,12 +11,13 @@ page-complete-member-account-2 {
       .title {
         font-size: 15px;
         font-weight: bold;
-        color: #666767;
+        color: map-get($colors, vinnadarkgrey);
         margin-bottom: 8px; 
       }
 
       .input {
-        border: 1px solid #ddd;
+        border: 1px solid map-get($colors, vinnamidgrey);
+
         .text-input {
           margin: 8px;
           width: calc(100% - 16px);
@@ -26,7 +27,7 @@ page-complete-member-account-2 {
       .item {
         margin: 0px 0px 12px 0px;
         padding: 0px;
-        font-size:inherit;
+        font-size: inherit;
 
         .item-inner {
           padding-right: 0px;

@@ -21,7 +21,7 @@ page-create-member-account {
         border: none;
 
         .datetime {
-          border: 1px solid #ddd;
+          border: 1px solid map-get($colors, vinnamidgrey);
           padding-left: 8px;
           padding-right: 8px;
           width: 100%;
@@ -31,7 +31,7 @@ page-create-member-account {
           margin: 0;
 
           input {
-            border: 1px solid #ddd;
+            border: 1px solid map-get($colors, vinnamidgrey);
             padding: 8px;
             width: 100%;
           }
@@ -45,12 +45,12 @@ page-create-member-account {
       .item {
         margin: 0px 10px;
         padding: 0px;
-        font-size:inherit;
+        font-size: inherit;
         border: none;
         width: auto;
 
         .radio {
-          border: 1px solid #ddd;
+          border: 1px solid map-get($colors, vinnamidgrey);
 
           .radio-icon {
             width: 20px;

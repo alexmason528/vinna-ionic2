@@ -13,7 +13,7 @@ page-welcome-to-partner {
         padding: 16px 20px;
 
         div {
-          color: #fff;
+          color: map-get($colors, vinnawhite);
           text-align: center;
 
           &.title {
@@ -37,7 +37,7 @@ page-welcome-to-partner {
         border-radius: 0px;
 
         .button-inner{
-          color: #fff;
+          color: map-get($colors, vinnawhite);
         }
       }
     }

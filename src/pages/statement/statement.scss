@@ -1,9 +1,9 @@
 page-statement {
-  ion-header::after, .header-md::after, .header::after {
+  .header::after, .header-md::after, .header::after {
     border: 0px !important;
     background-image: none !important;
-    border:0;
-    border-bottom:.5px solid map-get($colors, vinnamidgrey) !important;
+    border: 0;
+    border-bottom: .5px solid map-get($colors, vinnamidgrey) !important;
   }
 
   .grid {
