@@ -37,7 +37,7 @@ export class CreatePartnerAccountPage {
     public navParams: NavParams) {
 
     this.form = this.formHelper.getForm('CreatePartnerAccount');
-    if (!this.form)
+    if (!this.form) {
       this.form = formBuilder.group({
         category_id: ['', Validators.required],
         sub_category_id: [{value:'', disabled:true}],
@@ -52,6 +52,9 @@ export class CreatePartnerAccountPage {
         address1: ['', Validators.required],
         address2: [''],
       });
+     } else {
+       this.getStates(this.form.value.country_id);
+     }
 
     const auth = this.authentication.getAuthorization();
 

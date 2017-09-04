@@ -132,6 +132,7 @@ export class CreatePartnerAccount2Page {
   ionViewWillUnload() {
     this.formHelper.setForm('CreatePartnerAccount2-Card', this.cardForm); 
     this.formHelper.setForm('CreatePartnerAccount2-Bank', this.bankForm); 
+    this.formHelper.setPayType(this.payType);
   }
 
   ionViewDidLoad() {
