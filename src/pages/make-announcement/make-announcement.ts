@@ -21,6 +21,8 @@ export class MakeAnnouncementPage {
   notificationForm: FormGroup;
   partner: any;
 
+  minDate;
+
   constructor(
     public actionSheetCtrl: ActionSheetController,
     public alertCtrl: AlertController,
@@ -32,19 +34,32 @@ export class MakeAnnouncementPage {
     public navCtrl: NavController, 
     public navParams: NavParams) {
 
+    let today = new Date();
     let tomorrow = new Date();
-    tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+    tomorrow.setUTCDate(today.getUTCDate() + 1);
 
     this.notificationForm = this.formBuilder.group({
         category: ['', Validators.required],
         title: ['', Validators.required],
         description: ['', Validators.compose([Validators.required, Validators.maxLength(140)])],
         link: [''],
-        start:[new Date().toISOString()],
+        start:[today.toISOString()],
         end:[tomorrow.toISOString()],
         picture:['', Validators.required]
     });
 
+    const month = today.getMonth()+1;
+    const day = today.getDate();
+
+    let monthString = '';
+    if (month < 10) monthString = '0' + month;
+    else monthString = month.toString();
+
+    let dayString = '';
+    if (day < 10) dayString = '0' + day;
+    else dayString = day.toString();
+
+    this.minDate = (today.getFullYear()) + '-' + monthString + '-' + dayString;
     this.partner = this.navParams.get('partner');
   }
 
@@ -95,21 +110,23 @@ export class MakeAnnouncementPage {
   }
 
   makeAnnounce() {
-    if(this.notificationForm.invalid) {
-      let error_message;
+    let error_message = '';
+    
+    if (this.notificationForm.get('category').hasError('required')) {
+      error_message = 'Please select category';
+    } else if(this.notificationForm.get('title').hasError('required')) {
+      error_message = 'Please input title'; 
+    } else if(this.notificationForm.get('description').hasError('required')) {
+      error_message = 'Please input description'; 
+    } else if(this.notificationForm.get('description').hasError('maxlength')) {
+      error_message = 'Description can not exceed 140 characters'; 
+    } else if(this.notificationForm.get('picture').hasError('required')) {
+      error_message = 'Please add picture'; 
+    } else if(this.notificationForm.value.start >= this.notificationForm.value.end) {
+      error_message = 'Start date should be earlier than end date';
+    }
 
-      if (this.notificationForm.get('category').hasError('required')) {
-        error_message = 'Please select category';
-      } else if(this.notificationForm.get('title').hasError('required')) {
-        error_message = 'Please input title'; 
-      } else if(this.notificationForm.get('description').hasError('required')) {
-        error_message = 'Please input description'; 
-      } else if(this.notificationForm.get('description').hasError('maxlength')) {
-        error_message = 'Description can not exceed 140 characters'; 
-      } else if(this.notificationForm.get('picture').hasError('required')) {
-        error_message = 'Please add picture'; 
-      } 
-
+    if (error_message != '') {
       this.alertCtrl.create({
         message: error_message,
         buttons: ['Okay']
@@ -117,6 +134,7 @@ export class MakeAnnouncementPage {
 
       return;
     }
+
 
     let loading = this.loadingCtrl.create({
         spinner: 'ios'

@@ -34,10 +34,10 @@ export class CompleteMemberAccountPage {
 
     const auth = this.authentication.getAuthorization();
 
-    this.countries = auth['countries'];
+    this.countries = auth.countries;
 
     this.form = this.formHelper.getForm('CompleteMemberAccount');
-    if (!this.form)
+    if (!this.form) {
       this.form = formBuilder.group({
         mailing_address_country_id: ['', Validators.required],
         mailing_address_state_id: [{value:'', disabled: true}, Validators.required],
@@ -46,7 +46,26 @@ export class CompleteMemberAccountPage {
         mailing_address_1: ['', Validators.required],
         mailing_address_2: ['']
       });
-    else this.getStates();
+    } else {
+      const state_id = this.form.value.mailing_address_state_id;
+
+      this.getStates(this.form.value.mailing_address_country_id);
+      this.form.patchValue({mailing_address_state_id: state_id});
+    }
+  }
+
+  getStates(id) {
+    this.form.controls.mailing_address_state_id.disable();
+    for (let country of this.countries) {
+      if (country.id == id) {
+        this.states = country.states;
+        if (country.states.length > 0) {
+          this.form.controls.mailing_address_state_id.enable();
+        }
+        this.form.patchValue({mailing_address_state_id: ''});
+        break;
+      }
+    }
   }
 
   navNextPage() {
@@ -159,22 +178,7 @@ export class CompleteMemberAccountPage {
     this.navCtrl.push(CompleteMemberAccount2Page, {mailingInfo: this.form.value});
   }
 
-  getStates() {
-    let id = this.form.value['mailing_address_country_id'];
-    if (!id) return;
-
-    this.form.controls['mailing_address_state_id'].enable(true);
-    for (let country of this.countries) {
-      if (country.id == id) {
-        this.states = country.states;
-        this.form.controls['mailing_address_state_id'].enable(false);
-        break;
-      }
-    }
-  }
-
   ionViewWillUnload() {
-
     this.formHelper.setForm('CompleteMemberAccount', this.form); 
   }
 

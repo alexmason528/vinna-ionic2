@@ -19,7 +19,7 @@ import { FormHelperProvider} from '../../providers/form-helper';
   templateUrl: 'create-partner-account-2.html',
 })
 export class CreatePartnerAccount2Page {
-  payType = 'bank';
+  payType;
 
   bankForm: FormGroup;
   cardForm: FormGroup;
@@ -56,6 +56,10 @@ export class CreatePartnerAccount2Page {
         routing_number: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(17)])]
       });
     }
+
+    const payType = this.formHelper.getPayType();
+
+    this.payType = (payType) ? payType : 'bank';
   }
 
   navNextPage() {

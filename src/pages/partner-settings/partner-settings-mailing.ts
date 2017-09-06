@@ -44,7 +44,7 @@ export class PartnerSettingsMailingPage {
       address2: [this.partner.address2]
     });
 
-    this.getStates();
+    this.getStates(this.partner.country_id);
     this.mailingForm.patchValue({ state_id: this.partner.state_id });
 
     this.mailingForm.valueChanges.subscribe( e => {
@@ -64,8 +64,7 @@ export class PartnerSettingsMailingPage {
     
   }
 
-  getStates() {
-    const id = this.mailingForm.value.country_id;
+  getStates(id) {
 
     this.mailingForm.controls.state_id.disable();
     for (let country of this.countries) {

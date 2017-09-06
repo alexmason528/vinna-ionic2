@@ -80,8 +80,7 @@ export class MemberSettingsEmailPage {
       }, err => {
         loading.dismiss();
         this.alertCtrl.create({
-          title: 'Sorry!',
-          subTitle: err._body,
+          message: err._body,
           buttons: ['Dismiss']
         }).present();
       });

@@ -4,15 +4,12 @@ page-make-announcement {
     padding: 10px !important;
 
       .col {
+        padding: 4px;
+        
         title {
           font-size: 16px;
           color: map-get($colors, vinnadarkgrey);
           margin-top: 10px;
-        }
-
-        .datetime {
-          border: 1px solid map-get($colors, vinnamidgrey);
-          padding: 10px 5px;
         }
 
         .input {
@@ -98,10 +95,11 @@ page-make-announcement {
           }
 
           .datetime {
-            padding: 10px !important;
+            padding: 10px 6px !important;
             border: 1px solid map-get($colors, vinnapopover) !important;
             width: 100%;
             text-align: center;
+            font-size: 15px;
           }
         }
 

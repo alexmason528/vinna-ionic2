@@ -50,7 +50,7 @@ export class MemberSettingsMailingPage {
       mailing_address_2: [this.member.mailing_address_2]
     });
 
-    this.getStates();
+    this.getStates(this.member.mailing_address_country_id);
     this.mailingAddressForm.patchValue({ mailing_address_state_id: this.member.mailing_address_state_id });
 
     this.mailingAddressForm.valueChanges.subscribe( e => {
@@ -68,8 +68,7 @@ export class MemberSettingsMailingPage {
     });
   }
 
-  getStates() {
-    const id = this.mailingAddressForm.value['mailing_address_country_id'];
+  getStates(id) {
 
     this.mailingAddressForm.controls['mailing_address_state_id'].disable();
     for (let country of this.countries) {

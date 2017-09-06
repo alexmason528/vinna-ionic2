@@ -78,9 +78,10 @@ export class MemberSettingsPhonePage {
 
       this.authService.saveAuthorization(auth);
     }, err => {
+      console.log(err);
       loading.dismiss();
       this.alertCtrl.create({
-        message: 'There was a problem to update the phone number.',
+        message: err._body,
         buttons: ['Dismiss']
       }).present();
     });
