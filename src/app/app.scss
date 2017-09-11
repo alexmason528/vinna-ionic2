@@ -302,30 +302,30 @@ button {
 
 @font-face {
   font-family: 'Helvetica LT';
-  src: url('../assets/helvetica-lt.ttf') format('truetype'),
+  src: url('../assets/fonts/helvetica-lt.ttf') format('truetype'),
        url('../assets/fonts/helvetica-lt.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Helvetica LT Condensed Light';
-  src: url('../assets/helvetica-lt-condensed-light.ttf') format('truetype'),
+  src: url('../assets/fonts/helvetica-lt-condensed-light.ttf') format('truetype'),
        url('../assets/fonts/helvetica-lt-condensed-light.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Helvetica LT Condensed Bold';
-  src: url('../assets/helvetica-lt-condensed-bold.ttf') format('truetype'),
+  src: url('../assets/fonts/helvetica-lt-condensed-bold.ttf') format('truetype'),
        url('../assets/fonts/helvetica-lt-condensed-bold.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Open Sans Light';
-  src: url('../assets/opensans-Light.ttf') format("truetype"),
+  src: url('../assets/fonts/opensans-light.ttf') format("truetype"),
        url('../assets/fonts/opensans-light.woff') format("woff");
 }
 
 @font-face {
   font-family: 'Open Sans';
-  src: url('../assets/opensans.ttf') format("truetype"),
+  src: url('../assets/fonts/opensans.ttf') format("truetype"),
        url('../assets/fonts/opensans.woff') format("woff");
 }

@@ -40,6 +40,7 @@ export class AuthenticationProvider {
       console.log(err);
     }
 
+    // Every half hour.
     let intervalId = setInterval(() => {  
       this.verifyToken();
     }, 1000   // milliseconds
@@ -54,6 +55,7 @@ export class AuthenticationProvider {
   }
 
   private initAuthorization():Promise<any> {
+    console.log('initAuthorization');
     let t = this;
 
     return new Promise(function(resolve, reject) {
@@ -65,6 +67,7 @@ export class AuthenticationProvider {
 
           if (t.authorizedObserver) t.authorizedObserver.next(true);
 
+          // TODO 
           t.verifyToken();
           resolve(t.auth);
         } else {
@@ -81,7 +84,8 @@ export class AuthenticationProvider {
 
   public getAuthorizationPromise2():Promise<any> {
     let t = this;
-
+    console.log('getAuthorizationPromise2');
+    console.log(this.auth);
     return new Promise(function(resolve, reject) {
       if (t.auth) {
 
@@ -162,7 +166,8 @@ export class AuthenticationProvider {
     const auth = this.getAuthorization();
     let authHeaders = new Headers();
     authHeaders.append('Authorization', 'JWT ' + auth.token);
-    
+    console.log('getRequestOptions');
+    console.log(authHeaders);
     return new RequestOptions({headers: authHeaders});
   }
 
@@ -187,7 +192,8 @@ export class AuthenticationProvider {
   }
 
   public reAuthenticate(onSuccess, onError) {
-    let auth = this.getAuthorizationPromise2().then(auth => {
+    console.log('reAuthenticating');
+    this.getAuthorizationPromise2().then(auth => {
       this.logIn({
         username: auth.user.username,
         password: auth.user.password

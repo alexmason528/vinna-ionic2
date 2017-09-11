@@ -60,92 +60,95 @@ export class TransactionProvider {
   summaryUpdates(): Observable<any> { return this.summaryObservable; }
 
   private refreshTransactions() {    
-    console.log('try getting ');
-    console.log(this.isGettingTransactions);
+    try {
+      console.log('try getting ');
+      console.log(this.isGettingTransactions);
 
-    if (this.isGettingTransactions) return;
-    this.isGettingTransactions = true;
+      if (this.isGettingTransactions) return;
+      this.isGettingTransactions = true;
 
-    let profile = this.authentication.getProfile();
-      
-    let t = this;
-    this.authentication.getAuthorizationPromise2().then(auth => {
-      
-      if(auth.token) {
-        console.log('getting');
-        let seq:any; // = t.api.get(`api/account/${auth.account.id}/purchase`, {}, this.authentication.getRequestOptions());
+      let profile = this.authentication.getProfile();
+        
+      let t = this;
+      this.authentication.getAuthorizationPromise2().then(auth => {
+        
+        if(auth.token) {
+          console.log('getting');
+          let seq:any; // = t.api.get(`api/account/${auth.account.id}/purchase`, {}, this.authentication.getRequestOptions());
 
-        if (profile.type == 'member') {
-          console.log('getting member statement')
-          seq = t.api.get(`api/account/${auth.account.id}/purchase`, {}, this.authentication.getRequestOptions());
-        } else if (profile.type == 'partner') {
-          console.log('getting partner statement')
-          seq = t.api.get(`api/business/${profile.object.id}/purchase`, {}, this.authentication.getRequestOptions());
-        } else if (profile.type == 'cashier') {
-          console.log('getting cashier statement')
-          seq = t.api.get(`api/business/${profile.object.id}/purchase`, {}, this.authentication.getRequestOptions());
+          if (profile.type == 'member') {
+            console.log('getting member statement')
+            seq = t.api.get(`api/account/${auth.account.id}/purchase`, {}, this.authentication.getRequestOptions());
+          } else if (profile.type == 'partner') {
+            console.log('getting partner statement')
+            seq = t.api.get(`api/business/${profile.object.id}/purchase`, {}, this.authentication.getRequestOptions());
+          } else if (profile.type == 'cashier') {
+            console.log('getting cashier statement')
+            seq = t.api.get(`api/business/${profile.object.id}/purchase`, {}, this.authentication.getRequestOptions());
+          }
+
+          seq
+          .map(res => res.json())
+          .subscribe(res => {
+            t.isGettingTransactions = false;
+            t.transactions = res;
+            if (t.transactionObserver) t.transactionObserver.next(t.transactions);
+          }, err => {
+            t.isGettingTransactions = false;
+            console.log(err);
+          });
+
+        } else {
+          console.log('noooo')
+          t.isGettingTransactions = false;
         }
 
-        seq
-        .map(res => res.json())
-        .subscribe(res => {
-          t.isGettingTransactions = false;
-          t.transactions = res;
-          if (t.transactionObserver) t.transactionObserver.next(t.transactions);
-        }, err => {
-          t.isGettingTransactions = false;
-          console.log(err);
-        });
-
-      } else {
-        console.log('noooo')
-        t.isGettingTransactions = false;
-      }
-
-    });
-  
+      });
+    } catch (err) {
+      this.isGettingTransactions = false;
+    }
   }
 
   private refreshSummary() {    
-    console.log('try getting summary ');
-    console.log(this.isGettingSummary);
-
-    if (this.isGettingSummary) return;
-    this.isGettingSummary = true;
-
-    let profile = this.authentication.getProfile();
+    try {
+      if (this.isGettingSummary) return;
       
-    let t = this;
-    this.authentication.getAuthorizationPromise2().then(auth => {
-      
-      if(auth.token) {
-        let seq:any;
+      this.isGettingSummary = true;
 
-        if (profile.type == 'member') {
-          seq = this.api.get(`api/account/${auth.account.id}/purchase_summary`, {}, this.authentication.getRequestOptions());
-        } else if (profile.type == 'partner') {
-          seq = this.api.get(`api/business/${profile.object.id}/purchase_summary`, {}, this.authentication.getRequestOptions());
-        } else if (profile.type == 'cashier') {
-          seq = this.api.get(`api/business/${profile.object.id}/purchase_summary`, {}, this.authentication.getRequestOptions());
+      let profile = this.authentication.getProfile();
+        
+      let t = this;
+      this.authentication.getAuthorizationPromise2().then(auth => {
+        if(auth.token) {
+          let seq:any;
+
+
+          if (profile.type == 'member') {
+            seq = this.api.get(`api/account/${auth.account.id}/purchase_summary`, {}, this.authentication.getRequestOptions());
+          } else if (profile.type == 'partner') {
+            seq = this.api.get(`api/business/${profile.object.id}/purchase_summary`, {}, this.authentication.getRequestOptions());
+          } else if (profile.type == 'cashier') {
+            seq = this.api.get(`api/business/${profile.object.id}/purchase_summary`, {}, this.authentication.getRequestOptions());
+          }
+
+          seq
+          .map(res => res.json())
+          .subscribe(res => {
+            t.isGettingSummary = false;
+            t.summary = res;
+            if (t.summaryObserver) t.summaryObserver.next(t.summary);
+          }, err => {
+            t.isGettingSummary = false;
+            console.log(err);
+          });
+        } else {
+          t.isGettingSummary = false;
         }
 
-        seq
-        .map(res => res.json())
-        .subscribe(res => {
-          t.isGettingSummary = false;
-          t.summary = res;
-          if (t.summaryObserver) t.summaryObserver.next(t.summary);
-        }, err => {
-          t.isGettingSummary = false;
-          console.log(err);
-        });
-      } else {
-        console.log('noooo')
-        t.isGettingSummary = false;
-      }
-
-    });
-  
+      });
+    } catch (err) {
+      this.isGettingSummary = false;
+    }
   }  
 
   public getTransactions() {
@@ -153,6 +156,7 @@ export class TransactionProvider {
     // TODO Add hash checking logic.
     // For now, refresh every time.
     */
+    console.log('getTransactions')
     this.refreshTransactions();
 
     if (this.transactions && this.transactions.length > 0) 
