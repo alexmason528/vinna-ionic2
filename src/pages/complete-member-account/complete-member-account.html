@@ -32,7 +32,7 @@
         <ion-col>
           <ion-list>
             <ion-item>
-              <ion-select formControlName="mailing_address_country_id" interface="popover" (ionChange)="getStates()" placeholder="Country">
+              <ion-select formControlName="mailing_address_country_id" interface="popover" (ionChange)="getStates($event)" placeholder="Country">
                 <ion-option *ngFor="let country of countries" [value]="country.id">{{country.english_text}}</ion-option>
               </ion-select>
             </ion-item>

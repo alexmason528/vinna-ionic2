@@ -94,6 +94,8 @@ export class CreatePartnerAccount3Page {
         picture4: [''],
         description: ['', Validators.required],
       });
+    } else {
+      this.hours = JSON.parse(this.formHelper.getHours());
     }
 
     this.stripe.setPublishableKey('pk_test_vSXaN8PlxDIA9SRDrvPyNllu');
@@ -184,6 +186,7 @@ export class CreatePartnerAccount3Page {
     }
 
     this.formHelper.setForm('CreatePartnerAccount3', this.form); 
+    this.formHelper.setHours(JSON.stringify(this.hours));
 
     this.loader = this.loadingCtrl.create({
       spinner: 'ios'
@@ -224,7 +227,11 @@ export class CreatePartnerAccount3Page {
           this.alertCtrl.create({
             title: 'Sorry!',
             subTitle: error,
-            buttons: ['OK']
+            buttons: [
+            {
+              text: 'Okay',
+              handler: () => { this.navCtrl.pop(); }
+            }]
           }).present();
         });
       } else if(this.paymentType == 'card') {
@@ -239,7 +246,11 @@ export class CreatePartnerAccount3Page {
           this.alertCtrl.create({
             title: 'Sorry!',
             subTitle: error,
-            buttons: ['OK']
+            buttons: [
+            {
+              text: 'Okay',
+              handler: () => { this.navCtrl.pop(); }
+            }]
           }).present();
         });
       }
@@ -287,6 +298,10 @@ export class CreatePartnerAccount3Page {
         this.formHelper.flushForm('CreatePartnerAccount2-Card'); 
         this.formHelper.flushForm('CreatePartnerAccount2-Bank'); 
         this.formHelper.flushForm('CreatePartnerAccount3'); 
+        this.formHelper.flushHours();
+        this.formHelper.flushToken();
+        this.formHelper.flushPayType();
+        this.formHelper.flushPaymentInfo();
 
         const newProfile = {
           type: 'partner',
@@ -322,7 +337,8 @@ export class CreatePartnerAccount3Page {
   }
 
   ionViewWillUnload() {
-    
+    this.formHelper.setForm('CreatePartnerAccount3', this.form); 
+    this.formHelper.setHours(JSON.stringify(this.hours));
   }
 
   ionViewDidLoad() {

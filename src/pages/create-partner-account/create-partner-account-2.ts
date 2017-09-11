@@ -19,7 +19,7 @@ import { FormHelperProvider} from '../../providers/form-helper';
   templateUrl: 'create-partner-account-2.html',
 })
 export class CreatePartnerAccount2Page {
-  payType = 'card';
+  payType;
 
   bankForm: FormGroup;
   cardForm: FormGroup;
@@ -56,6 +56,11 @@ export class CreatePartnerAccount2Page {
         routing_number: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(17)])]
       });
     }
+
+    const payType = this.formHelper.getPayType();
+
+    // Set default to card
+    this.payType = (payType) ? payType : 'card';
   }
 
   navNextPage() {
@@ -132,6 +137,7 @@ export class CreatePartnerAccount2Page {
   ionViewWillUnload() {
     this.formHelper.setForm('CreatePartnerAccount2-Card', this.cardForm); 
     this.formHelper.setForm('CreatePartnerAccount2-Bank', this.bankForm); 
+    this.formHelper.setPayType(this.payType);
   }
 
   ionViewDidLoad() {

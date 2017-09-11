@@ -36,8 +36,13 @@ export class CreatePartnerAccountPage {
     public navCtrl: NavController, 
     public navParams: NavParams) {
 
+    const auth = this.authentication.getAuthorization();
+
+    this.countries = auth.countries;
+    this.categories = auth.categories;
+
     this.form = this.formHelper.getForm('CreatePartnerAccount');
-    if (!this.form)
+    if (!this.form) {
       this.form = formBuilder.group({
         category_id: ['', Validators.required],
         sub_category_id: [{value:'', disabled:true}],
@@ -52,11 +57,16 @@ export class CreatePartnerAccountPage {
         address1: ['', Validators.required],
         address2: [''],
       });
+     } else {
+       const state_id = this.form.value.state_id;
+       const sub_category_id = this.form.value.sub_category_id;
 
-    const auth = this.authentication.getAuthorization();
+       this.getStates(this.form.value.country_id);
+       this.getSubCategories(this.form.value.sub_category_id);
 
-    this.countries = auth.countries;
-    this.categories = auth.categories;
+       this.form.patchValue({ state_id: state_id });
+       this.form.patchValue({ sub_category_id: sub_category_id });
+     }
   }
 
   navNextPage() {
@@ -108,27 +118,28 @@ export class CreatePartnerAccountPage {
   }
 
   getStates(id) {
-    this.form.controls['state_id'].disable();
+    this.form.controls.state_id.disable();
     for(let country of this.countries) {
       if (country.id == id) {
         this.states = country.states;
         if (country.states.length > 0) {
-          this.form.controls['state_id'].enable();
+          this.form.controls.state_id.enable();
         }
+        this.form.patchValue({ state_id: ''});
         break;
       }
     }
   }
 
   getSubCategories(id) {
-    this.form.controls['sub_category_id'].disable();
+    this.form.controls.sub_category_id.disable();
     for(let category of this.categories) {
       if (category.id == id) {
         this.sub_categories = category.sub_categories;
         if(category.sub_categories.length > 0) {
-          this.form.controls['sub_category_id'].enable();
+          this.form.controls.sub_category_id.enable();
         }
-        this.form.patchValue({ sub_category_id: ''});        
+        this.form.patchValue({ sub_category_id: ''});
         break;
       }
     }

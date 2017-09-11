@@ -10,17 +10,31 @@ page-partner-settings {
 
     .segment-button {
       border-radius: 0px;
-      color: map-get($colors, vinnared);
-      border-top: 0px;
+      color: map-get($colors, vinnadarkgrey);
       border-width: 0px 0px 1px 0px;
-      border-color: map-get($colors, vinnalightgrey);
+      border-color: map-get($colors, vinnamidgrey);
       border-style: solid;
-      padding-bottom: 8px;
+      padding: 8px 0;
       height: auto;
+      border-radius: 0 !important;
 
       &.segment-activated {
         background: none;
-        color: map-get($colors, vinnared);  
+        color: map-get($colors, vinnared);
+        position: relative;
+
+        &:after {
+          content: ' ';
+          width: 0; 
+          height: 0;
+          z-index: 10; 
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid map-get($colors, vinnared);
+          position: absolute;
+          left: calc(50% - 5px);
+          bottom: 0;
+        }
       }
     }
   }
@@ -31,12 +45,12 @@ page-partner-settings {
       .item {
         margin: 0px 0px 3px 0px;
         padding: 0px;
-        font-size:inherit;
+        font-size: inherit;
         border-width: 0px;
 
         .select {
           max-width: none;
-          border: 1px solid #ddd;
+          border: 1px solid map-get($colors, vinnamidgrey);
           padding: 8px;
           width: 100%;
         }
@@ -44,7 +58,7 @@ page-partner-settings {
         .label {
           margin: 0px;
           font-size: 15px;
-          border-bottom-width: 1px solid #ddd;
+          border-bottom-width: 1px solid map-get($colors, vinnamidgrey);
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -70,19 +84,19 @@ page-partner-settings {
             .checkbox-inner {
               top: 0px;
               left: 3px;
-              border-color: #333;
+              border-color: map-get($colors, vinnadark);
             }
           }
 
           .checkbox-icon.checkbox-checked {
-            border-color: #c8c7cc;
-            background: #fff;
+            border-color: map-get($colors, vinnapopover);
+            background: map-get($colors, vinnawhite);
           }
         }
 
         .datetime {
           padding: 10px;
-          border: 1px solid #c8c7cc;
+          border: 1px solid map-get($colors, vinnapopover);
           width: 100%;
           text-align: center;
         }
@@ -101,14 +115,12 @@ page-partner-settings {
     }
 
     .business-hours {
-      .row {
-        display: flex;
-        justify-content: center;
-      }
+      display: flex;
+      justify-content: center;
     }
 
     .input {
-      border: 1px solid #ddd;
+      border: 1px solid map-get($colors, vinnamidgrey);
       width: calc(100%);
       padding: 8px;
 
@@ -119,7 +131,7 @@ page-partner-settings {
     }
 
     input {
-      border: 1px solid #ddd;
+      border: 1px solid map-get($colors, vinnamidgrey);
       width: calc(100%);
       padding: 8px;
       margin-bottom: 15px;
@@ -134,7 +146,7 @@ page-partner-settings {
   }
 
   .add-picture-button{
-    border: 1px solid #ddd;
+    border: 1px solid map-get($colors, vinnamidgrey);
     position: relative;
     width: 100%;
     display: flex;

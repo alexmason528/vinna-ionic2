@@ -118,7 +118,11 @@ export class PartnerSettingsBankPage {
             this.alertCtrl.create({
               title: 'Success!',
               subTitle: 'Updated the partner bank account successfully',
-              buttons: ['Okay']
+              buttons: [
+              {
+                text: 'Okay',
+                handler: () => { this.navCtrl.pop(); }
+              }]
             }).present();
           }, err => {
             console.log(err);
@@ -168,7 +172,11 @@ export class PartnerSettingsBankPage {
             this.alertCtrl.create({
               title: 'Success!',
               subTitle: 'Updated the partner bank account successfully',
-              buttons: ['Okay']
+              buttons: [
+              {
+                text: 'Okay',
+                handler: () => { this.navCtrl.pop(); }
+              }]
             }).present();
           }, err => {
             console.log(err);

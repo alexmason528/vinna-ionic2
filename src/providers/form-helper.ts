@@ -13,7 +13,9 @@ import 'rxjs/add/operator/map';
 export class FormHelperProvider {
   public forms: any = {};
   public payInfo: any;
+  public payType: any;
   public token: string;
+  public hours: string;
   
   constructor(public http: Http) {
 
@@ -53,6 +55,30 @@ export class FormHelperProvider {
 
   flushToken() {
     this.token = null;
+  }
+
+  setPayType(payType) {
+    this.payType = payType;
+  }
+
+  getPayType() {
+    return this.payType;
+  }
+
+  flushPayType() {
+    this.payType = null;
+  }
+
+  setHours(hours) {
+    this.hours = hours;
+  }
+
+  getHours() {
+    return this.hours;
+  }
+
+  flushHours() {
+    this.hours = null;
   }
 }
 

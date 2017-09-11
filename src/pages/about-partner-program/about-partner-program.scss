@@ -14,19 +14,19 @@ page-about-partner-program{
 
     .row-description {
       padding: 5px 10px;
-      font-size:1.8vh !important;
+      font-size: 1.8vh !important;
 
       div {
         line-height: 2.8vh;
         color: map-get($colors, vinnawhite);
         font-family: 'Open Sans';
-        /*font-size:13px !important;*/
-      font-size:1.8vh !important;
+        /*font-size: 13px !important;*/
+        font-size: 1.8vh !important;
       }
 
       div.section {
-        margin-bottom:10px;
-      font-size:1.8vh !important;
+        margin-bottom: 10px;
+        font-size: 1.8vh !important;
       }
 
       div.center {
@@ -45,7 +45,7 @@ page-about-partner-program{
           text-decoration: underline;
           text-transform: uppercase;
           text-align: center;
-          margin:5px 0px 12px;
+          margin: 5px 0px 12px;
         }
 
         .sub-title {
@@ -60,14 +60,14 @@ page-about-partner-program{
           font-family: 'Open Sans';
           font-weight: bold;
           color: map-get($colors, vinnawhite);
-      font-size:1.8vh !important;
+          font-size: 1.8vh !important;
         }
       }
     }
 
     .ok-row {
-      width:100%;
-      height:90px;
+      width: 100%;
+      height: 90px;
       background-color: map-get($colors, vinnawhite);
       text-align: center;
 
@@ -81,9 +81,8 @@ page-about-partner-program{
         color: map-get($colors, vinnawhite); 
         padding:9px 35px;
         text-transform: uppercase;
-        margin-top:20px;
+        margin-top: 20px;
       }
-
     }
   }
 }

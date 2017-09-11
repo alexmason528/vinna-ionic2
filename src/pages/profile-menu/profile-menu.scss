@@ -6,31 +6,31 @@ page-profile-menu {
   }
 
   .menu {
-    width:95%;
+    width: 95%;
     text-align: center;
-    margin:auto;
+    margin: auto;
 
     .item {
       .label {
-        padding:8px 0px;
-        color:map-get($colors, vinnared);
+        padding: 8px 0px;
+        color: map-get($colors, vinnared);
       }
     }
 
     .bold-red .label span {
       font-weight: bold;
-      padding:8px 0px;
-      color:map-get($colors, vinnared);
+      padding: 8px 0px;
+      color: map-get($colors, vinnared);
     }
   }
 
   .menu-list-items {
-    border-bottom:90vw solid #333333;
-    padding:20px 0px;
-    margin-top:20px;
-    font-size:20px;
-    width:90vw;
-    color:map-get($colors, vinnared);;
+    border-bottom: 90vw solid map-get($colors, vinnadark);
+    padding: 20px 0px;
+    margin-top: 20px;
+    font-size: 20px;
+    width: 90vw;
+    color: map-get($colors, vinnared);;
   }
 
   .grid {
@@ -42,11 +42,12 @@ page-profile-menu {
     .profile-section {
       position: absolute;
       padding-top: 30px;
-      border-bottom: 1px solid #ccc; 
+      border-bottom: 1px solid map-get($colors, vinnamidgrey);
       width: 110%; 
       left: -5%; 
       margin: 0px;
       z-index: -1;
+
       .name {
         margin-left: 150px; 
         margin-bottom: 5px;
@@ -105,17 +106,17 @@ page-profile-menu {
 
     .notice {
       text-align: center;
-      margin:auto;
-      margin-bottom:20px;
+      margin: auto;
+      margin-bottom: 20px;
 
       button {
         width: 200;
         margin: 0px;
         color: map-get($colors, vinnared);
-        background-color: #fff;
+        background-color: map-get($colors, vinnawhite);
 
         span {
-          font-size:12px;
+          font-size: 12px;
           text-decoration: underline; 
           color: map-get($colors, vinnared);          
         }

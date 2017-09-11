@@ -18,6 +18,7 @@ import { Api, AuthenticationProvider } from '../../providers/providers';
 export class PartnerSettingsHoursPage {
   partner: any;
   hours: any;
+  isReadyToChange = false;
 
   constructor(
     public alertCtrl: AlertController, 
@@ -30,6 +31,16 @@ export class PartnerSettingsHoursPage {
     this.partner = this.navParams.get('partner');
     this.hours = JSON.parse(this.partner.hours);
 
+  }
+
+  modified() {
+    console.log(JSON.stringify(this.hours));
+    console.log(this.partner.hours);
+
+    if (JSON.stringify(this.hours) == this.partner.hours)
+      this.isReadyToChange = false;
+    else
+      this.isReadyToChange = true;
   }
 
   changeHour() {
@@ -62,7 +73,11 @@ export class PartnerSettingsHoursPage {
         this.partner = res;
         this.alertCtrl.create({
           message: 'Updated the business hours successfully',
-          buttons: ['Okay']
+          buttons: [
+          {
+            text: 'Okay',
+            handler: () => { this.navCtrl.pop(); }
+          }]
         }).present();
       }, err => {
         loading.dismiss();

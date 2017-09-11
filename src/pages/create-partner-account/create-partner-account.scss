@@ -14,9 +14,8 @@ page-create-partner-account {
         border: none;
 
         .datetime {
-          border: 1px solid #ddd;
-          padding-left: 8px;
-          padding-right: 8px;
+          border: 1px solid map-get($colors, vinnamidgrey);
+          padding: 4px 8px;
           width: calc(100% - 16px);
         }
 
@@ -24,7 +23,7 @@ page-create-partner-account {
           margin: 0;
 
           input {
-            border: 1px solid #ddd;
+            border: 1px solid map-get($colors, vinnamidgrey);
             padding: 8px;
             width: 100%;
           }
@@ -43,7 +42,7 @@ page-create-partner-account {
     .col {
       .select {
         max-width: none;
-        border: 1px solid #ddd;
+        border: 1px solid map-get($colors, vinnamidgrey);
         padding: 8px;
         width: 100%;
       }

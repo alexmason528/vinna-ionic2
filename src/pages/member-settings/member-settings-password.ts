@@ -37,8 +37,8 @@ export class MemberSettingsPasswordPage {
 
     let auth = this.authentication.getAuthorization();
 
-    this.account = auth['account'];
-    this.user = auth['user'];
+    this.account = auth.account;
+    this.user = auth.user;
 
     this.passwordForm = formBuilder.group({
       current_password: ['', Validators.required],
@@ -46,19 +46,19 @@ export class MemberSettingsPasswordPage {
     });
 
     this.passwordForm.valueChanges.subscribe( e => {
-      this.isReadyToUpdate = this.passwordForm.valid;
+      if (this.passwordForm.value.current_password != this.user.password || this.passwordForm.value.password == this.user.password) {
+        this.isReadyToUpdate = false;
+      } else {
+        this.isReadyToUpdate = this.passwordForm.valid;
+      }
     });
-
   }
 
   changePassword() {
     let loading = this.loadingCtrl.create({
       spinner: 'ios'
     });
-
-    this.passwordForm.value['username'] = this.user['username'];
-
-    let seq = this.api.put('api/account/' + this.account['id'], this.passwordForm.value, this.authentication.getRequestOptions());
+    let seq = this.api.put('api/account/' + this.account.id, { 'password': this.passwordForm.value.password} , this.authentication.getRequestOptions());
 
     loading.present();
 

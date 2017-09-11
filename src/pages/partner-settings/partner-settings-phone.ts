@@ -42,7 +42,7 @@ export class PartnerSettingsPhonePage {
 
     this.phoneForm.valueChanges.subscribe( e => {
       const phone_number = this.phoneForm.value['phone'].replace(/\D+/g, '');
-      if(this.partner.phone == phone_number) {
+      if(this.partner.phone == phone_number || phone_number.length != 10) {
         this.isReadyToUpdate = false;
       } else {
         this.isReadyToUpdate = this.phoneForm.valid;
@@ -85,7 +85,11 @@ export class PartnerSettingsPhonePage {
 
       this.alertCtrl.create({
         message: 'Updated the business phone number successfully',
-        buttons: ['Okay']
+        buttons: [
+        {
+          text: 'Okay',
+          handler: () => { this.navCtrl.pop(); }
+        }]
       }).present();
     }, err => {
       loading.dismiss();

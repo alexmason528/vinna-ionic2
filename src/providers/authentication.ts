@@ -158,14 +158,11 @@ export class AuthenticationProvider {
     }
   }
 
-  public getRequestOptions(param = null) {
+  public getRequestOptions() {
     const auth = this.getAuthorization();
     let authHeaders = new Headers();
     authHeaders.append('Authorization', 'JWT ' + auth.token);
     
-    if (param != null) {
-      authHeaders.append('Authorization', param.name + ' ' + param.value);
-    }
     return new RequestOptions({headers: authHeaders});
   }
 

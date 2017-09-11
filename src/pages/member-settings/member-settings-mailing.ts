@@ -47,25 +47,37 @@ export class MemberSettingsMailingPage {
       mailing_address_city: [this.member.mailing_address_city, Validators.required],
       mailing_address_zip: [this.member.mailing_address_zip, Validators.required],
       mailing_address_1: [this.member.mailing_address_1, Validators.required],
-      mailing_address_2: [this.member.mailing_address_2, Validators.required]
+      mailing_address_2: [this.member.mailing_address_2]
     });
+
+    this.getStates(this.member.mailing_address_country_id);
+    this.mailingAddressForm.patchValue({ mailing_address_state_id: this.member.mailing_address_state_id });
 
     this.mailingAddressForm.valueChanges.subscribe( e => {
-      this.isReadyToUpdate = this.mailingAddressForm.valid;
-    });
+      let updated = false;
+      for(let key in this.mailingAddressForm.value) {
+        if (this.mailingAddressForm.value[key] != this.member[key])
+          updated = true;
+      }
 
-    this.getStates();
+      if (updated) {
+        this.isReadyToUpdate = this.mailingAddressForm.valid;  
+      } else {
+        this.isReadyToUpdate = false;
+      }
+    });
   }
 
-  getStates() {
-    const id = this.mailingAddressForm.value['mailing_address_country_id'];
-    if(!id) return;
+  getStates(id) {
 
-    this.mailingAddressForm.controls['mailing_address_state_id'].enable(true);
+    this.mailingAddressForm.controls['mailing_address_state_id'].disable();
     for (let country of this.countries) {
       if (country.id == id) {
         this.states = country.states;
-        this.mailingAddressForm.controls['mailing_address_state_id'].enable(false);
+        if (country.states.length > 0) {
+          this.mailingAddressForm.controls['mailing_address_state_id'].enable();
+        }
+        this.mailingAddressForm.patchValue({ mailing_address_state_id: ''});
         break;
       }
     }
@@ -87,7 +99,11 @@ export class MemberSettingsMailingPage {
         loading.dismiss();
         this.alertCtrl.create({
           message: 'Updated the mailing address successfully',
-          buttons: ['Okay']
+          buttons: [
+          {
+            text: 'Okay',
+            handler: () => { this.navCtrl.pop(); }
+          }]
         }).present();
         auth['member'] = this.member = res;
         this.authentication.saveAuthorization(auth);

@@ -19,10 +19,10 @@ page-business-directory {
         background: none !important;
         border-radius: 0px !important;
    
-        border: 1px solid #ddd;
+        border: 1px solid map-get($colors, vinnamidgrey);
 
         &::-webkit-input-placeholder {
-          color: #ddd;
+          color: map-get($colors, vinnamidgrey);
         }
       }
     }
@@ -53,27 +53,27 @@ page-business-directory {
       width: 100%;
       display: flex;
       justify-content: space-between;
-      height:55px;
-      padding:10px; 
+      height: 55px;
+      padding: 10px; 
 
       div {
-        margin:0;
+        margin: 0;
       }
 
       .card-title, p {
-        padding:0;
-        margin:0;
+        padding: 0;
+        margin: 0;
         position: relative;
         bottom: 0%;
         width: 100%;
         margin-bottom: 0px;
       }
       .card-title {
-        font-size:14px;        
+        font-size: 14px;        
         color: rgba(48,48,48,0.75);
       }
       p {
-        font-size:12px;
+        font-size: 12px;
         color: rgba(48,48,48,0.75);
       }
 
@@ -83,7 +83,7 @@ page-business-directory {
         flex-wrap: nowrap;
         font-size: 1.2em;
         color: yellow;
-        padding:0 0.1em 0 0.1em;
+        padding: 0 0.1em 0 0.1em;
 
         .counter {
           color: rgba(48,48,48,0.75) !important;
