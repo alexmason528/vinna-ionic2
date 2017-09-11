@@ -11,11 +11,15 @@
         <div class="image-wrapper">
           <img class="profile-pic" [src]="partner.picture1" *ngIf="partner.picture1" />
           <ion-navbar hideBackButton>
+          <!-- TODO 
+            Uncomment once android positioning is fixed. Aligns left on ios and browser, but aligns right on Android.
+            
             <ion-buttons start>
               <button tappable ion-button icon-only navPop>
                 <img class="svg-icon" src="assets/icon/arrow-white-left.svg"/>
               </button>
             </ion-buttons>
+            -->
 <!--
             <ion-buttons end>
               <button tappable ion-button icon-only class="share-btn">

@@ -19,7 +19,7 @@ import { FormHelperProvider} from '../../providers/form-helper';
   templateUrl: 'create-partner-account-2.html',
 })
 export class CreatePartnerAccount2Page {
-  payType = 'bank';
+  payType = 'card';
 
   bankForm: FormGroup;
   cardForm: FormGroup;
