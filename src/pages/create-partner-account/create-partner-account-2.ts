@@ -59,7 +59,8 @@ export class CreatePartnerAccount2Page {
 
     const payType = this.formHelper.getPayType();
 
-    this.payType = (payType) ? payType : 'bank';
+    // Set default to card
+    this.payType = (payType) ? payType : 'card';
   }
 
   navNextPage() {
