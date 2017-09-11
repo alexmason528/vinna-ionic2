@@ -34,12 +34,6 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      if (window.indexedDB) {
-         console.log("I'm in WKWebView!");
-      } else {
-         console.log("I'm in UIWebView");
-      }
-
       this.statusBar.overlaysWebView(false);
       this.statusBar.show();
       this.statusBar.backgroundColorByHexString('#960200');

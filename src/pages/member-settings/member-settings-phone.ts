@@ -64,6 +64,12 @@ export class MemberSettingsPhonePage {
     .map(res => res.json())
     .subscribe(res => {
       loading.dismiss();
+
+      auth.account.new_phone = this.account.new_phone = this.phoneForm.value.phone;
+      auth.account.phone_verified = this.account.phone_verified = false;
+
+      this.authService.saveAuthorization(auth);
+
       this.alertCtrl.create({
         message: 'Updated the phone number successfully',
         buttons: [
@@ -71,12 +77,7 @@ export class MemberSettingsPhonePage {
           text: 'Okay',
           handler: () => { this.navCtrl.pop(); }
         }]
-      }).present();
-
-      auth.account.new_phone = this.account.new_phone = this.phoneForm.value.phone;
-      auth.account.phone_verified = this.account.phone_verified = false;
-
-      this.authService.saveAuthorization(auth);
+      }).present();      
     }, err => {
       console.log(err);
       loading.dismiss();

@@ -97,16 +97,17 @@ export class MemberSettingsMailingPage {
       .map(res => res.json())
       .subscribe(res => {
         loading.dismiss();
+
+        auth.member = this.member = res;
+        this.authentication.saveAuthorization(auth);
+
         this.alertCtrl.create({
           message: 'Updated the mailing address successfully',
-          buttons: [
-          {
+          buttons: [{
             text: 'Okay',
             handler: () => { this.navCtrl.pop(); }
           }]
         }).present();
-        auth['member'] = this.member = res;
-        this.authentication.saveAuthorization(auth);
       }, err => {
         loading.dismiss();
         this.alertCtrl.create({

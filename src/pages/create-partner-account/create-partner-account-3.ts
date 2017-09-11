@@ -98,7 +98,8 @@ export class CreatePartnerAccount3Page {
       this.hours = JSON.parse(this.formHelper.getHours());
     }
 
-    this.stripe.setPublishableKey('pk_test_vSXaN8PlxDIA9SRDrvPyNllu');
+    const stripeKey = this.authentication.getAuthorization().stripe_key;
+    this.stripe.setPublishableKey(stripeKey);
   }
 
   openSourceTypeSheet(pictureNumber) {

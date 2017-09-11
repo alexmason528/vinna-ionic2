@@ -59,7 +59,8 @@ export class PartnerSettingsBankPage {
       this.isReadyToVerify = (this.payType == 'card' && this.cardForm.valid) ? true : false;
     });
 
-    this.stripe.setPublishableKey('pk_test_vSXaN8PlxDIA9SRDrvPyNllu');
+    const stripeKey = this.authentication.getAuthorization().stripe_key;
+    this.stripe.setPublishableKey(stripeKey);
     this.partner = this.navParams.get('partner');
 
   }

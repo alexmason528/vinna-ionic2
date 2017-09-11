@@ -77,6 +77,7 @@ export class PartnerSettingsEmailPage {
           type: 'partner',
           object: res
         });
+        
         this.alertCtrl.create({
           message: 'Updated the business email successfully',
           buttons: ['Okay']

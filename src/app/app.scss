@@ -127,13 +127,13 @@ button {
   border: none !important;
   box-shadow: none !important;
 
-  &.activated {
-    background: none !important;
-    border: 1px solid map-get($colors, vinnared);
-  }
+  // &.activated {
+  //   background: inherit;
+  //   border: 1px solid map-get($colors, vinnared);
+  // }
 
   &.no-background-button {
-    background: none;
+    background: none !important;
     text-transform: none !important;
 
     .button-inner {
@@ -159,7 +159,7 @@ button {
     color: map-get($colors, vinnawhite) !important;
 
     min-width: 34.5vw !important;
-    background-color: map-get($colors, vinnared);
+    background-color: map-get($colors, vinnared) !important;
 
     .button-inner {
       color: map-get($colors, vinnawhite) !important;
@@ -174,7 +174,7 @@ button {
     text-transform: none !important;
     color: map-get($colors, vinnawhite) !important;
 
-    background-color: map-get($colors, vinnawhite);
+    background-color: map-get($colors, vinnawhite) !important;
     border: 1px solid map-get($colors, vinnared);
 
     .button-inner {

@@ -46,7 +46,8 @@ export class MemberSettingsBankPage {
       this.isReadyToUpdate = this.bankForm.valid;
     });
 
-    this.stripe.setPublishableKey('pk_test_vSXaN8PlxDIA9SRDrvPyNllu');
+    const stripeKey = this.authentication.getAuthorization().stripe_key;
+    this.stripe.setPublishableKey(stripeKey);
   }
 
   changeBankAccount() {

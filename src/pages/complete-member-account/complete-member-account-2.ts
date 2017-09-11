@@ -41,8 +41,9 @@ export class CompleteMemberAccount2Page {
         ssn_token: ['', Validators.compose([Validators.maxLength(9), Validators.minLength(9)])]
       });
     }
-
-    this.stripe.setPublishableKey('pk_test_vSXaN8PlxDIA9SRDrvPyNllu'); 
+    
+    const stripeKey = this.authentication.getAuthorization().stripe_key;
+    this.stripe.setPublishableKey(stripeKey);
   }
 
   createMember() {

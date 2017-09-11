@@ -58,6 +58,10 @@ export class MemberSettingsPasswordPage {
     let loading = this.loadingCtrl.create({
       spinner: 'ios'
     });
+
+    const password = this.passwordForm.value.password;
+    const auth = this.authentication.getAuthorization();
+
     let seq = this.api.put('api/account/' + this.account.id, { 'password': this.passwordForm.value.password} , this.authentication.getRequestOptions());
 
     loading.present();
@@ -66,14 +70,15 @@ export class MemberSettingsPasswordPage {
     .map(res => res.json())
     .subscribe(res => {
       loading.dismiss();
+
+      auth.user.password = password;
+      this.authentication.saveAuthorization(auth);
+
       this.alertCtrl.create({
         message: 'Updated the password successfully',
-        buttons: [ { 
-          text: 'Okay', 
-          handler: () => {
-            this.authentication.removeAuthorization();
-            this.navCtrl.push(LoginPage);
-          } 
+        buttons: [{
+          text: 'Okay',
+          handler: () => { this.navCtrl.pop(); }
         }]
       }).present();
       

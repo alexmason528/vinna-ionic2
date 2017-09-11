@@ -64,19 +64,20 @@ export class MemberSettingsEmailPage {
       .map(res => res.json())
       .subscribe(res => {
         loading.dismiss();
+
+        auth.account.new_email = this.account.new_email = this.emailForm.value.email;
+        auth.account.email_verified = this.account.email_verified = false;
+        this.authentication.saveAuthorization(auth);
+
         this.alertCtrl.create({
           message: 'Updated the email successfully',
-          buttons: [
-          {
+          buttons: [{
             text: 'Okay',
             handler: () => { this.navCtrl.pop(); }
           }]
         }).present();
 
-        auth.account.new_email = this.account.new_email = this.emailForm.value.email;
-        auth.account.email_verified = this.account.email_verified = false;
         
-        this.authentication.saveAuthorization(auth);
       }, err => {
         loading.dismiss();
         this.alertCtrl.create({

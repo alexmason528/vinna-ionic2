@@ -108,17 +108,17 @@ export class MemberSettingsPicturePage {
       .map(res => res.json())
       .subscribe(res => {
         loading.dismiss();
+
+        auth.account.profile_photo_url = res.profile_photo_url;;
+        this.authentication.saveAuthorization(auth);
+
         this.alertCtrl.create({
           message: 'Updated the photo successfully',
-          buttons: [
-          {
+          buttons: [{
             text: 'Okay',
             handler: () => { this.navCtrl.pop(); }
           }]
         }).present();
-        
-        auth.account.profile_photo_url = res.profile_photo_url;;
-        this.authentication.saveAuthorization(auth);
       }, err => {
         loading.dismiss();
         this.alertCtrl.create({
