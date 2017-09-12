@@ -9,6 +9,20 @@
     <ion-row>
       <ion-col>
         <ion-slides #memberRegistration>
+          <ion-slide class="verify-slide">
+            <form *ngIf="verificationForm" [formGroup]="verificationForm">
+              <ion-grid>
+                <ion-row text-left>
+                  <ion-col col-12>
+                    <div class="header">Enter your verification code</div>
+                  </ion-col>
+                  <ion-col col-12 text-center>
+                    <ion-input type="number" placeholder="0000" formControlName="verify_code"></ion-input>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </form>
+          </ion-slide>
 
           <ion-slide>
             <form *ngIf="emailForm" [formGroup]="emailForm">

@@ -20,6 +20,7 @@ import { LoginPage } from '../login/login';
 export class AccountRegistrationPage {
   @ViewChild('memberRegistration') slider: Slides;
 
+  verificationForm: FormGroup;
   bioForm: FormGroup;
   emailForm: FormGroup;
   nameForm: FormGroup;
@@ -29,6 +30,7 @@ export class AccountRegistrationPage {
   forms = [];
   maxDate: string;
   recreate: boolean = false;
+  code;
 
   constructor(
     public actionSheetCtrl: ActionSheetController,
@@ -39,14 +41,18 @@ export class AccountRegistrationPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public platform: Platform) {
-    
-    this.nameForm = this.formBuilder.group({
-      first_name : ['', Validators.required],
-      last_name: ['', Validators.required]
+
+    this.verificationForm = this.formBuilder.group({
+      verify_code: ['', Validators.required],
     });
 
     this.emailForm = this.formBuilder.group({
       email : ['', Validators.compose([Validators.required, Validators.email])],
+    });
+    
+    this.nameForm = this.formBuilder.group({
+      first_name : ['', Validators.required],
+      last_name: ['', Validators.required]
     });
 
     this.passwordForm = this.formBuilder.group({
@@ -63,7 +69,7 @@ export class AccountRegistrationPage {
       profile_photo: ['', Validators.required]
     });
 
-    this.forms = [this.emailForm, this.nameForm, this.passwordForm, this.bioForm, this.photoForm];
+    this.forms = [this.verificationForm, this.emailForm, this.nameForm, this.passwordForm, this.bioForm, this.photoForm];
 
     let today = new Date();
 
@@ -82,6 +88,9 @@ export class AccountRegistrationPage {
 
     if (this.navParams.get('recreate'))
       this.recreate = true;
+
+    this.code = this.navParams.get('code');
+    console.log(this.code);
   }
 
   ngAfterViewInit() {
@@ -156,24 +165,27 @@ export class AccountRegistrationPage {
 
     switch (currentIndex) {
       case 0:
+        if (form.get('verify_code').hasError('required')) 
+          error_message = 'Please input your verification code';
+        else if (form.value['verify_code'] != this.code)
+          error_message = 'Verification code is not correct';
+        break;
+
+      case 1:
         if (form.get('email').hasError('required'))
           error_message = 'Please input your email';
         else if (form.get('email').hasError('email'))
           error_message = 'Please input valid email';
-
-        let email_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        if (!this.emailForm.value['email'].match(email_regex))
-          error_message = 'Please check your email again';
         break;
 
-      case 1:
+      case 2:
         if (form.get('first_name').hasError('required')) 
           error_message = 'Please input your first name';
         else if (form.get('last_name').hasError('required'))
           error_message = 'Please input your last name';
         break;        
 
-      case 2:
+      case 3:
         if (form.get('password').hasError('required'))
           error_message = 'Please input your password';
         else if (form.get('password_confirm').hasError('required'))
@@ -182,14 +194,14 @@ export class AccountRegistrationPage {
           error_message = 'Passwords do not match';
         break;
 
-      case 3:
+      case 4:
         if (form.get('dob').hasError('required'))
           error_message = 'Please select your date of birth';
         else if (form.get('gender').hasError('required'))
           error_message = 'Please select gender';
         break;
 
-      case 4:
+      case 5:
         if (form.get('profile_photo').hasError('required'))
           error_message = 'Please add your profile photo';
         
@@ -219,7 +231,7 @@ export class AccountRegistrationPage {
         recreate: this.recreate,
       };
 
-      if(currentIndex == 4) {
+      if(currentIndex == 5) {
         let confirmModal = this.modalCtrl.create(AccountRegistrationConfirmPage, {accountInfo: accountInfo, showBackdrop: true});
         confirmModal.present();
       } else {

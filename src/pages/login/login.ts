@@ -77,7 +77,8 @@ export class LoginPage {
       this.navCtrl.push(LoginPasswordPage, {phone:this.phone, firstname:res});
     }, err => {
       loading.dismiss();
-      this.navCtrl.push(AccountRegistrationPage, {phone: this.phone});
+      const code = err._body;
+      this.navCtrl.push(AccountRegistrationPage, {phone: this.phone, code: code});
     });
   }
 

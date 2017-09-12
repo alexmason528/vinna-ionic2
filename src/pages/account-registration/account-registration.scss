@@ -21,6 +21,32 @@ page-account-registration {
       width: 100% !important;
       align-items: flex-start;
 
+      &.verify-slide {
+        .input {
+          border-bottom: 1px solid map-get($colors, vinnamidgrey);
+          margin: 2vh 0;
+          font-size: 2vh;
+          width: 30vw;
+          text-align: center;
+          display: inline-block;
+
+          .text-input {
+            margin: 11px 0px;
+            width: 100%;
+            padding-right: 0;
+            text-align: center;
+            letter-spacing: 5px;
+            font-size: 26px;
+          }
+
+          .text-input-clear-icon {
+            display: block;
+            right: 3px;
+            min-width: 5vw;
+          }
+        }
+      }
+
       .grid {
         padding: 90px 5vw 0 5vw;
       }

@@ -59,7 +59,6 @@ export class LoginForgetPasswordPage {
     .map(res => res.json())
     .subscribe(res => {
       this.resetcode = res;
-      console.log(res);
     }, err => {
       this.alertCtrl.create({
         message: 'Failed to send reset code to your phone',
