@@ -73,7 +73,15 @@ import { VerificationPage } from '../pages/verification/verification';
 import { WelcomeMemberPage } from '../pages/welcome-member/welcome-member';
 import { WelcomeToPartnerPage } from '../pages/welcome-to-partner/welcome-to-partner';
 
-import { Api, AuthenticationProvider, DirectoryProvider, NotificationProvider, TransactionProvider, FormHelperProvider } from '../providers/providers';
+import { 
+  Api, 
+  AuthenticationProvider, 
+  DirectoryProvider, 
+  FormHelperProvider,
+  NotificationProvider, 
+  TransactionProvider, 
+  VersionInfoProvider 
+} from '../providers/providers';
 
 import { TextMaskModule } from 'angular2-text-mask';
 
@@ -188,10 +196,11 @@ export function entryComponents() {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthenticationProvider,
     DirectoryProvider,
+    FormHelperProvider,
     NotificationProvider,
     TransactionProvider,
-    FormHelperProvider,
-    NativePageTransitions
+    VersionInfoProvider,
+    NativePageTransitions,
   ]
 })
 export class AppModule { }

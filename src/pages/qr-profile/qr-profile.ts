@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { AlertController, NavController, NavParams } from 'ionic-angular';
 
-import { Api, AuthenticationProvider } from '../../providers/providers';
+import { Api, AuthenticationProvider, VersionInfoProvider } from '../../providers/providers';
 
 /**
  * Generated class for the QrProfilePage page.
@@ -19,10 +19,12 @@ export class QrProfilePage {
   account: any;
 
   constructor(
+    public alertCtrl: AlertController,
     public api: Api,
     public authentication: AuthenticationProvider,
     public navCtrl: NavController, 
-    public navParams: NavParams) {
+    public navParams: NavParams,
+    public versionInfoProvider: VersionInfoProvider) {
     this.authentication.updates().subscribe(data => {
       if (data) {
         const auth = this.authentication.getAuthorization();
@@ -33,7 +35,7 @@ export class QrProfilePage {
     const auth = this.authentication.getAuthorization();
     this.account = auth.account;
 
-    this.getVersionInfo();
+    this.versionInfoProvider.refreshVersionInfo();
   }
 
   getVersionInfo() {
@@ -48,7 +50,12 @@ export class QrProfilePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad QrProfilePage');
+    this.versionInfoProvider.updates().subscribe(data => {
+      this.alertCtrl.create({
+        message: data,
+        buttons: ['Okay']
+      }).present();
+    });
   }
 
 }

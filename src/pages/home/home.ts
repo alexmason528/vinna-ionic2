@@ -1,10 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Slides } from 'ionic-angular';
+import { AlertController, NavController, NavParams, Slides } from 'ionic-angular';
 
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 import { LoginPage } from '../login/login';
 import { HomePartnerMorePage } from './home-partner-more';
+
+import { VersionInfoProvider } from '../../providers/providers';
 
 /**
  * Generated class for the HomePage page.
@@ -19,13 +21,17 @@ import { HomePartnerMorePage } from './home-partner-more';
 })
 export class HomePage {
   @ViewChild('homeSlider') slider: Slides;
+  public currentVersion: 0.9;
   public showSlide: any;
 
   constructor(
+    public alertCtrl: AlertController,
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private nativePageTransitions: NativePageTransitions) {
+    private nativePageTransitions: NativePageTransitions,
+    public versionInfoProvider: VersionInfoProvider) {
     this.showSlide = 0;
+    this.versionInfoProvider.refreshVersionInfo();
   }
 
   ngAfterViewInit() {
@@ -84,12 +90,22 @@ export class HomePage {
     this.navCtrl.push(HomePartnerMorePage);
   }
 
+  ionViewWillEnter() {
+
+  }
 
   ionViewDidEnter() {
     this.setSwipeRules();
   }
 
   ionViewDidLoad() {
+    this.versionInfoProvider.updates().subscribe(data => {
+      this.alertCtrl.create({
+        message: data,
+        buttons: ['Okay']
+      }).present();
+    });
+
     /*
     this.navBar.backButtonClick = (e:UIEvent)=>{
       let currentIndex = this.slider.getActiveIndex();

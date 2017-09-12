@@ -35,7 +35,7 @@ export class TabsAccountPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TabsAccountPage');
+    
   }
 
   ionViewWillEnter() {

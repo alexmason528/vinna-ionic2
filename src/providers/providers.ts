@@ -4,6 +4,7 @@ import { DirectoryProvider } from './directory';
 import { FormHelperProvider } from './form-helper';
 import { NotificationProvider } from './notification';
 import { TransactionProvider } from './transaction';
+import { VersionInfoProvider } from './version-info';
 
 export {
   Api,
@@ -12,4 +13,5 @@ export {
   FormHelperProvider,
   NotificationProvider,
   TransactionProvider,
+  VersionInfoProvider,
 };

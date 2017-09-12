@@ -10,7 +10,13 @@ import { LoginPage } from '../pages/login/login';
 import { TabsAccountPage } from '../pages/tabs/tabs-account';
 
 
-import { AuthenticationProvider, DirectoryProvider, NotificationProvider, TransactionProvider } from '../providers/providers';
+import { 
+  AuthenticationProvider, 
+  DirectoryProvider, 
+  NotificationProvider, 
+  TransactionProvider, 
+  VersionInfoProvider 
+} from '../providers/providers';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,7 +35,8 @@ export class MyApp {
     private statusBar: StatusBar, 
     private splashScreen: SplashScreen,
     private storage: Storage,
-    private transaction: TransactionProvider) {
+    private transaction: TransactionProvider,
+    private version: VersionInfoProvider) {
 
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
