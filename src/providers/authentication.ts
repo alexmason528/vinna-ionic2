@@ -65,7 +65,7 @@ export class AuthenticationProvider {
           t.profile = { type:'member', object:t.auth.member };
           t.saveProfile(t.profile);
 
-          if (t.authorizedObserver) t.authorizedObserver.next(true);
+          if (t.authorizedObserver) t.authorizedObserver.next(t.auth);
 
           // TODO 
           t.verifyToken();
@@ -111,8 +111,15 @@ export class AuthenticationProvider {
   public saveAuthorization(data) {
     let newData = JSON.stringify(data);
     this.auth = data;
-    if (this.authorizedObserver) this.authorizedObserver.next(true);
+
     this.storage.set('auth', newData);
+
+    this.saveProfile({
+      type: 'member',
+      object: data.member
+    });
+
+    if (this.authorizedObserver) this.authorizedObserver.next(this.auth);
   }
 
   public saveProfile(data) {
@@ -123,7 +130,7 @@ export class AuthenticationProvider {
 
   public removeAuthorization(){
     this.auth = '';
-    if(this.authorizedObserver) this.authorizedObserver.next(true);
+    if(this.authorizedObserver) this.authorizedObserver.next(null);
     this.storage.remove('auth');
   }
 
@@ -180,10 +187,6 @@ export class AuthenticationProvider {
         console.log(res);
         res.user['password'] = accountInfo.password;
         this.saveAuthorization(res);
-        this.saveProfile({
-          type: 'member',
-          object: res.member
-        });
         onSuccess(res);
       }, err => {
         console.log(err);

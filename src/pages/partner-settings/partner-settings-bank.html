@@ -23,7 +23,7 @@
       </ion-col>
       <ion-col class='flex-content-around' col-12 *ngIf="partner">
         <div>************{{ partner.current_billing_info.text}}</div>
-        <div *ngIf="partner.current_billing_info.type=='bank'">Bank Account</div>
+<!--        <div *ngIf="partner.current_billing_info.type=='bank'">Bank Account</div> -->
         <div *ngIf="partner.current_billing_info.type=='card'">Credit Card</div>
       </ion-col>
     </ion-row>
@@ -32,9 +32,11 @@
         <div class="segment">
           <div>
             <ion-segment [(ngModel)]="payType">
+            <!--
               <ion-segment-button value="bank" (click)="segmentClicked('bank')">
                 BANK ACCOUNT
               </ion-segment-button>
+              -->
               <ion-segment-button value="card" (click)="segmentClicked('card')">
                 CREDIT OR DEBIT CARD
               </ion-segment-button>

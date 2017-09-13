@@ -114,10 +114,11 @@ export class ProfilePage {
   }
 
   doProfile() {
+    console.log('doProfile');
     let profile = this.authentication.getProfile();
-
+    console.log(profile);
     const auth = this.authentication.getAuthorization();
-
+    console.log(auth);
     this.summary = this.transaction.getSummary();
 
     if (auth) {

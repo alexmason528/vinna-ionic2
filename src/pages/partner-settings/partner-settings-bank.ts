@@ -18,7 +18,7 @@ import { Api, AuthenticationProvider } from '../../providers/providers';
 })
 export class PartnerSettingsBankPage {
 
-  payType = 'bank';
+  payType = 'card';
 
   bankForm: FormGroup;
   cardForm: FormGroup;

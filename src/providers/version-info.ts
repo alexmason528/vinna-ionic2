@@ -18,7 +18,7 @@ import { Observable } from 'rxjs/Observable';
 */
 @Injectable()
 export class VersionInfoProvider {
-  public currentVersion = '1.0';
+  public currentVersion = 1.1;
   public versionInfo;
 
   public version: any;
@@ -98,20 +98,21 @@ export class VersionInfoProvider {
     .map(res => res.json())
     .subscribe(res => {
       this.isGetting = false;
-      
+
       let msg = '';
 
-      if (res.version > this.currentVersion) {
-        msg = `Version ${res.version} is avilable.`;
-      }
-
-      if (res.supported.indexOf(this.currentVersion) == -1) {
-        msg += `\nCurrent version is no longer supported.`;
+      if (this.currentVersion >= res.version) {
+        // All good.
+        console.log('Version is good.');
+      } else if (res.supported.indexOf(this.currentVersion) == -1) {
+        msg = `Please update your app. Current version is no longer supported.`;
+      } else if (res.version > this.currentVersion) {
+        msg = `App update is available.\n${res.version}.`;
       }
 
       this.versionInfo = msg;
       
-      if (this.versionObserver) this.versionObserver.next(this.versionInfo);
+      if (this.versionObserver && msg.length) this.versionObserver.next(this.versionInfo);
     }, err => {
       this.isGetting = false;
     });
