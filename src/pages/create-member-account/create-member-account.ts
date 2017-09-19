@@ -35,14 +35,14 @@ export class CreateMemberAccountPage {
     const day = today.getDate();
 
     let monthString = '';
-    if (month < 10) monthString = '0' + month;
+    if (month < 10) monthString = `0${month}`;
     else monthString = month.toString();
 
     let dayString = '';
-    if (day < 10) dayString = '0' + day;
+    if (day < 10) dayString = `0${day}`;
     else dayString = dayString.toString();
 
-    this.maxDate = (today.getFullYear()-16) + '-' + monthString + '-' + dayString;
+    this.maxDate = `${(today.getFullYear()-16)}-${monthString}-${dayString}`;
 
     if(!this.form) {
       this.form = this.formBuilder.group({

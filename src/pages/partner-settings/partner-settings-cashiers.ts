@@ -49,7 +49,7 @@ export class PartnerSettingsCashiersPage {
     this.partner = this.navParams.get('partner');
     this.account = auth.account;
 
-    let seq = this.api.get('api/business/'+this.partner.id+'/cashier', {}, this.authentication.getRequestOptions());
+    let seq = this.api.get(`api/business/${this.partner.id}/cashier`, {}, this.authentication.getRequestOptions());
 
     seq
       .map(res => res.json())
@@ -69,7 +69,7 @@ export class PartnerSettingsCashiersPage {
     loading.present();
     
     let auth = this.authentication.getAuthorization();
-    let seq = this.api.post('api/business/'+this.partner.id+'/cashier', this.cashierForm.value, this.authentication.getRequestOptions());
+    let seq = this.api.post(`api/business/${this.partner.id}/cashier`, this.cashierForm.value, this.authentication.getRequestOptions());
 
     seq
       .map(res => res.json())
@@ -94,9 +94,9 @@ export class PartnerSettingsCashiersPage {
     loading.present();
 
     let auth = this.authentication.getAuthorization();
-    this.account = auth['account'];
+    this.account = auth.account;
     
-    let seq = this.api.delete('api/business/'+this.partner.id+'/cashier/'+id, this.authentication.getRequestOptions());
+    let seq = this.api.delete(`api/business/${this.partner.id}/cashier/${id}`, this.authentication.getRequestOptions());
 
     seq
     .map(res => res.json())

@@ -84,7 +84,7 @@ export class PartnerSettingsPicturesPage {
 
   getPicture(options, pictureNumber) {
     this.camera.getPicture(options).then((imageData) => {
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      let base64Image = `data:image/jpeg;base64,${imageData}`;
 
       switch (pictureNumber) {
         case 1:
@@ -130,7 +130,7 @@ export class PartnerSettingsPicturesPage {
       }
     }
 
-    let seq = this.api.put('api/business/' + this.partner.id, partnerPicture, this.authentication.getRequestOptions());
+    let seq = this.api.put(`api/business/${this.partner.id}`, partnerPicture, this.authentication.getRequestOptions());
 
     seq
     .map(res => res.json())

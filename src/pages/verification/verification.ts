@@ -64,9 +64,9 @@ export class VerificationPage {
     let seq;
 
     if (type == 'email')
-      seq = this.api.post('api/account/' + this.account.id + '/verify_email', this.emailForm.value, this.authentication.getRequestOptions());
+      seq = this.api.post(`api/account/${this.account.id}/verify_email`, this.emailForm.value, this.authentication.getRequestOptions());
     else if(type == 'phone')
-      seq = this.api.post('api/account/' + this.account.id + '/verify_phone', this.phoneForm.value, this.authentication.getRequestOptions());
+      seq = this.api.post(`api/account/${this.account.id}/verify_phone`, this.phoneForm.value, this.authentication.getRequestOptions());
 
     seq
       .map(res => res.json())
@@ -80,7 +80,7 @@ export class VerificationPage {
           loading.dismiss();
           this.account = res.account;
           this.alertCtrl.create({
-            message: 'Successfully verified your ' + type,
+            message: `Successfully verified your ${type}`,
             buttons: [
               {
                 text: 'Okay',
@@ -121,9 +121,9 @@ export class VerificationPage {
     let seq;
     
     if (type == 'email')
-      seq = this.api.get('api/account/' + this.account.id + '/send_email_code', {}, this.authentication.getRequestOptions());
+      seq = this.api.get(`api/account/${this.account.id}/send_email_code`, {}, this.authentication.getRequestOptions());
     else if (type == 'phone')
-      seq = this.api.get('api/account/' + this.account.id + '/send_phone_code', {}, this.authentication.getRequestOptions());
+      seq = this.api.get(`api/account/${this.account.id}/send_phone_code`, {}, this.authentication.getRequestOptions());
 
     seq
       .map(res => res.json())
@@ -131,7 +131,7 @@ export class VerificationPage {
         loading.dismiss();
 
         this.alertCtrl.create({
-          message: 'Successfully sent verification code to your '+type,
+          message: `Successfully sent verification code to your ${type}`,
           buttons: ['OK']
         }).present();
 
@@ -139,7 +139,7 @@ export class VerificationPage {
         loading.dismiss();
 
         this.alertCtrl.create({
-          message: 'Failed to send verification code to your ' + type,
+          message: `Failed to send verification code to your ${type}`,
           buttons: ['OK']
         }).present();
 

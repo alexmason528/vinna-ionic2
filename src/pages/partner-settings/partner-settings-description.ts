@@ -53,7 +53,7 @@ export class PartnerSettingsDescriptionPage {
     let loading = this.loadingCtrl.create({
       spinner: 'ios'
     });
-    let seq = this.api.put('api/business/' + this.partner.id, this.descForm.value, this.authentication.getRequestOptions());
+    let seq = this.api.put(`api/business/${this.partner.id}`, this.descForm.value, this.authentication.getRequestOptions());
 
     loading.present();
 

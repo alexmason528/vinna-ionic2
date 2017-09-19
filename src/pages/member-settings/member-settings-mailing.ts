@@ -89,7 +89,7 @@ export class MemberSettingsMailingPage {
     });
 
     let auth = this.authentication.getAuthorization();
-    let seq = this.api.put('api/member/' + this.member['id'], this.mailingAddressForm.value, this.authentication.getRequestOptions());
+    let seq = this.api.put(`api/member/${this.member.id}`, this.mailingAddressForm.value, this.authentication.getRequestOptions());
 
     loading.present();
 

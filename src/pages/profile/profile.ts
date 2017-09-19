@@ -147,11 +147,11 @@ export class ProfilePage {
 
   connectMember() {
     this.socialSharing.shareWithOptions({
-        'message': "Welcome to Vinna!\n" + this.account.registration_link
+        'message': `Welcome to Vinna!\n${this.account.registration_link}`
       }).then(() => {
     }).catch((err) => {
       this.alertCtrl.create({
-        message: 'There was a problem to send a referral link.' + err,
+        message: `There was a problem to send a referral link.${err}`,
         buttons: ['Okay']
       }).present();
     });

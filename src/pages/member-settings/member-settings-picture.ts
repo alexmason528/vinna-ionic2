@@ -85,7 +85,7 @@ export class MemberSettingsPicturePage {
   getPicture(options) {
 
     this.camera.getPicture(options).then((imageData) => {
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      let base64Image = `data:image/jpeg;base64,${imageData}`;
       this.pictureForm.patchValue({ 'profile_photo_url': base64Image });
     }, (err) => {
       this.alertCtrl.create({
@@ -100,7 +100,7 @@ export class MemberSettingsPicturePage {
       spinner: 'ios'
     });
     let auth = this.authentication.getAuthorization();
-    let seq = this.api.put('api/account/' + this.account.id, this.pictureForm.value, this.authentication.getRequestOptions());
+    let seq = this.api.put(`api/account/${this.account.id}`, this.pictureForm.value, this.authentication.getRequestOptions());
 
     loading.present();
 

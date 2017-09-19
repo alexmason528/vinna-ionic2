@@ -48,7 +48,7 @@ export class PartnerSettingsHoursPage {
     let loading = this.loadingCtrl.create({
       spinner: 'ios'
     });
-    let seq = this.api.put('api/business/' + this.partner.id, {hours: JSON.stringify(this.hours)}, this.authentication.getRequestOptions());
+    let seq = this.api.put(`api/business/${this.partner.id}`, {hours: JSON.stringify(this.hours)}, this.authentication.getRequestOptions());
 
     loading.present();
 

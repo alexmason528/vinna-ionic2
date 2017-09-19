@@ -139,7 +139,7 @@ export class CreatePartnerAccount3Page {
 
   getPicture(options, pictureNumber) {
     this.camera.getPicture(options).then((imageData) => {
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      let base64Image = `data:image/jpeg;base64,${imageData}`;
 
       switch (pictureNumber) {
         case 1:

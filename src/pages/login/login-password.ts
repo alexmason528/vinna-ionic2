@@ -67,7 +67,7 @@ export class LoginPasswordPage {
         }).present();
       } else {
         this.alertCtrl.create({
-          message: 'Error. ' + err,
+          message: `Error. ${err}`,
           buttons: ['Okay']
         }).present();
       }

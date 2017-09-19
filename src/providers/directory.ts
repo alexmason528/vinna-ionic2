@@ -41,7 +41,7 @@ export class DirectoryProvider {
   refreshPartners(options) {
     if (this.isGetting) return;
 
-    this.api.get('api/business')
+    this.api.get('api/business/')
       .map(res => res.json())
       .subscribe(res => {
         this.isGetting = false;

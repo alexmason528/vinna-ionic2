@@ -58,7 +58,7 @@ export class PartnerSettingsEmailPage {
 
     loading.present();
 
-    let seq = this.api.put('api/business/' + this.partner.id, this.emailForm.value, this.authentication.getRequestOptions());
+    let seq = this.api.put(`api/business/${this.partner.id}`, this.emailForm.value, this.authentication.getRequestOptions());
 
     seq
       .map(res => res.json())

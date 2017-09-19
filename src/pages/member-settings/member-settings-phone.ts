@@ -57,7 +57,7 @@ export class MemberSettingsPhonePage {
       spinner: 'ios'
     });
     let auth = this.authService.getAuthorization();
-    let seq = this.api.post('api/account/' + this.account.id + '/update_phone', this.phoneForm.value, this.authService.getRequestOptions());
+    let seq = this.api.post(`api/account/${this.account.id}/update_phone`, this.phoneForm.value, this.authService.getRequestOptions());
 
     loading.present();
     seq

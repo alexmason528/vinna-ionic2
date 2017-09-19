@@ -62,7 +62,7 @@ export class MemberSettingsPasswordPage {
     const password = this.passwordForm.value.password;
     const auth = this.authentication.getAuthorization();
 
-    let seq = this.api.put('api/account/' + this.account.id, { 'password': this.passwordForm.value.password} , this.authentication.getRequestOptions());
+    let seq = this.api.put(`api/account/${this.account.id}`, { 'password': this.passwordForm.value.password} , this.authentication.getRequestOptions());
 
     loading.present();
 

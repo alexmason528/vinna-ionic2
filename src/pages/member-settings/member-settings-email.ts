@@ -56,7 +56,7 @@ export class MemberSettingsEmailPage {
     });
 
     let auth = this.authentication.getAuthorization();
-    let seq = this.api.post('api/account/' + this.account.id + '/update_email', this.emailForm.value, this.authentication.getRequestOptions());
+    let seq = this.api.post(`api/account/${this.account.id}/update_email`, this.emailForm.value, this.authentication.getRequestOptions());
 
     loading.present();
 

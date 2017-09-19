@@ -41,7 +41,6 @@ export class SwitchProfilePage {
         type: 'member',
         object: auth.member
       };
-      console.log('switch to ' + profile.type);
 
       this.profile = profile;
     }
@@ -76,12 +75,9 @@ export class SwitchProfilePage {
       type: type,
       object: object
     };
-    console.log('switch to ' + type);
 
     this.profile = profile;
-
     this.authentication.saveProfile(profile);
-
     this.navCtrl.popToRoot();
   }
 

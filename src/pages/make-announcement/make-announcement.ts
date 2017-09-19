@@ -52,14 +52,14 @@ export class MakeAnnouncementPage {
     const day = today.getDate();
 
     let monthString = '';
-    if (month < 10) monthString = '0' + month;
+    if (month < 10) monthString = `0${month}`;
     else monthString = month.toString();
 
     let dayString = '';
-    if (day < 10) dayString = '0' + day;
+    if (day < 10) dayString = `0${day}`;
     else dayString = day.toString();
 
-    this.minDate = (today.getFullYear()) + '-' + monthString + '-' + dayString;
+    this.minDate = `${(today.getFullYear())}-${monthString}-${dayString}`;
     this.partner = this.navParams.get('partner');
   }
 
@@ -99,7 +99,7 @@ export class MakeAnnouncementPage {
 
   getPicture(options) {
     this.camera.getPicture(options).then((imageData) => {
-      const base64Image = 'data:image/jpeg;base64,' + imageData;
+      const base64Image = `data:image/jpeg;base64,${imageData}`;
       this.notificationForm.patchValue({ 'picture': base64Image });
     }, (err) => {
       this.alertCtrl.create({
@@ -164,7 +164,7 @@ export class MakeAnnouncementPage {
       console.log(err);
       loading.dismiss();
       this.alertCtrl.create({
-          message: 'There was a problem to add the notification.' + err,
+          message: `There was a problem to add the notification. ${err}`,
           buttons: ['Okay']
       });
     });

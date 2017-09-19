@@ -59,7 +59,7 @@ export class PartnerSettingsPhonePage {
   
     this.phoneForm.patchValue({'phone': this.phoneForm.value['phone'].replace(/\D+/g, '')});
 
-    let seq = this.api.put('api/business/' + this.partner.id, this.phoneForm.value, this.authentication.getRequestOptions());
+    let seq = this.api.put(`api/business/${this.partner.id}`, this.phoneForm.value, this.authentication.getRequestOptions());
 
     loading.present();
 

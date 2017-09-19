@@ -77,14 +77,14 @@ export class AccountRegistrationPage {
     const day = today.getDate();
 
     let monthString = '';
-    if (month < 10) monthString = '0' + month;
+    if (month < 10) monthString = `0${month}`;
     else monthString = month.toString();
 
     let dayString = '';
-    if (day < 10) dayString = '0' + day;
+    if (day < 10) dayString = `0${day}`;
     else dayString = day.toString();
 
-    this.maxDate = (today.getFullYear()-16) + '-' + monthString + '-' + dayString;
+    this.maxDate = `${(today.getFullYear()-16)}-${monthString}-${dayString}`;
 
     if (this.navParams.get('recreate'))
       this.recreate = true;
@@ -135,12 +135,12 @@ export class AccountRegistrationPage {
 
   getPicture(options) {
     this.camera.getPicture(options).then((imageData) => {
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      let base64Image = `data:image/jpeg;base64,${imageData}`;
       this.photoForm.patchValue({ 'profile_photo': base64Image });
     }, (err) => {
       if (err != "no image selected") {
         this.alertCtrl.create({
-          message: 'Unable to take a photo.' + err,
+          message: `Unable to take a photo.${err}`,
           buttons: ['Okay']
         }).present();
       }

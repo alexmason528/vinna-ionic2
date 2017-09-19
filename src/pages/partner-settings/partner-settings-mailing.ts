@@ -87,7 +87,7 @@ export class PartnerSettingsMailingPage {
     });
 
     let alert;    
-    let seq = this.api.put('api/business/' + this.partner.id, this.mailingForm.value, this.authentication.getRequestOptions());
+    let seq = this.api.put(`api/business/${this.partner.id}`, this.mailingForm.value, this.authentication.getRequestOptions());
 
     loading.present();
 

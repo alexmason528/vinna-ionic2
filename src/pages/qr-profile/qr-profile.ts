@@ -38,17 +38,6 @@ export class QrProfilePage {
     this.versionInfoProvider.refreshVersionInfo();
   }
 
-  getVersionInfo() {
-    let seq = this.api.get(`api/core/mapp/ios/version`);
-    seq
-    .map(res => res.json())
-    .subscribe(res => {
-      
-    }, err => {
-      console.log(err);
-    });
-  }
-
   ionViewDidLoad() {
     this.versionInfoProvider.updates().subscribe(data => {
       this.alertCtrl.create({

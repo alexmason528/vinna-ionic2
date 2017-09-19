@@ -148,7 +148,7 @@ export class AuthenticationProvider {
     let authHeaders = new Headers();
     
     if (Object.keys(auth).length !== 0) {
-      authHeaders.append('Authorization', 'JWT ' + auth.token);
+      authHeaders.append('Authorization', `JWT ${auth.token}`);
 
       let seq = this.api.post('api-token-verify', {'token': auth.token}, new RequestOptions({headers: authHeaders}));
 
@@ -172,7 +172,7 @@ export class AuthenticationProvider {
   public getRequestOptions() {
     const auth = this.getAuthorization();
     let authHeaders = new Headers();
-    authHeaders.append('Authorization', 'JWT ' + auth.token);
+    authHeaders.append('Authorization', `JWT ${auth.token}`);
     console.log('getRequestOptions');
     console.log(authHeaders);
     return new RequestOptions({headers: authHeaders});

@@ -96,7 +96,7 @@ export class PartnerSettingsBankPage {
       this.stripe.createBankAccountToken(this.bankForm.value)
        .then((token) => {
         paymentInfo['token'] = token['id'];
-        let seq = this.api.put('api/business/' + this.partner.id, {billing_info: paymentInfo}, this.authentication.getRequestOptions());
+        let seq = this.api.put(`api/business/${this.partner.id}`, {billing_info: paymentInfo}, this.authentication.getRequestOptions());
         seq
           .map(res => res.json())
           .subscribe(res => {
@@ -130,7 +130,7 @@ export class PartnerSettingsBankPage {
             loader.dismiss();
             this.alertCtrl.create({
               title: 'Sorry!',
-              subTitle: 'There was a problem to update the partner bank account.' + err,
+              subTitle: `There was a problem to update the partner bank account. ${err}`,
               buttons: ['Okay']
             }).present();
           });
@@ -140,7 +140,7 @@ export class PartnerSettingsBankPage {
         loader.dismiss();
         this.alertCtrl.create({
           title: 'Sorry!',
-          subTitle: 'There was a problem to update the partner bank account' + err,
+          subTitle: `There was a problem to update the partner bank account. ${err}`,
           buttons: ['OK']
         }).present();
        });
@@ -150,7 +150,7 @@ export class PartnerSettingsBankPage {
       this.stripe.createCardToken(this.cardForm.value)
        .then((token) => {
         paymentInfo['token'] = token['id'];
-        let seq = this.api.put('api/business/' + this.partner.id, {billing_info: paymentInfo}, this.authentication.getRequestOptions());
+        let seq = this.api.put(`api/business/${this.partner.id}`, {billing_info: paymentInfo}, this.authentication.getRequestOptions());
         seq
           .map(res => res.json())
           .subscribe(res => {
@@ -184,7 +184,7 @@ export class PartnerSettingsBankPage {
             loader.dismiss();
             this.alertCtrl.create({
               title: 'Sorry!',
-              subTitle: 'There was a problem to update the partner bank account.' + err,
+              subTitle: `There was a problem to update the partner bank account. ${err}`,
               buttons: ['Okay']
             }).present();
           });
@@ -194,7 +194,7 @@ export class PartnerSettingsBankPage {
          loader.dismiss();
          this.alertCtrl.create({
           title: 'Sorry!',
-          subTitle: 'There was a problem to update the partner bank account.' + err,
+          subTitle: `There was a problem to update the partner bank account. ${err}`,
           buttons: ['OK']
         }).present();
        });

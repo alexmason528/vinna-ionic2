@@ -67,7 +67,7 @@ export class MemberSettingsBankPage {
         routing_number: res['bank_account']['routing_number']
       };
       
-      let seq = this.api.put('api/member/' + this.member.id, {payment_info: paymentInfo}, this.authentication.getRequestOptions());
+      let seq = this.api.put(`api/member/${this.member.id}`, {payment_info: paymentInfo}, this.authentication.getRequestOptions());
       seq
         .map(res => res.json())
         .subscribe(res => {
@@ -91,7 +91,7 @@ export class MemberSettingsBankPage {
           loader.dismiss();
           this.alertCtrl.create({
             title: 'Sorry!',
-            subTitle: 'There was a problem to update the bank account.' + err,
+            subTitle: `There was a problem to update the bank account.${err}`,
             buttons: ['Okay']
           }).present();
         });
@@ -101,7 +101,7 @@ export class MemberSettingsBankPage {
       loader.dismiss();
       this.alertCtrl.create({
         title: 'Sorry!',
-        subTitle: 'There was a problem to update the bank account' + err,
+        subTitle: `There was a problem to update the bank account.${err}`,
         buttons: ['OK']
       }).present();
     });

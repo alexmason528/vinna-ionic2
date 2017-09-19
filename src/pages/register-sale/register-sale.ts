@@ -56,15 +56,13 @@ export class RegisterSalePage {
         break;
     }
 
-    console.log(this.amount100);
-
-    if (this.amount100.length == 0) this.amount = "00.00";
+    if (this.amount100.length == 0) this.amount = '00.00';
     else {
       this.amount = (parseFloat(this.amount100) / 100).toFixed(2);
-      if (parseFloat(this.amount100) < 100) this.amount = "0" + this.amount;
+      if (parseFloat(this.amount100) < 100) this.amount = `0${this.amount}`;
     }
 
-    this.amount = '$ ' + this.amount;
+    this.amount = `$ ${this.amount}`;
 
     if (this.amount100.length > 0)
       this.isReadyToScan = true;
@@ -106,7 +104,7 @@ export class RegisterSalePage {
       }, err => {
         loading.dismiss();
         this.alertCtrl.create({
-          message: 'There was a problem to register sale' + err._body,
+          message: `There was a problem to register sale ${err._body}`,
           buttons: ['Okay']
         }).present();
       });

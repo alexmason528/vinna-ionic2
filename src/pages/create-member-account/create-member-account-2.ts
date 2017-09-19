@@ -86,12 +86,12 @@ export class CreateMemberAccount2Page {
 
   getPicture(options) {
     this.camera.getPicture(options).then((imageData) => {
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      let base64Image = `data:image/jpeg;base64,${imageData}`;
       this.form.patchValue({ 'profilePic': base64Image });
     }, (err) => {
       if (err != "no image selected") {
         this.alertCtrl.create({
-          message: 'Unable to take a photo.' + err,
+          message: `Unable to take a photo. ${err}`,
           buttons: ['Okay']
         }).present();
       }
