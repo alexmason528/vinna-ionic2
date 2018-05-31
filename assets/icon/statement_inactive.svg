@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 81.969 81.969" style="enable-background:new 0 0 81.969 81.969;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#EF3D3B;stroke-width:2;stroke-miterlimit:10;}
+	.st1{display:none;}
+	.st2{display:inline;}
+	.st3{fill:#EF3C3A;}
+	.st4{display:inline;fill:#EF3C3A;}
+	.st5{display:inline;fill:none;stroke:#EF3C3A;stroke-linecap:square;stroke-miterlimit:10;}
+	.st6{display:inline;fill:none;stroke:#EF3D3B;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;}
+	.st7{fill:none;stroke:#EF3C3A;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#EF3C3A;stroke-width:3;stroke-miterlimit:10;}
+	.st9{display:inline;fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+	.st10{display:inline;fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
+	.st11{display:inline;fill:none;stroke:#EF3C3A;stroke-miterlimit:10;}
+	.st12{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+</style>
+<symbol  id="_x2E__PREVIEW_Red" viewBox="-13.829 -26.244 27.659 52.489">
+	<polyline id="XMLID_2236_" class="st0" points="13.122,-25.537 -12.415,0 13.122,25.538 	"/>
+</symbol>
+<symbol  id="_x2E__PREVIEW_Up" viewBox="-26.244 -13.829 52.489 27.659">
+	
+		<use xlink:href="#_x2E__PREVIEW_Red"  width="27.659" height="52.489" id="XMLID_197_" x="-13.829" y="-26.244" transform="matrix(2.244830e-010 -1 1 2.244830e-010 -2.432300e-004 6.444426e-005)" style="overflow:visible;"/>
+</symbol>
+<g id="BTN_Profile__x28_Inactive_x29_" class="st1">
+	<g id="XMLID_2229_" class="st2">
+		<path id="XMLID_579_" class="st3" d="M40.984,1.001c9.149,0,16.592,7.443,16.592,16.592s-7.443,16.592-16.592,16.592
+			s-16.592-7.443-16.592-16.592S31.836,1.001,40.984,1.001 M40.984,0.001c-9.716,0-17.592,7.876-17.592,17.592
+			c0,9.716,7.876,17.592,17.592,17.592c9.716,0,17.592-7.876,17.592-17.592C58.576,7.877,50.7,0.001,40.984,0.001L40.984,0.001z"/>
+	</g>
+	<g id="XMLID_2228_" class="st2">
+		<path id="XMLID_582_" class="st3" d="M40.984,38.959c16.609,0,30.121,13.512,30.121,30.121c0,7.806-15.153,11.891-30.121,11.891
+			S10.864,76.886,10.864,69.08C10.864,52.471,24.376,38.959,40.984,38.959 M40.984,37.959c-17.188,0-31.121,13.933-31.121,31.121
+			c0,8.594,15.56,12.891,31.121,12.891c15.56,0,31.121-4.297,31.121-12.891C72.105,51.892,58.172,37.959,40.984,37.959
+			L40.984,37.959z"/>
+	</g>
+</g>
+<g id="BTN_Profile__x28_Active_x29_" class="st1">
+	<circle id="XMLID_621_" class="st4" cx="40.984" cy="17.593" r="17.592"/>
+	<path id="XMLID_611_" class="st4" d="M72.105,69.08c0,17.188-62.242,17.188-62.242,0s13.933-31.121,31.121-31.121
+		S72.105,51.892,72.105,69.08z"/>
+</g>
+<g id="BTN_Busines_Directory__x28_Inactive_x29_" class="st1">
+	<g id="XMLID_2216_" class="st2">
+		<path id="XMLID_500_" class="st3" d="M40.983,1.001c13.686,0,24.82,11.133,24.82,24.817c0,11.91-19.216,36.719-24.82,43.7
+			c-5.603-6.984-24.817-31.803-24.817-43.7C16.166,12.134,27.299,1.001,40.983,1.001 M40.983,14.516
+			c-1.683-1.853-3.579-3.263-7.074-3.263c-0.464,0-0.965,0.026-1.492,0.076c-3.44,0.337-7.357,3.38-7.83,9.267l-0.003,0.04v0.04
+			v1.761v0.039l0.003,0.039c0.488,6.265,5.663,12.774,15.82,19.898l0.574,0.403l0.574-0.403
+			c10.158-7.124,15.334-13.632,15.824-19.898l0.003-0.039v-0.039v-1.761v-0.04l-0.003-0.04c-0.474-5.886-4.392-8.93-7.833-9.267
+			c-0.527-0.051-1.028-0.076-1.492-0.076C44.563,11.252,42.667,12.663,40.983,14.516 M40.983,0.001
+			c-14.24,0-25.817,11.578-25.817,25.817c0,12.814,21.192,39.599,25.817,45.292c4.628-5.692,25.82-32.478,25.82-45.292
+			C66.803,11.579,55.222,0.001,40.983,0.001L40.983,0.001z M40.983,16.04c1.916-2.281,3.588-3.788,7.073-3.788
+			c0.435,0,0.899,0.024,1.396,0.072c3.017,0.295,6.506,3.058,6.932,8.351v1.761c-0.396,5.067-4.221,11.317-15.401,19.157
+			c-11.178-7.84-15.003-14.09-15.398-19.157v-1.761c0.425-5.293,3.914-8.056,6.93-8.351c0.495-0.048,0.959-0.072,1.394-0.072
+			C37.396,12.252,39.068,13.76,40.983,16.04L40.983,16.04z"/>
+	</g>
+	<path id="XMLID_2214_" class="st5" d="M50.178,59.07c13.194,1.444,22.809,5.914,22.809,11.205c0,6.459-14.328,11.695-32.003,11.695
+		S8.982,76.734,8.982,70.275c0-5.291,9.615-9.762,22.809-11.205"/>
+</g>
+<g id="XMLID_909_" class="st1">
+	<g id="XMLID_925_" class="st2">
+		<path id="XMLID_499_" class="st3" d="M40.983,0.001c-14.24,0-25.817,11.578-25.817,25.817c0,12.814,21.192,39.599,25.817,45.292
+			c4.628-5.692,25.82-32.478,25.82-45.292C66.803,11.579,55.223,0.001,40.983,0.001z M56.384,22.437
+			c-0.396,5.067-4.221,11.317-15.401,19.157c-11.178-7.84-15.003-14.09-15.398-19.157v-1.761c0.425-5.293,3.914-8.056,6.93-8.351
+			c0.495-0.048,0.959-0.072,1.394-0.072c3.487,0,5.159,1.507,7.073,3.788c1.916-2.281,3.588-3.788,7.073-3.788
+			c0.435,0,0.899,0.024,1.396,0.072c3.017,0.295,6.506,3.058,6.932,8.351V22.437z"/>
+	</g>
+	<path id="XMLID_923_" class="st5" d="M50.178,59.07c13.194,1.444,22.809,5.914,22.809,11.205c0,6.459-14.328,11.695-32.003,11.695
+		S8.982,76.734,8.982,70.275c0-5.291,9.615-9.762,22.809-11.205"/>
+</g>
+<g id="BTN_Home__x28_Inactive_x29__1_" class="st1">
+	<g id="XMLID_648_" class="st2">
+		<path id="XMLID_474_" class="st3" d="M40.984,11.871l39.435,34.675v34.962H1.55V46.546L40.984,11.871 M40.984,10.539L0.55,46.093
+			v36.415h80.869V46.093L40.984,10.539L40.984,10.539z"/>
+	</g>
+	<polyline id="XMLID_644_" class="st6" points="-7.91,43.358 40.984,-0.536 89.879,43.358 	"/>
+</g>
+<g id="BTN_Home__x28_Active_x29_" class="st1">
+	<g id="XMLID_2235_" class="st2">
+		<polygon id="XMLID_484_" class="st3" points="81.419,82.508 0.55,82.508 0.55,46.093 40.984,10.539 81.419,46.093 		"/>
+	</g>
+	<polyline id="XMLID_458_" class="st6" points="-7.91,43.358 40.984,-0.536 89.879,43.358 	"/>
+</g>
+<use xlink:href="#_x2E__PREVIEW_Up"  width="52.489" height="27.659" id="Arrowhead_Down" x="-26.244" y="-13.829" transform="matrix(-1.7188 0 0 1.7188 40.9845 41.24)" style="display:none;overflow:visible;"/>
+<use xlink:href="#_x2E__PREVIEW_Up"  width="52.489" height="27.659" id="Arrowhead_Up" x="-26.244" y="-13.829" transform="matrix(1.7188 0 0 -1.7188 40.9845 41.24)" style="display:none;overflow:visible;"/>
+<g id="SET_Statement_1_">
+	<g id="BTN_Statement_1_">
+		<g id="XMLID_952_">
+			<path id="XMLID_643_" class="st3" d="M62.66,1l18.309,19.478v60.491H1V1H62.66 M63.092,0H0v81.969h81.969V20.081L63.092,0
+				L63.092,0z"/>
+		</g>
+		<line id="XMLID_948_" class="st7" x1="11.234" y1="22.766" x2="70.735" y2="22.766"/>
+		<line id="XMLID_954_" class="st8" x1="11.234" y1="10.264" x2="47.473" y2="10.264"/>
+		<line id="XMLID_967_" class="st7" x1="11.234" y1="39.349" x2="70.735" y2="39.349"/>
+		<line id="XMLID_947_" class="st7" x1="11.234" y1="55.933" x2="70.735" y2="55.933"/>
+		<line id="XMLID_945_" class="st7" x1="11.234" y1="72.516" x2="70.735" y2="72.516"/>
+	</g>
+</g>
+<g id="BTN_Statement__x28_Active_x29_" class="st1">
+	<g id="XMLID_619_" class="st2">
+		<polygon id="XMLID_646_" class="st3" points="81.969,81.969 0,81.969 0,0 63.092,0 81.969,20.081 		"/>
+	</g>
+	<line id="XMLID_618_" class="st9" x1="11.234" y1="22.766" x2="70.735" y2="22.766"/>
+	<line id="XMLID_617_" class="st10" x1="11.234" y1="10.264" x2="47.473" y2="10.264"/>
+	<line id="XMLID_616_" class="st9" x1="11.234" y1="39.349" x2="70.735" y2="39.349"/>
+	<line id="XMLID_615_" class="st9" x1="11.234" y1="55.933" x2="70.735" y2="55.933"/>
+	<line id="XMLID_614_" class="st9" x1="11.234" y1="72.516" x2="70.735" y2="72.516"/>
+</g>
+<g id="BTN_Update__x28_Inactive_x29_" class="st1">
+	<g id="XMLID_757_" class="st2">
+		<path id="XMLID_640_" class="st3" d="M80.969,1v79.969H1V1H80.969 M81.969,0H0v81.969h81.969V0L81.969,0z"/>
+	</g>
+	<line id="XMLID_899_" class="st11" x1="11.234" y1="18.303" x2="70.735" y2="18.303"/>
+	<line id="XMLID_928_" class="st11" x1="11.234" y1="40.984" x2="70.735" y2="40.984"/>
+	<line id="XMLID_944_" class="st11" x1="11.234" y1="63.666" x2="70.735" y2="63.666"/>
+</g>
+<g id="SET_Updates_1_" class="st1">
+	<g id="BTN_Updates_1_" class="st2">
+		<g id="XMLID_624_">
+			<rect id="XMLID_650_" class="st3" width="81.969" height="81.969"/>
+		</g>
+		<line id="XMLID_623_" class="st12" x1="11.234" y1="18.303" x2="70.735" y2="18.303"/>
+		<line id="XMLID_622_" class="st12" x1="11.234" y1="40.984" x2="70.735" y2="40.984"/>
+		<line id="XMLID_620_" class="st12" x1="11.234" y1="63.666" x2="70.735" y2="63.666"/>
+	</g>
+</g>
+</svg>
